@@ -90,7 +90,7 @@ function ThreeDCanvas({ modelError }: { modelError: boolean }) {
 
 export default function HeroSection() {
   const [isMounted, setIsMounted] = useState(false);
-  const [modelError, setModelError] = useState(false);
+  const [modelError,] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);

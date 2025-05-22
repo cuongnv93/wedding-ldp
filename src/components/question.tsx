@@ -36,9 +36,11 @@ function ShoeModel({ url = "cupidon.glb", color = "#fff4f5", ...props }) {
   const { scene } = useGLTF(url);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     scene.traverse((child: any) => {
       if (child.isMesh && child.material) {
         if (Array.isArray(child.material)) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           child.material.forEach((m: any) => m.color.set(new Color(color)));
         } else {
           child.material.color.set(new Color(color));
@@ -55,6 +57,7 @@ class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean }
 > {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(props: any) {
     super(props);
     this.state = { hasError: false };
@@ -78,7 +81,7 @@ class ErrorBoundary extends React.Component<
 
 export default function Question() {
   const [isMounted, setIsMounted] = useState(false);
-  const [modelError, setModelError] = useState(false);
+  const [modelError,] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);

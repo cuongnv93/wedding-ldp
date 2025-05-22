@@ -8,6 +8,7 @@ import { Badge } from "../components/ui/badge";
 import { Star, ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ProductCard({ product }: { product: any }) {
   return (
     <motion.div

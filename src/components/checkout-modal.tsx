@@ -18,6 +18,7 @@ import { Trash2, Plus, Minus } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 
 // Component: CartItem
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CartItem({ item, updateQuantity, removeFromCart }: any) {
   return (
     <div key={item.product.id} className="flex gap-4">
@@ -71,6 +72,7 @@ function CartItem({ item, updateQuantity, removeFromCart }: any) {
 }
 
 // Component: CheckoutForm
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CheckoutForm({ formData, setFormData, handleSubmit }: any) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
