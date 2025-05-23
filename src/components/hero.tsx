@@ -8,10 +8,12 @@ import {
   ContactShadows,
   Html,
 } from "@react-three/drei";
-import { Button } from "../components/ui/button";
+import { Button } from "@/components/ui/button";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
+import Heart from "@/components/Heart";
+import Link from "next/link";
 
 // Component hiển thị thông tin
 const StatisticBlock = ({ value, label }: { value: string; label: string }) => (
@@ -45,6 +47,18 @@ function WeddingModel({ url = "wedding_ring.glb", ...props }) {
 
 // Component con: ThreeDCanvas
 function ThreeDCanvas({ modelError }: { modelError: boolean }) {
+  useEffect(() => {
+    return () => {
+      // Dọn dẹp WebGL context khi component bị unmount
+      const canvas = document.querySelector("canvas");
+      if (canvas) {
+        const gl = canvas.getContext("webgl");
+        if (gl) {
+          gl.getExtension("WEBGL_lose_context")?.loseContext();
+        }
+      }
+    };
+  }, []);
   return (
     <Canvas
       camera={{ position: [0, 0, 2.5], fov: 35 }}
@@ -82,7 +96,7 @@ function ThreeDCanvas({ modelError }: { modelError: boolean }) {
         minPolarAngle={Math.PI / 3}
         maxPolarAngle={Math.PI / 2}
         autoRotate
-        autoRotateSpeed={0.5}
+        autoRotateSpeed={10}
       />
     </Canvas>
   );
@@ -90,30 +104,15 @@ function ThreeDCanvas({ modelError }: { modelError: boolean }) {
 
 export default function HeroSection() {
   const [isMounted, setIsMounted] = useState(false);
-  const [modelError,] = useState(false);
+  const [modelError] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
   return (
-    <section
-      className="relative w-full min-h-[40vh] overflow-hidden bg-white to-muted"
-      style={{
-        backgroundImage:
-          "url('https://thiepxinh.net/public/upload//images/slide/anh-bia-thiep-xinh.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Lớp phủ màu đen mờ */}
-      {/* <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{ backgroundColor: "rgba(0,0,0,0.7)" }}
-      ></div> */}
-      {/* Nếu muốn giữ lớp phủ trắng mờ cũ, có thể để lại dòng dưới */}
-      <div className="absolute inset-0 bg-white/70 pointer-events-none z-0"></div>
-      <div className="container grid lg:grid-cols-2 gap-8 py-6 md:py-12 items-center relative z-10">
+    <section className="relative w-full min-h-[40vh] overflow-hidden bg-white to-muted">
+      <div className="container grid lg:grid-cols-2 gap-8 py-6 md:py-12 items-center">
         {/* Left Section */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -133,9 +132,11 @@ export default function HeroSection() {
             bạn tạo nên ngày trọng đại hoàn hảo.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center lg:justify-start">
-            <Button size="lg" className="gap-2">
-              Xem bộ sưu tập <ArrowRight className="h-4 w-4" />
-            </Button>
+            <Link href="/products">
+              <Button size="lg" className="gap-2">
+                Xem bộ sưu tập <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
             <Button size="lg" variant="outline">
               Tạo thiệp cưới ngay
             </Button>
@@ -157,19 +158,10 @@ export default function HeroSection() {
           className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full"
         >
           {isMounted && (
-            <div className="relative w-full h-full rounded-xl overflow-hidden from-primary/5 to-primary/10">
+            <div className="relative w-full h-full rounded-xl overflow-hidden bg-white from-primary/5 to-primary/10">
               {/* Animated background circles */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="absolute w-[400px] h-[400px] rounded-full bg-primary/10 animate-pulse"></div>
-                <div
-                  className="absolute w-[350px] h-[350px] rounded-full bg-primary/15 animate-pulse"
-                  style={{ animationDelay: "300ms" }}
-                ></div>
-                <div
-                  className="absolute w-[300px] h-[300px] rounded-full bg-primary animate-pulse"
-                  style={{ animationDelay: "600ms" }}
-                ></div>
-
+                <Heart />
               </div>
               {/* 3D Canvas */}
               <ThreeDCanvas modelError={modelError} />

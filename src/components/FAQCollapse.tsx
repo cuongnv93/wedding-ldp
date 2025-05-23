@@ -43,20 +43,22 @@ export default function FAQCollapse() {
   };
 
   return (
-    <div className="w-100 pt-10">
+    <div className="w-100 pt-10 min-h-[500px] flex flex-col">
       <div className="container px-4">
         <div className="gap-8">
           <div className="bg-white max-w-full mx-auto border border-gray-200 shadow-lg rounded-lg overflow-auto">
-            <ul className="shadow-box">
-              {faq.map((item) => (
-                <FAQItem
-                  key={item.id}
-                  item={item}
-                  isSelected={selected === item.id}
-                  onToggle={() => toggle(item.id)}
-                />
-              ))}
-            </ul>
+            <div className="flex-grow">
+              <ul className="shadow-box">
+                {faq.map((item) => (
+                  <FAQItem
+                    key={item.id}
+                    item={item}
+                    isSelected={selected === item.id}
+                    onToggle={() => toggle(item.id)}
+                  />
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -2,14 +2,25 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "../components/ui/button";
-import { Card, CardContent, CardFooter } from "../components/ui/card";
-import { Badge } from "../components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Star, ShoppingCart } from "lucide-react";
 import { motion } from "framer-motion";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function ProductCard({ product }: { product: any }) {
+interface Product {
+  id: string;
+  image: string;
+  name: string;
+  discount: number;
+  new: boolean;
+  rating: number;
+  reviews: number;
+  price: string;
+  originalPrice?: string;
+}
+
+export default function ProductCard({ product }: { product: Product }) {
   return (
     <motion.div
       variants={{

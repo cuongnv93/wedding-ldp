@@ -81,21 +81,34 @@ class ErrorBoundary extends React.Component<
 
 export default function Question() {
   const [isMounted, setIsMounted] = useState(false);
-  const [modelError,] = useState(false);
+  const [modelError] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      // Dọn dẹp WebGL context khi component bị unmount
+      const canvas = document.querySelector("canvas");
+      if (canvas) {
+        const gl = canvas.getContext("webgl");
+        if (gl) {
+          gl.getExtension("WEBGL_lose_context")?.loseContext();
+        }
+      }
+    };
+  }, []);
+
   return (
     <section className="relative w-full min-h-[90vh] overflow-hidden bg-white to-muted">
-      <div className="container grid lg:grid-cols-2 gap-8 py-12 md:py-24 items-center">
+      <div className="container grid lg:grid-cols-2 gap-8 py-12 md:py-24 items-stretch">
         {/* FAQ Section */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col gap-6 pt-8 md:pt-0"
+          className="flex flex-col gap-6 pt-8 md:pt-0 h-full justify-between"
         >
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-3 text-center">
             Câu hỏi thường gặp
@@ -108,52 +121,53 @@ export default function Question() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative h-[500px] w-full"
+          className="relative h-[500px] w-full flex-shrink-0"
         >
           {isMounted && (
             <div className="relative w-full h-full rounded-xl overflow-hidden bg-white from-primary/5 to-primary/10">
-              {/* 3D Canvas */}
-              <Canvas
-                camera={{ position: [0, 0, 2.5], fov: 35 }}
-                className="w-full h-full"
-              >
-                <ambientLight intensity={0.7} />
-                <spotLight
-                  position={[10, 10, 10]}
-                  angle={0.15}
-                  penumbra={1}
-                  intensity={1}
-                  castShadow
-                />
-                <EnvironmentWrapper />
-                <ContactShadows
-                  position={[0, -0.8, 0]}
-                  opacity={0.25}
-                  scale={10}
-                  blur={1.5}
-                  far={0.8}
-                />
-                <ErrorBoundary>
-                  <Suspense fallback={<LoadingShoe />}>
-                    {!modelError && (
-                      <ShoeModel
-                        url="room_relaxing.glb"
-                        position={[0, 0, 0]}
-                        rotation={[0, Math.PI / 4, 0]}
-                        scale={0.15}
-                      />
-                    )}
-                  </Suspense>
-                </ErrorBoundary>
-                <OrbitControls
-                  enablePan={false}
-                  enableZoom={false}
-                  minPolarAngle={Math.PI / 3}
-                  maxPolarAngle={Math.PI / 2}
-                  autoRotate
-                  autoRotateSpeed={0.5}
-                />
-              </Canvas>
+              <div className="absolute inset-0">
+                <Canvas
+                  camera={{ position: [0, 0, 2.5], fov: 35 }}
+                  className="w-full h-full"
+                >
+                  <ambientLight intensity={0.7} />
+                  <spotLight
+                    position={[10, 10, 10]}
+                    angle={0.15}
+                    penumbra={1}
+                    intensity={1}
+                    castShadow
+                  />
+                  <EnvironmentWrapper />
+                  <ContactShadows
+                    position={[0, -0.8, 0]}
+                    opacity={0.25}
+                    scale={10}
+                    blur={1.5}
+                    far={0.8}
+                  />
+                  <ErrorBoundary>
+                    <Suspense fallback={<LoadingShoe />}>
+                      {!modelError && (
+                        <ShoeModel
+                          url="room_relaxing.glb"
+                          position={[0, 0, 0]}
+                          rotation={[0, Math.PI / 4, 0]}
+                          scale={0.15}
+                        />
+                      )}
+                    </Suspense>
+                  </ErrorBoundary>
+                  <OrbitControls
+                    enablePan={false}
+                    enableZoom={false}
+                    minPolarAngle={Math.PI / 3}
+                    maxPolarAngle={Math.PI / 2}
+                    autoRotate
+                    autoRotateSpeed={0.5}
+                  />
+                </Canvas>
+              </div>
 
               {/* Error Message */}
               {modelError && (
