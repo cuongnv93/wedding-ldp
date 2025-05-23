@@ -111,8 +111,19 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[40vh] overflow-hidden bg-white to-muted">
-      <div className="container grid lg:grid-cols-2 gap-8 py-6 md:py-12 items-center">
+    <section
+      className="relative w-full min-h-[40vh] overflow-hidden bg-white to-muted"
+      style={{
+        backgroundImage:
+          "url('https://thiepxinh.net/public/upload//images/slide/anh-bia-thiep-xinh.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Nếu muốn giữ lớp phủ trắng mờ cũ, có thể để lại dòng dưới */}
+      <div className="absolute inset-0 bg-white/70 pointer-events-none z-0"></div>
+
+      <div className="container grid lg:grid-cols-2 gap-8 py-6 md:py-12 items-center relative z-10">
         {/* Left Section */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -158,7 +169,7 @@ export default function HeroSection() {
           className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full"
         >
           {isMounted && (
-            <div className="relative w-full h-full rounded-xl overflow-hidden bg-white from-primary/5 to-primary/10">
+            <div className="relative w-full h-full rounded-xl overflow-hidden from-primary/5 to-primary/10">
               {/* Animated background circles */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <Heart />

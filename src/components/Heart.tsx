@@ -240,7 +240,7 @@ export default function Heart() {
           context.lineTo(point.x, point.y);
         }
         context.closePath();
-        context.fillStyle = "#ea80b0";
+        context.fillStyle = "hsl(345.94deg 76.8% 49.02%)"; //"#ea80b0";
         context.fill();
 
         const img = new Image();
