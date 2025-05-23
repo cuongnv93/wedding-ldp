@@ -24,18 +24,8 @@ function ProductImages({
   selectedImageIndex,
   setSelectedImageIndex,
 }: {
-  product: {
-    id: string;
-    name: string;
-    image: string;
-    gallery?: string[];
-    rating: number;
-    reviews: number;
-    price: string;
-    originalPrice?: string;
-    discount?: number;
-    stock: number;
-  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  product: any;
   selectedImageIndex: number;
   setSelectedImageIndex: (index: number) => void;
 }) {
@@ -91,18 +81,8 @@ function ProductInfo({
   setQuantity,
   handleAddToCart,
 }: {
-  product: {
-    id: string;
-    name: string;
-    image: string;
-    gallery?: string[];
-    rating: number;
-    reviews: number;
-    price: string;
-    originalPrice?: string;
-    discount?: number;
-    stock: number;
-  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  product: any;
   selectedSize: string;
   setSelectedSize: (size: string) => void;
   quantity: number;
@@ -226,20 +206,8 @@ function ProductInfo({
 }
 
 // Main Component: ProductDetails
-interface Product {
-  id: string;
-  name: string;
-  image: string;
-  gallery?: string[];
-  rating: number;
-  reviews: number;
-  price: string;
-  originalPrice?: string;
-  discount?: number;
-  stock: number;
-}
-
-export default function ProductDetails({ product }: { product: Product }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function ProductDetails({ product }: { product: any }) {
   const [selectedSize, setSelectedSize] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
@@ -250,7 +218,7 @@ export default function ProductDetails({ product }: { product: Product }) {
       toast.error("Vui lòng chọn kích thước");
       return;
     }
-    addToCart(Number(product.id), selectedSize);
+    addToCart(product.id, selectedSize);
     toast.success("Đã thêm vào giỏ hàng");
   };
 
