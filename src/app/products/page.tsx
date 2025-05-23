@@ -46,7 +46,10 @@ export default function ProductsPage() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
           >
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={{ ...product, id: product.id.toString() }}
+              />
             ))}
           </motion.div>
         </section>
