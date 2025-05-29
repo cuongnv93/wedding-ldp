@@ -1,4 +1,4 @@
-import { productImages } from './product-images'
+import { productImages } from "./product-images";
 
 export const products = [
   {
@@ -13,13 +13,15 @@ export const products = [
     discount: 12,
     new: false,
     stock: 15,
-    description: "Nike Air Max 270 mang đến sự thoải mái tối đa với đế Air đặc trưng và thiết kế hiện đại.",
+    description:
+      "Nike Air Max 270 mang đến sự thoải mái tối đa với đế Air đặc trưng và thiết kế hiện đại.",
     features: [
       "Đế Air đặc trưng",
       "Chất liệu mesh thoáng khí",
       "Đệm lót êm ái",
       "Phù hợp cho chạy bộ và đi bộ",
     ],
+    linkRedirect: productImages["Nike Air Max 270"].linkRedirect,
   },
   {
     id: 2,
@@ -33,13 +35,15 @@ export const products = [
     discount: 0,
     new: true,
     stock: 20,
-    description: "Adidas Ultraboost 22 với công nghệ Boost tiên tiến, mang đến hiệu suất vượt trội cho người chạy.",
+    description:
+      "Adidas Ultraboost 22 với công nghệ Boost tiên tiến, mang đến hiệu suất vượt trội cho người chạy.",
     features: [
       "Công nghệ Boost",
       "Primeknit+ thích ứng",
       "Đế Continental™",
       "Tối ưu cho chạy bộ",
     ],
+    linkRedirect: productImages["Adidas Ultraboost 22"].linkRedirect,
   },
   {
     id: 3,
@@ -53,13 +57,15 @@ export const products = [
     discount: 17,
     new: false,
     stock: 12,
-    description: "Puma RS-X³ Puzzle kết hợp phong cách retro với công nghệ hiện đại, tạo nên một đôi giày độc đáo.",
+    description:
+      "Puma RS-X³ Puzzle kết hợp phong cách retro với công nghệ hiện đại, tạo nên một đôi giày độc đáo.",
     features: [
       "Thiết kế retro",
       "Đế RS đặc trưng",
       "Chất liệu tổng hợp cao cấp",
       "Phù hợp cho phong cách streetwear",
     ],
+    linkRedirect: productImages["Puma RS-X³ Puzzle"].linkRedirect,
   },
   {
     id: 4,
@@ -73,13 +79,15 @@ export const products = [
     discount: 0,
     new: true,
     stock: 25,
-    description: "New Balance 574 là biểu tượng của sự thoải mái và phong cách, với thiết kế cổ điển không bao giờ lỗi thời.",
+    description:
+      "New Balance 574 là biểu tượng của sự thoải mái và phong cách, với thiết kế cổ điển không bao giờ lỗi thời.",
     features: [
       "Thiết kế cổ điển",
       "Đế ENCAP",
       "Chất liệu da cao cấp",
       "Phù hợp cho mọi hoạt động",
     ],
+    linkRedirect: productImages["New Balance 574"].linkRedirect,
   },
   {
     id: 5,
@@ -93,13 +101,15 @@ export const products = [
     discount: 15,
     new: false,
     stock: 8,
-    description: "Air Jordan 1 Mid là biểu tượng của văn hóa sneaker, kết hợp phong cách cổ điển với công nghệ hiện đại.",
+    description:
+      "Air Jordan 1 Mid là biểu tượng của văn hóa sneaker, kết hợp phong cách cổ điển với công nghệ hiện đại.",
     features: [
       "Thiết kế huyền thoại",
       "Chất liệu da cao cấp",
       "Đế Air đặc trưng",
       "Phù hợp cho phong cách streetwear",
     ],
+    linkRedirect: productImages["Nike Air Jordan 1 Mid"].linkRedirect,
   },
   {
     id: 6,
@@ -113,13 +123,15 @@ export const products = [
     discount: 15,
     new: false,
     stock: 18,
-    description: "Adidas NMD R1 với thiết kế hiện đại và công nghệ Boost, mang đến sự thoải mái tối đa cho người dùng.",
+    description:
+      "Adidas NMD R1 với thiết kế hiện đại và công nghệ Boost, mang đến sự thoải mái tối đa cho người dùng.",
     features: [
       "Công nghệ Boost",
       "Thiết kế Primeknit",
       "Đế Continental™",
       "Phù hợp cho phong cách urban",
     ],
+    linkRedirect: productImages["Adidas NMD R1"].linkRedirect,
   },
   {
     id: 7,
@@ -133,13 +145,15 @@ export const products = [
     discount: 17,
     new: false,
     stock: 22,
-    description: "Puma Future Rider là sự kết hợp hoàn hảo giữa phong cách retro và công nghệ hiện đại.",
+    description:
+      "Puma Future Rider là sự kết hợp hoàn hảo giữa phong cách retro và công nghệ hiện đại.",
     features: [
       "Thiết kế retro",
       "Chất liệu da tổng hợp",
       "Đế cao su bền bỉ",
       "Phù hợp cho phong cách casual",
     ],
+    linkRedirect: productImages["Puma Future Rider"].linkRedirect,
   },
   {
     id: 8,
@@ -153,12 +167,14 @@ export const products = [
     discount: 0,
     new: true,
     stock: 15,
-    description: "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
     features: [
       "Thiết kế độc đáo",
       "Chất liệu suede cao cấp",
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
+    linkRedirect: productImages["New Balance 327"].linkRedirect,
   },
-] 
+];
