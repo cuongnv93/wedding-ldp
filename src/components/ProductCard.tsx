@@ -39,7 +39,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <Card className="h-full">
           <div className="relative aspect-square overflow-hidden">
             <div
-              className="shadow-lg min-h-[450px] z-[999] rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] duration-[12000ms] ease-linear hover:bg-bottom"
+              className="shadow-lg min-h-[450px] z-[999] rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] duration-[15000ms] ease-linear hover:bg-bottom"
               style={{
                 backgroundImage: `url('${product.image}')`,
               }}
