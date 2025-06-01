@@ -1,4 +1,10 @@
-export const productImages = {
+type ProductImageInfo = {
+  main: string;
+  gallery: string[];
+  linkRedirect: string;
+};
+
+export const productImages: Record<string, ProductImageInfo> = {
   "Nike Air Max 270": {
     main: "/image/wedding2.cuongvalan.click.png",
     gallery: [
@@ -68,23 +74,163 @@ export const productImages = {
     linkRedirect: "https://weddingmobile3.cuongvalan.click/",
   },
   "New Balance 327": {
-    main: "/image/wedding2.cuongvalan.click.png",
+    main: "/image/weddingmobile4.png",
     gallery: [
       "https://images.unsplash.com/photo-1629394907893-f7e0e2ac9f34",
       "https://images.unsplash.com/photo-1614281325826-2190bdc0e8a1",
       "https://images.unsplash.com/photo-1606312619340-b4fc40eac9d7",
       "https://images.unsplash.com/photo-1584362917165-df6aeb07089f",
     ],
-    linkRedirect: "https://wedding2.cuongvalan.click/",
+    linkRedirect: "https://weddingmobile4.cuongvalan.click/",
   },
-  "Adidas NMD R2": {
-    main: "/image/wedding3.cuongvalan.click.png",
+  "MB_005": {
+    main: "/image/weddingmobile5.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
       "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
       "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
       "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
     ],
-    linkRedirect: "https://wedding3.cuongvalan.click/",
+    linkRedirect: "https://weddingmobile5.cuongvalan.click/",
+  },
+  "MB_006": {
+    main: "/image/weddingmobile6.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile6.cuongvalan.click/",
+  },
+  "MB_007": {
+    main: "/image/weddingmobile7.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile7.cuongvalan.click/",
+  },
+  "MB_008": {
+    main: "/image/weddingmobile8.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile8.cuongvalan.click/",
+  },
+  "MB_009": {
+    main: "/image/weddingmobile9.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile9.cuongvalan.click/",
+  },
+  "MB_010": {
+    main: "/image/weddingmobile10.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile10.cuongvalan.click/",
+  },
+  "MB_011": {
+    main: "/image/weddingmobile11.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile11.cuongvalan.click/",
+  },
+  "MB_012": {
+    main: "/image/weddingmobile12.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile12.cuongvalan.click/",
+  },
+  "MB_014": {
+    main: "/image/weddingmobile14.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile14.cuongvalan.click/",
+  },
+  "MB_015": {
+    main: "/image/weddingmobile15.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile15.cuongvalan.click/",
+  },
+  "MB_016": {
+    main: "/image/weddingmobile16.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile16.cuongvalan.click/",
+  },
+  "MB_017": {
+    main: "/image/weddingmobile17.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile17.cuongvalan.click/",
+  },
+  "MB_018": {
+    main: "/image/weddingmobile18.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile18.cuongvalan.click/",
+  },
+  "MB_019": {
+    main: "/image/weddingmobile19.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile19.cuongvalan.click/",
+  },
+  "MB_020": {
+    main: "/image/weddingmobile20.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile20.cuongvalan.click/",
   },
 };

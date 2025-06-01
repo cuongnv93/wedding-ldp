@@ -9,9 +9,9 @@ import GlobalHeartEffect from "@/components/GlobalHeartEffect";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SPRINTX - Giày thể thao chính hãng",
+  title: "Uwedding - Thiệp cưới online hiện đại",
   description:
-    "Cửa hàng giày thể thao chính hãng với đa dạng mẫu mã và kích cỡ",
+    "Uwedding - Thiệp cưới online hiện đại, sang trọng, thiết kế cá nhân hóa, đặt thiệp cưới trực tuyến dễ dàng, giao hàng toàn quốc.",
 };
 
 export default function RootLayout({
