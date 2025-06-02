@@ -26,38 +26,6 @@ const TABS = [
   { label: "Giao diện web đẹp", value: "web beautiful" },
 ];
 
-export const metadata = {
-  title: "Danh sách giao diện thiệp cưới đẹp | uWedding",
-  description:
-    "Khám phá bộ sưu tập giao diện thiệp cưới online hiện đại, cá nhân hóa, phù hợp cho mọi nhu cầu tại uWedding.",
-  keywords:
-    "thiệp cưới, giao diện thiệp cưới, thiệp cưới online, mẫu thiệp cưới đẹp, uWedding",
-  openGraph: {
-    title: "Danh sách giao diện thiệp cưới đẹp | uWedding",
-    description:
-      "Khám phá bộ sưu tập giao diện thiệp cưới online hiện đại, cá nhân hóa, phù hợp cho mọi nhu cầu tại uWedding.",
-    url: "https://uwedding.vn/products",
-    siteName: "uWedding",
-    images: [
-      {
-        url: "/favicon.ico", // Đã đổi sang favicon
-        width: 1200,
-        height: 630,
-        alt: "uWedding - Danh sách giao diện thiệp cưới đẹp",
-      },
-    ],
-    locale: "vi_VN",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Danh sách giao diện thiệp cưới đẹp | uWedding",
-    description:
-      "Khám phá bộ sưu tập giao diện thiệp cưới online hiện đại, cá nhân hóa, phù hợp cho mọi nhu cầu tại uWedding.",
-    images: ["/favicon.ico"], // Đã đổi sang favicon
-  },
-};
-
 export default function ProductsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [visibleCount, setVisibleCount] = useState(LOAD_COUNT);
