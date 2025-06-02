@@ -1,5 +1,9 @@
 import type { NextConfig } from "next";
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const withSitemap = require("next-sitemap");
+module.exports = withSitemap({});
+
 const nextConfig: NextConfig = {
   /* config options here */
   images: {

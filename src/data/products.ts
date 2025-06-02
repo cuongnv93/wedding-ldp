@@ -15,7 +15,7 @@ export type Product = {
   image: string;
   gallery: string[];
   linkRedirect: string;
-  target: 'web' | 'mobile' | 'web beautiful';
+  target: "web" | "mobile" | "web beautiful";
 };
 
 const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
@@ -37,7 +37,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đệm lót êm ái",
       "Phù hợp cho chạy bộ và đi bộ",
     ],
-    target: 'web'
+    target: "web",
   },
   {
     id: 2,
@@ -57,7 +57,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế Continental™",
       "Tối ưu cho chạy bộ",
     ],
-    target: 'web'
+    target: "web",
   },
   {
     id: 3,
@@ -77,7 +77,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Chất liệu tổng hợp cao cấp",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'web'
+    target: "web",
   },
   {
     id: 4,
@@ -97,7 +97,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Chất liệu da cao cấp",
       "Phù hợp cho mọi hoạt động",
     ],
-    target: 'web'
+    target: "web",
   },
   {
     id: 5,
@@ -117,7 +117,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế Air đặc trưng",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 6,
@@ -137,7 +137,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế Continental™",
       "Phù hợp cho phong cách urban",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 7,
@@ -157,7 +157,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế cao su bền bỉ",
       "Phù hợp cho phong cách casual",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 8,
@@ -177,7 +177,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 9,
@@ -197,7 +197,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 10,
@@ -217,7 +217,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 11,
@@ -237,7 +237,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 12,
@@ -257,7 +257,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 13,
@@ -277,7 +277,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 14,
@@ -297,7 +297,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 15,
@@ -317,7 +317,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 16,
@@ -337,7 +337,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 17,
@@ -357,7 +357,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 18,
@@ -377,7 +377,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 19,
@@ -397,7 +397,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
     id: 20,
@@ -417,10 +417,10 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
-    id: 20,
+    id: 21,
     name: "MB_018",
     price: "2.190.000₫",
     originalPrice: "",
@@ -437,10 +437,10 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
-    id: 20,
+    id: 22,
     name: "MB_019",
     price: "2.190.000₫",
     originalPrice: "",
@@ -457,10 +457,10 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
   },
   {
-    id: 20,
+    id: 23,
     name: "MB_020",
     price: "2.190.000₫",
     originalPrice: "",
@@ -477,7 +477,87 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Đế ENCAP",
       "Phù hợp cho phong cách streetwear",
     ],
-    target: 'mobile'
+    target: "mobile",
+  },
+  {
+    id: 24,
+    name: "WEB_005",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "web",
+  },
+  {
+    id: 25,
+    name: "MB_021",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "mobile",
+  },
+  {
+    id: 26,
+    name: "WEB_006",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "web",
+  },
+  {
+    id: 27,
+    name: "WEB_007",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "web",
   },
 ];
 

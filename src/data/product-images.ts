@@ -83,7 +83,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile4.cuongvalan.click/",
   },
-  "MB_005": {
+  MB_005: {
     main: "/image/weddingmobile5.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -93,7 +93,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile5.cuongvalan.click/",
   },
-  "MB_006": {
+  MB_006: {
     main: "/image/weddingmobile6.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -103,7 +103,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile6.cuongvalan.click/",
   },
-  "MB_007": {
+  MB_007: {
     main: "/image/weddingmobile7.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -113,7 +113,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile7.cuongvalan.click/",
   },
-  "MB_008": {
+  MB_008: {
     main: "/image/weddingmobile8.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -123,7 +123,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile8.cuongvalan.click/",
   },
-  "MB_009": {
+  MB_009: {
     main: "/image/weddingmobile9.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -133,7 +133,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile9.cuongvalan.click/",
   },
-  "MB_010": {
+  MB_010: {
     main: "/image/weddingmobile10.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -143,7 +143,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile10.cuongvalan.click/",
   },
-  "MB_011": {
+  MB_011: {
     main: "/image/weddingmobile11.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -153,7 +153,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile11.cuongvalan.click/",
   },
-  "MB_012": {
+  MB_012: {
     main: "/image/weddingmobile12.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -163,7 +163,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile12.cuongvalan.click/",
   },
-  "MB_014": {
+  MB_014: {
     main: "/image/weddingmobile14.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -173,7 +173,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile14.cuongvalan.click/",
   },
-  "MB_015": {
+  MB_015: {
     main: "/image/weddingmobile15.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -183,7 +183,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile15.cuongvalan.click/",
   },
-  "MB_016": {
+  MB_016: {
     main: "/image/weddingmobile16.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -193,7 +193,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile16.cuongvalan.click/",
   },
-  "MB_017": {
+  MB_017: {
     main: "/image/weddingmobile17.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -203,7 +203,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile17.cuongvalan.click/",
   },
-  "MB_018": {
+  MB_018: {
     main: "/image/weddingmobile18.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -213,7 +213,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile18.cuongvalan.click/",
   },
-  "MB_019": {
+  MB_019: {
     main: "/image/weddingmobile19.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -223,7 +223,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile19.cuongvalan.click/",
   },
-  "MB_020": {
+  MB_020: {
     main: "/image/weddingmobile20.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -232,5 +232,45 @@ export const productImages: Record<string, ProductImageInfo> = {
       "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
     ],
     linkRedirect: "https://weddingmobile20.cuongvalan.click/",
+  },
+  WEB_005: {
+    main: "/image/wedding5.cuongvalan.click.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://wedding5.cuongvalan.click/",
+  },
+  MB_021: {
+    main: "/image/weddingmobile21.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile20.cuongvalan.click/",
+  },
+  WEB_006: {
+    main: "/image/wedding6.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://wedding6.cuongvalan.click/",
+  },
+  WEB_007: {
+    main: "/image/wedding7.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://wedding7.cuongvalan.click/",
   },
 };
