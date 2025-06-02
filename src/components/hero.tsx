@@ -14,11 +14,14 @@ import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Heart from "@/components/Heart";
 import Link from "next/link";
+import AnimatedNumber from "./animatedNumber";
 
 // Component hiển thị thông tin
-const StatisticBlock = ({ value, label }: { value: string; label: string }) => (
+const StatisticBlock = ({ value, label }: { value: number; label: string }) => (
   <div className="flex flex-col items-center sm:items-start">
-    <span className="text-2xl sm:text-3xl font-bold">{value}</span>
+    <span className="text-2xl sm:text-3xl font-bold">
+      <AnimatedNumber value={value} />+
+    </span>
     <span className="text-muted-foreground text-sm sm:text-base">{label}</span>
   </div>
 );
@@ -144,20 +147,54 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center lg:justify-start">
             <Link href="/products">
-              <Button size="lg" className="gap-2">
-                Xem bộ sưu tập <ArrowRight className="h-4 w-4" />
-              </Button>
+              <motion.div
+                whileHover={{
+                  scale: 1.08,
+                  boxShadow: "0 4px 24px 0 rgba(255, 0, 128, 0.15)",
+                }}
+                whileTap={{ scale: 0.96 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 20,
+                  delay: 0.1,
+                }}
+                className="gap-2 inline-block"
+              >
+                <Button size="lg" className="gap-2">
+                  Xem bộ sưu tập <ArrowRight className="h-4 w-4" />
+                </Button>
+              </motion.div>
             </Link>
-            <Button size="lg" variant="outline">
-              Tạo thiệp cưới ngay
-            </Button>
+            <motion.div
+              whileHover={{
+                scale: 1.08,
+                boxShadow: "0 4px 24px 0 rgba(255, 0, 128, 0.1)",
+              }}
+              whileTap={{ scale: 0.96 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+                delay: 0.2,
+              }}
+              className="inline-block"
+            >
+              <Button size="lg" variant="outline">
+                Tạo thiệp cưới ngay
+              </Button>
+            </motion.div>
           </div>
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-8">
-            <StatisticBlock value="1,000+" label="Mẫu thiệp cưới" />
+            <StatisticBlock value={50} label="Mẫu thiệp cưới" />
             <div className="hidden sm:block h-12 w-px bg-border"></div>
-            <StatisticBlock value="500+" label="Khách hàng hài lòng" />
+            <StatisticBlock value={1000} label="Khách hàng hài lòng" />
             <div className="hidden sm:block h-12 w-px bg-border"></div>
-            <StatisticBlock value="50+" label="Đối tác uy tín" />
+            <StatisticBlock value={50} label="Đối tác uy tín" />
           </div>
         </motion.div>
 

@@ -96,7 +96,7 @@ export default function ProductsPage() {
           <h1 className="text-3xl font-bold mb-6 text-center">
             Danh sách giao diện
           </h1>
-          <div className="flex justify-center mb-8 gap-8 relative">
+          <div className="flex flex-wrap justify-center mb-8 gap-8 sm:gap-4 relative">
             {TABS.map((tab) => (
               <m.button
                 key={tab.value}
@@ -104,10 +104,9 @@ export default function ProductsPage() {
                 whileHover={{ scale: 1.18 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className={`relative px-4 py-2 rounded-full border transition-colors duration-200 overflow-hidden
-                  ${
-                    activeTab === tab.value
-                      ? "border-primary"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                  ${activeTab === tab.value
+                    ? "border-primary"
+                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                   }`}
                 onClick={() => setActiveTab(tab.value)}
                 style={{ position: "relative" }}
@@ -130,9 +129,8 @@ export default function ProductsPage() {
                   )}
                 </AnimatePresence>
                 <span
-                  className={`relative z-10 transition-colors duration-200 ${
-                    activeTab === tab.value ? "text-white" : "text-gray-700"
-                  }`}
+                  className={`relative z-10 transition-colors duration-200 ${activeTab === tab.value ? "text-white" : "text-gray-700"
+                    }`}
                 >
                   {tab.label}
                 </span>

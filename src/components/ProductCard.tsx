@@ -49,16 +49,11 @@ export default function ProductCard({ product }: { product: Product }) {
                 src={product.image}
                 alt="card"
                 fill
+                loading="lazy"
                 style={{ display: "none" }}
                 sizes="100vw"
               />
             </div>
-            {/* <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-cover transition-transform group-hover:scale-105"
-            /> */}
           </div>
           <div className="absolute top-2 right-2 flex flex-col gap-2">
             {product.discount > 0 && (
