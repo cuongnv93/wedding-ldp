@@ -16,6 +16,7 @@ export type Product = {
   gallery: string[];
   linkRedirect: string;
   target: "web" | "mobile" | "web beautiful";
+  isHot?: boolean;
 };
 
 const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
@@ -38,6 +39,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho chạy bộ và đi bộ",
     ],
     target: "web",
+    isHot: true,
   },
   {
     id: 2,
@@ -598,6 +600,126 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
+  },
+  {
+    id: 30,
+    name: "MB_023",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "mobile",
+  },
+  {
+    id: 31,
+    name: "WEB_009",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "web",
+  },
+  {
+    id: 32,
+    name: "MB_024",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "mobile",
+  },
+  {
+    id: 33,
+    name: "MB_025",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "mobile",
+  },
+  {
+    id: 34,
+    name: "MB_026",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "mobile",
+  },
+  {
+    id: 35,
+    name: "WEB_010",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "web",
   },
 ];
 
