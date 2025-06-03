@@ -721,6 +721,46 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     ],
     target: "web",
   },
+  {
+    id: 36,
+    name: "MB_027",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "mobile",
+  },
+  {
+    id: 37,
+    name: "MB_028",
+    price: "2.190.000₫",
+    originalPrice: "",
+    rating: 4.8,
+    reviews: 67,
+    discount: 0,
+    new: true,
+    stock: 15,
+    description:
+      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+    features: [
+      "Thiết kế độc đáo",
+      "Chất liệu suede cao cấp",
+      "Đế ENCAP",
+      "Phù hợp cho phong cách streetwear",
+    ],
+    target: "mobile",
+  },
 ];
 
 export const products: Product[] = baseProducts.map((item) => ({
