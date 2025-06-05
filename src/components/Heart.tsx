@@ -6,11 +6,11 @@ export default function Heart() {
   useEffect(() => {
     const settings = {
       particles: {
-        length: 500, // maximum amount of particles
+        length: 200, // maximum amount of particles
         duration: 2, // particle duration in sec
         velocity: 100, // particle velocity in pixels/sec
         effect: -0.75, // play with this for a nice effect
-        size: 30, // particle size in pixels
+        size: 20, // particle size in pixels
       },
     };
 
@@ -274,8 +274,13 @@ export default function Heart() {
       };
 
       const onResize = () => {
-        canvas.width = canvas.clientWidth;
-        canvas.height = canvas.clientHeight;
+        if (window.innerWidth <= 640) {
+          canvas.width = canvas.clientWidth * 1.5;
+          canvas.height = canvas.clientHeight * 1.5;
+        } else {
+          canvas.width = canvas.clientWidth;
+          canvas.height = canvas.clientHeight;
+        }
       };
 
       window.addEventListener("resize", onResize);
