@@ -2,8 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  reactStrictMode: true, // Cảnh báo khi dùng hook sai
-  swcMinify: true, // Build nhanh hơn với SWC
   images: {
     domains: [
       "supersports.com.vn",
