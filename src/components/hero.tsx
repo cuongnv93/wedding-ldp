@@ -145,7 +145,7 @@ export default function HeroSection() {
             Khám phá bộ sưu tập thiệp cưới độc đáo, sang trọng và hiện đại, giúp
             bạn tạo nên ngày trọng đại hoàn hảo.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center lg:justify-start">
+          <div className="flex md:flex-col sm:flex-row gap-4 mt-4 justify-center lg:justify-start">
             <Link href="/products">
               <motion.div
                 whileHover={{
@@ -189,7 +189,14 @@ export default function HeroSection() {
               </Button>
             </motion.div>
           </div>
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 mt-8">
+          <div
+            className="
+              flex md:flex-col sm:flex-row
+              items-center
+              justify-center lg:justify-start
+              gap-6 mt-8
+            "
+          >
             <StatisticBlock value={50} label="Mẫu thiệp cưới" />
             <div className="hidden sm:block h-12 w-px bg-border"></div>
             <StatisticBlock value={1000} label="Khách hàng hài lòng" />
