@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import GlobalHeartEffect from "@/components/GlobalHeartEffect";
 import Script from "next/script";
 import Analytics from "@/components/Analytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -75,6 +76,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Analytics />
         <GlobalHeartEffect />
+        <SpeedInsights />
         <CartProvider>
           {children}
           <Toaster />
