@@ -8,6 +8,7 @@ import GlobalHeartEffect from "@/components/GlobalHeartEffect";
 import Script from "next/script";
 import Analytics from "@/components/Analytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import SplashCursor from "@/components/SplashCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -75,6 +76,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Analytics />
+        <SplashCursor />
         <GlobalHeartEffect />
         <SpeedInsights />
         <CartProvider>
