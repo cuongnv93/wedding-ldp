@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
 import AuthModal from "./auth-modal";
 import CheckoutModal from "./checkout-modal";
 import { motion } from "framer-motion"; // Import framer-motion
+import { useRouter } from "next/navigation";
 
 function Logo() {
   return (
@@ -18,24 +19,47 @@ function Logo() {
 
 // Component con: Navigation Links
 function NavigationLinks() {
+  const router = useRouter();
+  const [isHomePage, setIsHomePage] = useState(true);
+
+  useEffect(() => {
+    setIsHomePage(window.location.pathname === "/");
+  }, []);
+
   const links = [
     {
       name: "Giới thiệu",
-      href: "#about",
+      href: "/#about",
     },
     {
       name: "Thiệp mời",
-      href: "#product",
+      href: "/#product",
     },
     {
       name: "Câu hỏi thường gặp",
-      href: "#faq",
+      href: "/#faq",
     },
     {
       name: "Liên hệ",
-      href: "#footer",
+      href: "/#footer",
     },
   ];
+
+  const handleClick = (href: string) => {
+    if (isHomePage) {
+      // Scroll to element if on homepage
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          // block: "start",
+        });
+      }
+    } else {
+      // Navigate to homepage with hash, browser will handle scrolling
+      router.push(`/#${href.substring(1)}`);
+    }
+  };
 
   return (
     <nav className="hidden md:flex items-center gap-6">
@@ -43,6 +67,10 @@ function NavigationLinks() {
         <Link
           key={index}
           href={link.href}
+          onClick={(e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            handleClick(link.href);
+          }}
           className="text-sm font-medium hover:text-primary transition-colors"
         >
           {link.name}

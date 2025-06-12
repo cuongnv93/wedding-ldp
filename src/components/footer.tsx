@@ -67,7 +67,7 @@ function SocialLinks() {
 
 // Component con: QuickLinks
 function QuickLinks() {
-  const links = ["Trang chủ", "Sản phẩm", "Về chúng tôi", "Liên hệ", "Blog"];
+  const links = ["Trang chủ", "Mẫu thiệp", "Dịch vụ", "Bảng giá", "Liên hệ"];
 
   return (
     <ul className="space-y-2">
@@ -91,7 +91,7 @@ function ContactInfo() {
   const contacts = [
     { icon: MapPin, text: "123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh" },
     { icon: Phone, text: "+84 123 456 789" },
-    { icon: Mail, text: "info@sprintx.com" },
+    { icon: Mail, text: "info@uwedding.com" },
   ];
 
   return (
@@ -115,9 +115,10 @@ function ContactInfo() {
 function Newsletter() {
   return (
     <div className="space-y-4">
-      <h3 className="font-bold">Đăng ký nhận tin</h3>
+      <h3 className="font-bold">Nhận ưu đãi đặc biệt</h3>
       <p className="text-muted-foreground">
-        Đăng ký để nhận thông tin về sản phẩm mới và khuyến mãi đặc biệt.
+        Đăng ký để nhận thông tin về các mẫu thiệp cưới mới nhất và ưu đãi đặc
+        biệt.
       </p>
       <motion.div
         className="flex flex-col sm:flex-row gap-2"
@@ -147,11 +148,11 @@ export default function Footer() {
         >
           <motion.div variants={itemVariants} className="space-y-4">
             <h3 className="font-bold text-xl">
-              <span className="text-primary">U</span>Weeding
+              <span className="text-primary">U</span>Wedding
             </h3>
             <p className="text-muted-foreground">
-              Chúng tôi cung cấp những sản phẩm giày thể thao chất lượng cao,
-              mang đến sự thoải mái và phong cách cho khách hàng.
+              Cùng UWedding tạo nên những chiếc thiệp cưới độc đáo và ấn tượng,
+              ghi dấu ngày trọng đại của bạn.
             </p>
             <SocialLinks />
           </motion.div>
@@ -179,7 +180,7 @@ export default function Footer() {
           className="border-t mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} SPRINTX. Tất cả quyền được bảo lưu.
+            © {new Date().getFullYear()} UWedding. Tất cả quyền được bảo lưu.
           </p>
           <div className="flex gap-4">
             {["Điều khoản sử dụng", "Chính sách bảo mật"].map((link, index) => (
