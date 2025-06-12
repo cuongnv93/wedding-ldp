@@ -76,14 +76,14 @@ export default function ProductCard({ product }: { product: Product }) {
                 ({product.reviews} đánh giá)
               </span>
             </div>
-            <div className="flex items-center gap-2 mt-2">
+            {/* <div className="flex items-center gap-2 mt-2">
               <span className="font-bold">{product.price}</span>
               {product.originalPrice && (
                 <span className="text-sm text-muted-foreground line-through">
                   {product.originalPrice}
                 </span>
               )}
-            </div>
+            </div> */}
           </CardContent>
           <CardFooter className="p-4 pt-0">
             <motion.div

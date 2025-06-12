@@ -49,6 +49,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .heart {
   position: absolute;
   width: 20px;
@@ -67,5 +71,15 @@
   100% {
       opacity: 0;
       transform: translateY(-50px) scale(2);
+  }
+}
+/*  Splash Cursor Styles */
+.splash-cursor-wrapper {
+  display: none; /* Hidden by default */
+}
+
+@media (min-width: 769px) {
+  .splash-cursor-wrapper {
+    display: block; /* Visible on desktop */
   }
 }

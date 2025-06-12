@@ -136,7 +136,7 @@ function Newsletter() {
 // Footer Component
 export default function Footer() {
   return (
-    <footer className="w-full bg-muted/50 border-t">
+    <footer id="footer" className="w-full bg-muted/50 border-t">
       <div className="container px-4 md:px-6 py-12">
         <motion.div
           variants={containerVariants}
@@ -147,7 +147,7 @@ export default function Footer() {
         >
           <motion.div variants={itemVariants} className="space-y-4">
             <h3 className="font-bold text-xl">
-              SPRINT<span className="text-primary">X</span>
+              <span className="text-primary">U</span>Weeding
             </h3>
             <p className="text-muted-foreground">
               Chúng tôi cung cấp những sản phẩm giày thể thao chất lượng cao,

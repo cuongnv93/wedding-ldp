@@ -76,7 +76,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Analytics />
-        <SplashCursor />
+        <div className="splash-cursor-wrapper">
+          <SplashCursor />
+        </div>
         <GlobalHeartEffect />
         <SpeedInsights />
         <CartProvider>

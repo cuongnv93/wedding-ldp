@@ -2,34 +2,50 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ShoppingCart, Search, Menu } from "lucide-react";
+import { Menu, ArrowRight } from "lucide-react";
 import { Button } from "../components/ui/button";
-import { Badge } from "../components/ui/badge";
 import AuthModal from "./auth-modal";
 import CheckoutModal from "./checkout-modal";
-import { useCart } from "../contexts/cart-context";
+import { motion } from "framer-motion"; // Import framer-motion
 
 function Logo() {
   return (
     <Link href="/" className="font-bold text-xl">
-      SPRINT<span className="text-primary">X</span>
+      <span className="text-primary">U</span>Wedding
     </Link>
   );
 }
 
 // Component con: Navigation Links
 function NavigationLinks() {
-  const links = ["Nam", "Nữ", "Trẻ em", "Bộ sưu tập", "Khuyến mãi"];
+  const links = [
+    {
+      name: "Giới thiệu",
+      href: "#about",
+    },
+    {
+      name: "Thiệp mời",
+      href: "#product",
+    },
+    {
+      name: "Câu hỏi thường gặp",
+      href: "#faq",
+    },
+    {
+      name: "Liên hệ",
+      href: "#footer",
+    },
+  ];
 
   return (
     <nav className="hidden md:flex items-center gap-6">
       {links.map((link, index) => (
         <Link
           key={index}
-          href="#"
+          href={link.href}
           className="text-sm font-medium hover:text-primary transition-colors"
         >
-          {link}
+          {link.name}
         </Link>
       ))}
     </nav>
@@ -37,44 +53,38 @@ function NavigationLinks() {
 }
 
 // Component con: CartButton
-function CartButton({ onClick }: { onClick: () => void }) {
-  const { items } = useCart();
+// function CartButton({ onClick }: { onClick: () => void }) {
+//   const { items } = useCart();
 
-  return (
-    <Button variant="ghost" size="icon" onClick={onClick} className="relative">
-      <ShoppingCart className="h-5 w-5" />
-      <span className="sr-only">Giỏ hàng</span>
-      {items.length > 0 && (
-        <Badge
-          variant="destructive"
-          className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0"
-        >
-          {items.length}
-        </Badge>
-      )}
-    </Button>
-  );
-}
+//   return (
+//     <Button variant="ghost" size="icon" onClick={onClick} className="relative">
+//       <ShoppingCart className="h-5 w-5" />
+//       <span className="sr-only">Giỏ hàng</span>
+//       {items.length > 0 && (
+//         <Badge
+//           variant="destructive"
+//           className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0"
+//         >
+//           {items.length}
+//         </Badge>
+//       )}
+//     </Button>
+//   );
+// }
 
 // Component con: AuthButtons
-function AuthButtons({
-  onLoginClick,
-  onRegisterClick,
-}: {
-  onLoginClick: () => void;
-  onRegisterClick: () => void;
-}) {
+function CreatCard() {
   return (
     <>
-      <Button
-        variant="outline"
-        className="hidden md:flex"
-        onClick={onLoginClick}
-      >
-        Đăng nhập
-      </Button>
-      <Button className="hidden md:flex" onClick={onRegisterClick}>
-        Đăng ký
+      <Button className="hidden md:flex">
+        Tạo thiệp cưới
+        <motion.div
+          style={{ display: "inline-block" }}
+          whileHover={{ rotate: 360 }}
+          transition={{ duration: 0.5 }}
+        >
+          <ArrowRight className="h-4 w-4" />
+        </motion.div>
       </Button>
     </>
   );
@@ -107,15 +117,12 @@ export default function Navbar() {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-4">
-            <Button variant="ghost" size="icon" className="hidden md:flex">
+            {/* <Button variant="ghost" size="icon" className="hidden md:flex">
               <Search className="h-5 w-5" />
               <span className="sr-only">Tìm kiếm</span>
-            </Button>
-            <CartButton onClick={() => setIsCheckoutModalOpen(true)} />
-            <AuthButtons
-              onLoginClick={() => setIsAuthModalOpen(true)}
-              onRegisterClick={() => setIsAuthModalOpen(true)}
-            />
+            </Button> */}
+            {/* <CartButton onClick={() => setIsCheckoutModalOpen(true)} /> */}
+            <CreatCard />
             <MobileMenuButton />
           </div>
         </div>

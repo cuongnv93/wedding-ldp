@@ -101,7 +101,10 @@ export default function Question() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[90vh] overflow-hidden bg-white to-muted">
+    <section
+      id="faq"
+      className="relative w-full min-h-[90vh] overflow-hidden bg-white to-muted"
+    >
       <div className="container grid lg:grid-cols-2 gap-8 py-12 md:py-24 items-stretch">
         {/* FAQ Section */}
         <motion.div

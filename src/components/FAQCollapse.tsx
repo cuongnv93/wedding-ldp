@@ -46,7 +46,7 @@ export default function FAQCollapse() {
     <div className="w-100 pt-10 min-h-[500px] flex flex-col">
       <div className="container px-4">
         <div className="gap-8">
-          <div className="bg-white max-w-full mx-auto border border-gray-200 shadow-lg rounded-lg overflow-auto">
+          <div className="bg-white max-w-full mx-auto border-t border-gray-200 shadow-lg rounded-lg overflow-auto">
             <div className="flex-grow">
               <ul className="shadow-box">
                 {faq.map((item) => (
