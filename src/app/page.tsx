@@ -1,12 +1,21 @@
+"use client";
 import React from "react";
-import Footer from "../components/footer";
 import Navbar from "../components/navbar";
+import dynamic from "next/dynamic";
 
-// Import các component con
-import Hero from "../components/hero";
-import FeaturedProducts from "../components/featured-products";
-import Benefits from "../components/benefits";
-import Question from "../components/question";
+// Lazy load các component
+const Hero = dynamic(() => import("../components/hero"), { ssr: false });
+const FeaturedProducts = dynamic(
+  () => import("../components/featured-products"),
+  { ssr: false }
+);
+const Benefits = dynamic(() => import("../components/benefits"), {
+  ssr: false,
+});
+const Question = dynamic(() => import("../components/question"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("../components/footer"), { ssr: false });
 
 export default function Home() {
   return (

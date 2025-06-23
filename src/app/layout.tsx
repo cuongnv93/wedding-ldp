@@ -2,13 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./layout.css";
-import { CartProvider } from "../contexts/cart-context";
-import { Toaster } from "sonner";
-import GlobalHeartEffect from "@/components/GlobalHeartEffect";
-import Script from "next/script";
-import Analytics from "@/components/Analytics";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import SplashCursor from "@/components/SplashCursor";
+import ClientLayout from "../components/ClientLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -55,36 +49,23 @@ export default function RootLayout({
           content="uWedding - Thiệp cưới online hiện đại, sang trọng, thiết kế cá nhân hóa, đặt thiệp cưới trực tuyến dễ dàng, giao hàng toàn quốc."
         />
         <meta name="twitter:image" content="/favicon.ico" />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=G-G-0X4F90SB0Q`}
-          strategy="afterInteractive"
-        />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-0X4F90SB0Q"
+        ></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-0X4F90SB0Q', {
-                page_path: window.location.pathname,
-              });
-            `,
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0X4F90SB0Q');
+      `,
           }}
         />
       </head>
       <body className={inter.className}>
-        <Analytics />
-        <div className="splash-cursor-wrapper">
-          <SplashCursor />
-        </div>
-        <GlobalHeartEffect />
-        <SpeedInsights />
-        <CartProvider>
-          {children}
-          <Toaster />
-        </CartProvider>
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
