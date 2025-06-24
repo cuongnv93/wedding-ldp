@@ -7,9 +7,9 @@ import ClientLayout from "../components/ClientLayout";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "uWedding - Thiệp cưới online hiện đại",
+  title: "Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ",
   description:
-    "uWedding - Thiệp cưới online hiện đại, sang trọng, thiết kế cá nhân hóa, đặt thiệp cưới trực tuyến dễ dàng, giao hàng toàn quốc.",
+    "uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR.",
 };
 
 export default function RootLayout({
@@ -24,29 +24,29 @@ export default function RootLayout({
         <meta name="robots" content="index, follow" />
         <meta
           name="keywords"
-          content="thiệp cưới, thiệp cưới online, thiệp cưới hiện đại, thiệp cưới cá nhân hóa, đặt thiệp cưới, uWedding"
+          content="thiệp cưới online hiện đại,thiệp cưới thiết kế riêng,thiệp cưới cá nhân hóa đẹp,thiệp cưới online dễ sử dụng,mẫu thiệp cưới online đẹp,thiệp cưới kỹ thuật số tiện lợi,gửi thiệp cưới online qua link,tạo thiệp cưới online nhanh,thiệp cưới online có đếm ngược"
         />
         <meta
           property="og:title"
-          content="uWedding - Thiệp cưới online hiện đại"
+          content="Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ"
         />
         <meta
           property="og:description"
-          content="uWedding - Thiệp cưới online hiện đại, sang trọng, thiết kế cá nhân hóa, đặt thiệp cưới trực tuyến dễ dàng, giao hàng toàn quốc."
+          content="uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR."
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="vi_VN" />
-        <meta property="og:url" content="https://uwedding.vn" />
+        <meta property="og:url" content="https://uwedding.online" />
         <meta property="og:site_name" content="uWedding" />
         <meta property="og:image" content="/favicon.ico" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="uWedding - Thiệp cưới online hiện đại"
+          content="Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ"
         />
         <meta
           name="twitter:description"
-          content="uWedding - Thiệp cưới online hiện đại, sang trọng, thiết kế cá nhân hóa, đặt thiệp cưới trực tuyến dễ dàng, giao hàng toàn quốc."
+          content="uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR."
         />
         <meta name="twitter:image" content="/favicon.ico" />
         <script
