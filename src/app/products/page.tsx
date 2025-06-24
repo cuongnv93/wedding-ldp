@@ -30,7 +30,7 @@ export default function ProductsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [visibleCount, setVisibleCount] = useState(LOAD_COUNT);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [activeTab, setActiveTab] = useState<string>("mobile");
+  const [activeTab, setActiveTab] = useState<string>("favourite");
   const loaderRef = useRef<HTMLDivElement | null>(null);
 
   // Simulate initial loading
