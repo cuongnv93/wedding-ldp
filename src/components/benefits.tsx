@@ -1,28 +1,28 @@
 "use client";
-import { Shield, Truck, RotateCcw, Clock } from "lucide-react";
+import { BadgeCheck, Map, Palette, Headset } from "lucide-react";
 import { motion } from "framer-motion";
 
 const benefits = [
   {
-    icon: <Truck className="h-10 w-10 text-primary" />,
+    icon: <BadgeCheck className="h-10 w-10 text-primary" />,
     title: "Đầy đủ tính năng hiện đại",
     description:
       "Đếm ngược ngày cưới, bản đồ chỉ đường, xác nhận tham dự, album ảnh, nhạc nền… tất cả đều tích hợp sẵn trong thiệp.",
   },
   {
-    icon: <Shield className="h-10 w-10 text-primary" />,
+    icon: <Map className="h-10 w-10 text-primary" />,
     title: "Tạo thiệp nhanh, không cần chờ lâu",
     description:
       "Không cần mất nhiều thời gian, uWedding giúp bạn nhanh chóng có thiệp chỉn chu, sẵn sàng gửi đến khách mời.",
   },
   {
-    icon: <RotateCcw className="h-10 w-10 text-primary" />,
+    icon: <Palette className="h-10 w-10 text-primary" />,
     title: "Thiết kế theo ý, không cần tự làm",
     description:
       "Thiệp được cá nhân hóa theo phong cách riêng của bạn – đẹp, chỉn chu và đúng ý.",
   },
   {
-    icon: <Clock className="h-10 w-10 text-primary" />,
+    icon: <Headset className="h-10 w-10 text-primary" />,
     title: "Hỗ trợ tận tâm, phản hồi nhanh",
     description:
       "Bạn chỉ cần gửi ý tưởng, uWedding lo từ A–Z và luôn sẵn sàng điều chỉnh theo yêu cầu.",
@@ -67,7 +67,7 @@ export default function Benefits() {
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               Với uWedding, bạn sẽ có thiệp cưới online đẹp, đầy đủ tiện ích mà
-              không mất thời gian tự thiết kế – để dành tâm trí cho những khoảnh
+              khoảng thời gian tự thiết kế – để dành tâm trí cho những khoảnh
               khắc ý nghĩa hơn trong hành trình cưới.
             </p>
           </div>

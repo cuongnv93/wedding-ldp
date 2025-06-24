@@ -246,7 +246,6 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
-    isFavourite: true,
   },
   {
     id: 12,
@@ -388,6 +387,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 19,

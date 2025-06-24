@@ -163,7 +163,7 @@ export default function HeroSection() {
                 }}
                 className="gap-2 inline-block"
               >
-                <Button size="lg" className="gap-2">
+                <Button size="lg" variant="outline" className="gap-2">
                   Xem bộ sưu tập <ArrowRight className="h-4 w-4" />
                 </Button>
               </motion.div>
@@ -184,9 +184,7 @@ export default function HeroSection() {
               }}
               className="inline-block"
             >
-              <Button size="lg" variant="outline">
-                Tạo thiệp cưới ngay
-              </Button>
+              <Button size="lg">Tạo thiệp cưới ngay</Button>
             </motion.div>
           </div>
           <div
