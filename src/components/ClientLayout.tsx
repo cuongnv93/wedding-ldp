@@ -4,9 +4,9 @@ import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import { CartProvider } from "../contexts/cart-context";
 
-const LazySplashCursor = dynamic(() => import("@/components/SplashCursor"), {
-  ssr: false,
-});
+// const LazySplashCursor = dynamic(() => import("@/components/SplashCursor"), {
+//   ssr: false,
+// });
 // const LazyGlobalHeartEffect = dynamic(
 //   () => import("@/components/GlobalHeartEffect"),
 //   { ssr: false }
