@@ -17,6 +17,7 @@ export type Product = {
   linkRedirect: string;
   target: "web" | "mobile" | "web beautiful";
   isHot?: boolean;
+  isFavourite?: boolean;
 };
 
 const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
@@ -80,6 +81,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "web",
+    isFavourite: true,
   },
   {
     id: 4,
@@ -140,6 +142,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách urban",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 7,
@@ -160,6 +163,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách casual",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 8,
@@ -200,6 +204,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 10,
@@ -220,6 +225,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 11,
@@ -240,6 +246,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 12,
@@ -320,6 +327,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 16,
@@ -720,6 +728,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "web",
+    isFavourite: true,
   },
   {
     id: 36,
@@ -780,6 +789,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 39,
@@ -840,6 +850,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "mobile",
+    isFavourite: true,
   },
   {
     id: 41,
@@ -920,6 +931,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "web",
+    isFavourite: true,
   },
   {
     id: 45,
@@ -980,6 +992,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
       "Phù hợp cho phong cách streetwear",
     ],
     target: "web",
+    isFavourite: true,
   },
 ];
 

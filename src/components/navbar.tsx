@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 function Logo() {
   return (
     <Link href="/" className="font-bold text-xl">
-      <span className="text-primary">U</span>Wedding
+      <span className="text-primary">u</span>Wedding
     </Link>
   );
 }
@@ -29,19 +29,19 @@ function NavigationLinks() {
   const links = [
     {
       name: "Giới thiệu",
-      href: "/#about",
+      href: "#about",
     },
     {
       name: "Thiệp mời",
-      href: "/#product",
+      href: "#product",
     },
     {
       name: "Câu hỏi thường gặp",
-      href: "/#faq",
+      href: "#faq",
     },
     {
       name: "Liên hệ",
-      href: "/#footer",
+      href: "#footer",
     },
   ];
 

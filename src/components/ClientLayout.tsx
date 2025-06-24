@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import { CartProvider } from "../contexts/cart-context";
 
@@ -27,11 +28,13 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const [showEffects, setShowEffects] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
+    setShowEffects(false); // reset khi sang màn mới
     const timer = setTimeout(() => setShowEffects(true), 10000); // 10s
     return () => clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   return (
     <>
@@ -39,7 +42,7 @@ export default function ClientLayout({
       {showEffects && (
         <>
           <div className="splash-cursor-wrapper">
-            <LazySplashCursor />
+            {/* <LazySplashCursor /> */}
           </div>
           {/* <LazyGlobalHeartEffect /> */}
         </>

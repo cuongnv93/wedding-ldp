@@ -3,7 +3,7 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/data/products";
+import { Product, products } from "@/data/products";
 import { useEffect, useState, useRef, useCallback } from "react";
 import Loading from "@/components/loading";
 import { AnimatePresence, motion as m } from "framer-motion";
@@ -21,9 +21,9 @@ const containerVariants = {
 const LOAD_COUNT = 12;
 
 const TABS = [
+  { label: "Giao diện được yêu thích", value: "favourite" },
   { label: "Giao diện mobile", value: "mobile" },
   { label: "Giao diện web", value: "web" },
-  { label: "Giao diện web đẹp", value: "web beautiful" },
 ];
 
 export default function ProductsPage() {
@@ -40,10 +40,12 @@ export default function ProductsPage() {
   }, []);
 
   // Filter products by target
-  const filteredProducts = products.filter(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (product: any) => product.target === activeTab
-  );
+  const filteredProducts = products.filter((product: Product) => {
+    if (activeTab === "favourite") {
+      return product.isFavourite === true;
+    }
+    return product.target === activeTab;
+  });
 
   // Reset visibleCount when tab changes
   useEffect(() => {
@@ -94,7 +96,7 @@ export default function ProductsPage() {
       <main className="flex-grow">
         <section className="container mx-auto py-12">
           <h1 className="text-3xl font-bold mb-6 text-center">
-            Danh sách giao diện
+            Danh sách Thiệp cưới
           </h1>
           <div className="flex flex-wrap justify-center mb-8 gap-8 sm:gap-4 relative">
             {TABS.map((tab) => (
@@ -104,9 +106,10 @@ export default function ProductsPage() {
                 whileHover={{ scale: 1.18 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className={`relative px-4 py-2 rounded-full border transition-colors duration-200 overflow-hidden
-                  ${activeTab === tab.value
-                    ? "border-primary"
-                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                  ${
+                    activeTab === tab.value
+                      ? "border-primary"
+                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                   }`}
                 onClick={() => setActiveTab(tab.value)}
                 style={{ position: "relative" }}
@@ -129,8 +132,9 @@ export default function ProductsPage() {
                   )}
                 </AnimatePresence>
                 <span
-                  className={`relative z-10 transition-colors duration-200 ${activeTab === tab.value ? "text-white" : "text-gray-700"
-                    }`}
+                  className={`relative z-10 transition-colors duration-200 ${
+                    activeTab === tab.value ? "text-white" : "text-gray-700"
+                  }`}
                 >
                   {tab.label}
                 </span>

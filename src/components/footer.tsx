@@ -148,10 +148,10 @@ export default function Footer() {
         >
           <motion.div variants={itemVariants} className="space-y-4">
             <h3 className="font-bold text-xl">
-              <span className="text-primary">U</span>Wedding
+              <span className="text-primary">u</span>Wedding
             </h3>
             <p className="text-muted-foreground">
-              Cùng UWedding tạo nên những chiếc thiệp cưới độc đáo và ấn tượng,
+              Cùng uWedding tạo nên những chiếc thiệp cưới độc đáo và ấn tượng,
               ghi dấu ngày trọng đại của bạn.
             </p>
             <SocialLinks />
@@ -180,7 +180,7 @@ export default function Footer() {
           className="border-t mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} UWedding. Tất cả quyền được bảo lưu.
+            © {new Date().getFullYear()} uWedding. Tất cả quyền được bảo lưu.
           </p>
           <div className="flex gap-4">
             {["Điều khoản sử dụng", "Chính sách bảo mật"].map((link, index) => (

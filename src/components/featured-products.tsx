@@ -29,10 +29,11 @@ export default function FeaturedProducts() {
         >
           <div className="space-y-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Sản phẩm nổi bật
+              Thiệp cưới nổi bật
             </h2>
-            <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Khám phá những mẫu giày thể thao được yêu thích nhất hiện nay
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Khám phá những mẫu thiệp cưới online được các cặp đôi yêu thích và
+              lựa chọn nhiều nhất.
             </p>
           </div>
         </motion.div>
@@ -43,12 +44,15 @@ export default function FeaturedProducts() {
           viewport={{ once: true }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
         >
-          {products.slice(0, 8).map((product) => (
-            <ProductCard
-              key={product.id}
-              product={{ ...product, id: product.id.toString() }}
-            />
-          ))}
+          {products
+            .filter((product) => product.isFavourite)
+            .slice(0, 12)
+            .map((product) => (
+              <ProductCard
+                key={product.id}
+                product={{ ...product, id: product.id.toString() }}
+              />
+            ))}
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
