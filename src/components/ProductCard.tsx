@@ -19,6 +19,7 @@ interface Product {
   price: string;
   originalPrice?: string;
   linkRedirect: string;
+  isFavourite?: boolean;
 }
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -39,7 +40,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <Card className="h-full">
           <div className="relative aspect-square overflow-hidden">
             <div
-              className="relative shadow-lg min-h-[450px] z-[999] rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] duration-[15000ms] ease-linear hover:bg-bottom"
+              className="relative shadow-lg min-h-[450px] z-0 rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] duration-[15000ms] ease-linear hover:bg-bottom"
               style={{
                 backgroundImage: `url('${product.image}')`,
               }}
@@ -53,15 +54,15 @@ export default function ProductCard({ product }: { product: Product }) {
                 style={{ display: "none" }}
                 sizes="100vw"
               />
+              {/* Đặt badge ở đây để nó nằm trên ảnh */}
+              <div className="absolute top-2 right-2 flex flex-col gap-2 z-10">
+                {product.isFavourite ? (
+                  <Badge className="text-xs bg-primary">Yêu thích</Badge>
+                ) : product.new ? (
+                  <Badge className="text-xs bg-primary">Mới</Badge>
+                ) : null}
+              </div>
             </div>
-          </div>
-          <div className="absolute top-2 right-2 flex flex-col gap-2">
-            {product.discount > 0 && (
-              <Badge variant="destructive" className="text-xs">
-                Giảm {product.discount}%
-              </Badge>
-            )}
-            {product.new && <Badge className="text-xs bg-primary">Mới</Badge>}
           </div>
           <CardContent className="p-4">
             <h3 className="font-semibold text-lg">{product.name}</h3>
