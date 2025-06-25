@@ -138,8 +138,8 @@ function QuickLinks() {
 function ContactInfo() {
   const contacts = [
     { icon: MapPin, text: "123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh" },
-    { icon: Phone, text: "+84 123 456 789" },
-    { icon: Mail, text: "info@uwedding.com" },
+    { icon: Phone, text: "0776 718 994" },
+    { icon: Mail, text: "uwedding.online@gmail.com" },
   ];
 
   return (
