@@ -7,10 +7,10 @@ import { CartProvider } from "../contexts/cart-context";
 // const LazySplashCursor = dynamic(() => import("@/components/SplashCursor"), {
 //   ssr: false,
 // });
-// const LazyGlobalHeartEffect = dynamic(
-//   () => import("@/components/GlobalHeartEffect"),
-//   { ssr: false }
-// );
+const LazyGlobalHeartEffect = dynamic(
+  () => import("@/components/GlobalHeartEffect"),
+  { ssr: false }
+);
 const LazySpeedInsights = dynamic(
   () => import("@vercel/speed-insights/next").then((m) => m.SpeedInsights),
   { ssr: false }
@@ -32,7 +32,7 @@ export default function ClientLayout({
 
   useEffect(() => {
     setShowEffects(false); // reset khi sang màn mới
-    const timer = setTimeout(() => setShowEffects(true), 10000); // 10s
+    const timer = setTimeout(() => setShowEffects(true), 1000); // 10s
     return () => clearTimeout(timer);
   }, [pathname]);
 
@@ -41,10 +41,10 @@ export default function ClientLayout({
       <LazyAnalytics />
       {showEffects && (
         <>
-          <div className="splash-cursor-wrapper">
-            {/* <LazySplashCursor /> */}
-          </div>
-          {/* <LazyGlobalHeartEffect /> */}
+          {/* <div className="splash-cursor-wrapper">
+            <LazySplashCursor />
+          </div> */}
+          <LazyGlobalHeartEffect />
         </>
       )}
       <LazySpeedInsights />

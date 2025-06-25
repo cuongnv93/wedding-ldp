@@ -1,0 +1,27 @@
+import { NextResponse } from "next/server";
+import { Product, products } from "@/data/products";
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const id = parseInt(searchParams.get("urlId") || "", 10);
+
+  const product: Product | undefined = products.find((p) => p.id === id);
+  if (!product) {
+    return new NextResponse("Không tìm thấy thiệp", { status: 404 });
+  }
+
+  try {
+    const resp = await fetch(product.linkRedirect);
+    const html = await resp.text();
+
+    return new NextResponse(html, {
+      headers: {
+        "Content-Type": "text/html",
+        "Cache-Control": "no-cache",
+      },
+    });
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (err) {
+    return new NextResponse("Không thể tải thiệp", { status: 500 });
+  }
+}

@@ -135,7 +135,7 @@ export default function HeroSection() {
           className="flex flex-col gap-6 pt-8 md:pt-0 text-center lg:text-left"
         >
           <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-            Bộ sưu tập cưới 2025
+            Bộ sưu tập thiệp cưới hot nhất 2025
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             Lưu giữ khoảnh khắc <br />

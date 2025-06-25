@@ -13,6 +13,8 @@ import {
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -67,7 +69,46 @@ function SocialLinks() {
 
 // Component con: QuickLinks
 function QuickLinks() {
-  const links = ["Trang chủ", "Mẫu thiệp", "Dịch vụ", "Bảng giá", "Liên hệ"];
+  const router = useRouter();
+  const [isHomePage, setIsHomePage] = useState(true);
+
+  useEffect(() => {
+    setIsHomePage(window.location.pathname === "/");
+  }, []);
+  const links = [
+    {
+      name: "Trang chủ",
+      href: "/",
+    },
+    {
+      name: "Giới thiệu",
+      href: "#about",
+    },
+    {
+      name: "Thiệp mời",
+      href: "#product",
+    },
+    {
+      name: "Câu hỏi thường gặp",
+      href: "#faq",
+    },
+  ];
+
+  const handleClick = (href: string) => {
+    if (isHomePage) {
+      // Scroll to element if on homepage
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          // block: "start",
+        });
+      }
+    } else {
+      // Navigate to homepage with hash, browser will handle scrolling
+      router.push(`/#${href.substring(1)}`);
+    }
+  };
 
   return (
     <ul className="space-y-2">
@@ -77,8 +118,15 @@ function QuickLinks() {
           whileHover={{ x: 5 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <Link href="#" className="text-muted-foreground hover:text-primary">
-            {link}
+          <Link
+            href={link.href}
+            className="text-muted-foreground hover:text-primary"
+            onClick={(e) => {
+              e.preventDefault();
+              handleClick(link.href);
+            }}
+          >
+            {link.name}
           </Link>
         </motion.li>
       ))}
