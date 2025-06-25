@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Monitor, Smartphone } from "lucide-react";
 import { Product } from "@/data/products";
 import Link from "next/link";
-import "react-device-frameset/styles/marvel-devices.min.css";
-import "react-device-frameset/styles/device-selector.min.css";
 
 function Logo() {
   return (
