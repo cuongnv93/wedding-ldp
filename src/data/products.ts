@@ -18,7 +18,7 @@ export type Product = {
 const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
   {
     id: 1,
-    name: "Nike Air Max 270",
+    name: "WEB_001",
     reviews: 124,
     new: false,
     stock: 15,
@@ -29,7 +29,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
   },
   {
     id: 2,
-    name: "Adidas Ultraboost 22",
+    name: "WEB_002",
     new: true,
     stock: 20,
     reviews: 56,
@@ -39,7 +39,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
   },
   {
     id: 3,
-    name: "Puma RS-X³ Puzzle",
+    name: "WEB_003",
     new: false,
     stock: 12,
     reviews: 56,
@@ -50,7 +50,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
   },
   {
     id: 4,
-    name: "New Balance 574",
+    name: "WEB_004",
     reviews: 78,
     new: true,
     stock: 25,
@@ -60,7 +60,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
   },
   {
     id: 5,
-    name: "Nike Air Jordan 1 Mid",
+    name: "MB_001",
     reviews: 156,
     new: false,
     stock: 8,
@@ -70,7 +70,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
   },
   {
     id: 6,
-    name: "Adidas NMD R1",
+    name: "MB_002",
     new: false,
     reviews: 156,
     stock: 18,
@@ -81,7 +81,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
   },
   {
     id: 7,
-    name: "Puma Future Rider",
+    name: "MB_003",
     reviews: 45,
     new: false,
     stock: 22,
@@ -92,7 +92,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
   },
   {
     id: 8,
-    name: "New Balance 327",
+    name: "MB_004",
     reviews: 67,
     new: true,
     stock: 15,

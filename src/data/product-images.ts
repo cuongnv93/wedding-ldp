@@ -5,7 +5,7 @@ type ProductImageInfo = {
 };
 
 export const productImages: Record<string, ProductImageInfo> = {
-  "Nike Air Max 270": {
+  "WEB_001": {
     main: "/image/wedding2.cuongvalan.click.png",
     gallery: [
       "https://supersports.com.vn/cdn/shop/files/AH8050-027-1.png?v=1726739143&width=1000",
@@ -15,7 +15,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://wedding2.cuongvalan.click/",
   },
-  "Adidas Ultraboost 22": {
+  "WEB_002": {
     main: "/image/wedding1.cuongvalan.click.png",
     gallery: [
       "https://supersports.com.vn/cdn/shop/files/ID8810-2.jpg?v=1721811551&width=1000",
@@ -25,7 +25,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://wedding1.cuongvalan.click/",
   },
-  "Puma RS-X³ Puzzle": {
+  "WEB_003": {
     main: "/image/wedding3.cuongvalan.click.png",
     gallery: [
       "https://supersports.com.vn/cdn/shop/files/39646311-2.jpg?v=1739270539&width=1000",
@@ -33,7 +33,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://wedding3.cuongvalan.click/",
   },
-  "New Balance 574": {
+  "WEB_004": {
     main: "/image/wedding4.cuongvalan.click.png",
     gallery: [
       "https://images.unsplash.com/photo-1614281325545-6b77fd9caaae",
@@ -43,7 +43,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://wedding4.cuongvalan.click/",
   },
-  "Nike Air Jordan 1 Mid": {
+  "MB_001": {
     main: "/image/weddingmobile1.png",
     gallery: [
       "https://images.unsplash.com/photo-1586460699133-d2e5c2e0d205",
@@ -53,7 +53,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile1.cuongvalan.click/",
   },
-  "Adidas NMD R1": {
+  "MB_002": {
     main: "/image/weddingmobile2.png",
     gallery: [
       "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
@@ -63,7 +63,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile2.cuongvalan.click/",
   },
-  "Puma Future Rider": {
+  "MB_003": {
     main: "/image/weddingmobile3.png",
     gallery: [
       "https://images.unsplash.com/photo-1606813909942-681c9b2a1f53",
@@ -73,7 +73,7 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile3.cuongvalan.click/",
   },
-  "New Balance 327": {
+  "MB_004": {
     main: "/image/weddingmobile4.png",
     gallery: [
       "https://images.unsplash.com/photo-1629394907893-f7e0e2ac9f34",
