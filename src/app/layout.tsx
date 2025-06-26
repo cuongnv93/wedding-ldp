@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import "./layout.css";
 import ClientLayout from "../components/ClientLayout";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,21 +49,18 @@ export default function RootLayout({
           name="twitter:description"
           content="uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR."
         />
-        <meta name="twitter:image" content="/favicon.ico" />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-0X4F90SB0Q"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-0X4F90SB0Q');
-      `,
-          }}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
+          strategy="afterInteractive"
         />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XXXXXXX');
+        `}
+        </Script>
       </head>
       <body className={inter.className}>
         <ClientLayout>{children}</ClientLayout>

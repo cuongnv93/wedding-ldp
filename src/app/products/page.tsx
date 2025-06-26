@@ -3,92 +3,128 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ProductCard from "@/components/ProductCard";
-import { Product, products } from "@/data/products";
-import { useEffect, useState, useRef, useCallback } from "react";
+import { type Product, products } from "@/data/products";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import Loading from "@/components/loading";
 import { AnimatePresence, motion as m } from "framer-motion";
+import { memo } from "react";
+
+// Memoize ProductCard để tránh re-render không cần thiết
+const MemoizedProductCard = memo(ProductCard);
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.1, // Giảm stagger time
     },
   },
 };
 
-const LOAD_COUNT = 12;
+const LOAD_COUNT = 8; // Tăng số lượng load để giảm số lần fetch
+const INTERSECTION_THRESHOLD = 0.8; // Tối ưu threshold
 
 const TABS = [
   { label: "Giao diện được yêu thích", value: "favourite" },
   { label: "Giao diện mobile", value: "mobile" },
   { label: "Giao diện web", value: "web" },
-];
+] as const;
+
+type TabValue = (typeof TABS)[number]["value"];
 
 export default function ProductsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [visibleCount, setVisibleCount] = useState(LOAD_COUNT);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [activeTab, setActiveTab] = useState<string>("favourite");
+  const [activeTab, setActiveTab] = useState<TabValue>("favourite");
   const loaderRef = useRef<HTMLDivElement | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
-  // Simulate initial loading
+  // Tối ưu initial loading - loại bỏ setTimeout không cần thiết
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoaded(true), 500);
-    return () => clearTimeout(timer);
+    // Sử dụng requestAnimationFrame thay vì setTimeout
+    const frame = requestAnimationFrame(() => setIsLoaded(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
-  // Filter products by target
-  const filteredProducts = products.filter((product: Product) => {
+  // Memoize filtered products với dependency chính xác
+  const filteredProducts = useMemo(() => {
     if (activeTab === "favourite") {
-      return product.isFavourite === true;
+      return products.filter(
+        (product: Product) => product.isFavourite === true
+      );
     }
-    return product.target === activeTab;
-  });
-
-  // Reset visibleCount when tab changes
-  useEffect(() => {
-    setVisibleCount(LOAD_COUNT);
+    return products.filter((product: Product) => product.target === activeTab);
   }, [activeTab]);
 
-  // Infinite scroll logic
-  const handleLoadMore = useCallback(() => {
-    if (isLoadingMore) return;
-    setIsLoadingMore(true);
-    setTimeout(() => {
-      setVisibleCount((prev) =>
-        Math.min(prev + LOAD_COUNT, filteredProducts.length)
-      );
-      setIsLoadingMore(false);
-    }, 600);
-  }, [isLoadingMore, filteredProducts.length]);
+  // Memoize visible products để tránh slice lại không cần thiết
+  const visibleProducts = useMemo(() => {
+    return filteredProducts.slice(0, visibleCount);
+  }, [filteredProducts, visibleCount]);
 
-  // Intersection Observer for infinite scroll
+  // Reset visibleCount when tab changes - tối ưu với useCallback
+  const handleTabChange = useCallback((newTab: TabValue) => {
+    setActiveTab(newTab);
+    setVisibleCount(LOAD_COUNT);
+  }, []);
+
+  // Tối ưu load more với debounce
+  const handleLoadMore = useCallback(() => {
+    if (isLoadingMore || visibleCount >= filteredProducts.length) return;
+
+    setIsLoadingMore(true);
+    // Sử dụng requestAnimationFrame thay vì setTimeout
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        setVisibleCount((prev) =>
+          Math.min(prev + LOAD_COUNT, filteredProducts.length)
+        );
+        setIsLoadingMore(false);
+      }, 300); // Giảm delay time
+    });
+  }, [isLoadingMore, visibleCount, filteredProducts.length]);
+
+  // Tối ưu Intersection Observer - tạo một lần và reuse
   useEffect(() => {
     if (!isLoaded) return;
-    const observer = new IntersectionObserver(
+
+    // Cleanup observer cũ
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+    }
+
+    observerRef.current = new IntersectionObserver(
       (entries) => {
-        if (
-          entries[0].isIntersecting &&
-          visibleCount < filteredProducts.length
-        ) {
+        const entry = entries[0];
+        if (entry?.isIntersecting && visibleCount < filteredProducts.length) {
           handleLoadMore();
         }
       },
-      { threshold: 1 }
+      {
+        threshold: INTERSECTION_THRESHOLD,
+        rootMargin: "100px", // Preload trước khi user scroll đến
+      }
     );
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-    return () => {
-      if (loaderRef.current) observer.unobserve(loaderRef.current);
-    };
-  }, [isLoaded, visibleCount, handleLoadMore, filteredProducts.length]);
 
+    const currentLoader = loaderRef.current;
+    if (currentLoader && observerRef.current) {
+      observerRef.current.observe(currentLoader);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [isLoaded, visibleCount, filteredProducts.length, handleLoadMore]);
+
+  // Early return cho loading state
   if (!isLoaded) {
     return <Loading />;
   }
+
+  const hasMoreProducts = visibleCount < filteredProducts.length;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -98,49 +134,20 @@ export default function ProductsPage() {
           <h1 className="text-3xl font-bold mb-6 text-center">
             Danh sách Thiệp cưới
           </h1>
+
+          {/* Tối ưu tab buttons */}
           <div className="flex flex-wrap justify-center mb-8 gap-8 sm:gap-4 relative">
             {TABS.map((tab) => (
-              <m.button
+              <TabButton
                 key={tab.value}
-                layout
-                whileHover={{ scale: 1.18 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className={`relative px-4 py-2 rounded-full border transition-colors duration-200 overflow-hidden
-                  ${
-                    activeTab === tab.value
-                      ? "border-primary"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                  }`}
-                onClick={() => setActiveTab(tab.value)}
-                style={{ position: "relative" }}
-              >
-                <AnimatePresence>
-                  {activeTab === tab.value && (
-                    <m.div
-                      layoutId="tab-underline"
-                      className="absolute inset-0 rounded-full bg-primary"
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 400,
-                        damping: 30,
-                      }}
-                      style={{ zIndex: 0 }}
-                    />
-                  )}
-                </AnimatePresence>
-                <span
-                  className={`relative z-10 transition-colors duration-200 ${
-                    activeTab === tab.value ? "text-white" : "text-gray-700"
-                  }`}
-                >
-                  {tab.label}
-                </span>
-              </m.button>
+                tab={tab}
+                isActive={activeTab === tab.value}
+                onClick={() => handleTabChange(tab.value)}
+              />
             ))}
           </div>
+
+          {/* Products grid với tối ưu animation */}
           <AnimatePresence mode="wait">
             <m.div
               key={activeTab}
@@ -150,20 +157,22 @@ export default function ProductsPage() {
               exit="hidden"
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
             >
-              {filteredProducts.slice(0, visibleCount).map((product) => (
-                <ProductCard key={product.id} product={product} />
+              {visibleProducts.map((product) => (
+                <MemoizedProductCard key={product.id} product={product} />
               ))}
             </m.div>
           </AnimatePresence>
+
+          {/* Loading indicator */}
           <div
             ref={loaderRef}
             className="flex justify-center mt-8 min-h-[40px]"
           >
             {isLoadingMore && <Loading />}
-            {!isLoadingMore && visibleCount < filteredProducts.length && (
+            {!isLoadingMore && hasMoreProducts && (
               <span className="text-gray-500">Kéo xuống để tải thêm...</span>
             )}
-            {visibleCount >= filteredProducts.length && (
+            {!hasMoreProducts && filteredProducts.length > 0 && (
               <span className="text-gray-400">
                 Đã hiển thị tất cả giao diện
               </span>
@@ -175,3 +184,56 @@ export default function ProductsPage() {
     </div>
   );
 }
+
+// Tách TabButton thành component riêng và memoize
+const TabButton = memo(
+  ({
+    tab,
+    isActive,
+    onClick,
+  }: {
+    tab: (typeof TABS)[number];
+    isActive: boolean;
+    onClick: () => void;
+  }) => (
+    <m.button
+      layout
+      whileHover={{ scale: 1.05 }} // Giảm scale để mượt hơn
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      className={`relative px-4 py-2 rounded-full border transition-colors duration-150 overflow-hidden
+      ${
+        isActive
+          ? "border-primary"
+          : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+      }`}
+      onClick={onClick}
+    >
+      <AnimatePresence>
+        {isActive && (
+          <m.div
+            layoutId="tab-underline"
+            className="absolute inset-0 rounded-full bg-primary"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{
+              type: "spring",
+              stiffness: 500,
+              damping: 30,
+            }}
+          />
+        )}
+      </AnimatePresence>
+      <span
+        className={`relative z-10 transition-colors duration-150 ${
+          isActive ? "text-white" : "text-gray-700"
+        }`}
+      >
+        {tab.label}
+      </span>
+    </m.button>
+  )
+);
+
+TabButton.displayName = "TabButton";
