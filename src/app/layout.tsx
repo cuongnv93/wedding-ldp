@@ -5,7 +5,11 @@ import "./layout.css";
 import ClientLayout from "../components/ClientLayout";
 import Script from "next/script";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap", // ← THÊM CÁI NÀY
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: "Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ",

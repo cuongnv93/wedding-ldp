@@ -111,8 +111,8 @@ const OptimizedCanvas = memo(() => {
         penumbra={1}
         intensity={1}
         castShadow
-        shadow-mapSize-width={512}
-        shadow-mapSize-height={512}
+        shadow-mapSize-width={256}
+        shadow-mapSize-height={256}
       />
       <EnvironmentWrapper />
       <ContactShadows
@@ -121,7 +121,7 @@ const OptimizedCanvas = memo(() => {
         scale={10}
         blur={1.5}
         far={0.8}
-        resolution={256}
+        resolution={128}
       />
       <Suspense fallback={<LoadingShoe />}>
         <ShoeModel

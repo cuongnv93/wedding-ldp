@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, Suspense, useRef } from "react";
+import { useEffect, Suspense, useRef, memo } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
@@ -84,8 +84,8 @@ function OptimizedCanvas() {
         penumbra={1}
         intensity={1}
         castShadow
-        shadow-mapSize-width={512} // Reduce shadow quality for performance
-        shadow-mapSize-height={512}
+        shadow-mapSize-width={256} // Reduce shadow quality for performance
+        shadow-mapSize-height={256}
       />
       <EnvironmentWrapper />
       <ContactShadows
@@ -94,7 +94,7 @@ function OptimizedCanvas() {
         scale={10}
         blur={1.5}
         far={0.8}
-        resolution={256} // Reduce resolution for performance
+        resolution={128} // Reduce resolution for performance
       />
       <Suspense fallback={<LoadingModel />}>
         <WeddingModel
@@ -118,7 +118,7 @@ function OptimizedCanvas() {
   );
 }
 
-export default function ThreeDSection() {
+const ThreeDSection = memo(() => {
   return (
     <div className="relative w-full h-full rounded-xl overflow-hidden">
       {/* Animated background */}
@@ -130,4 +130,7 @@ export default function ThreeDSection() {
       <OptimizedCanvas />
     </div>
   );
-}
+});
+
+ThreeDSection.displayName = "ThreeDSection";
+export default ThreeDSection;
