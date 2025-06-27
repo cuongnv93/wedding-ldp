@@ -63,7 +63,7 @@ export default function ProductCard({ product }: { product: Product }) {
       onMouseEnter={prefetchRoute}
     >
       <Card
-        className={`h-full transition-shadow duration-200 hover:shadow-lg ${
+        className={`h-full min-h-[520px] transition-shadow duration-200 hover:shadow-lg ${
           isNavigating ? "opacity-75 pointer-events-none" : ""
         }`}
       >
@@ -104,7 +104,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
         </div>
 
-        <CardContent className="p-4">
+        <CardContent className="p-4 min-h-[80px]">
           <h3 className="font-semibold text-lg line-clamp-2">{product.name}</h3>
           {product.description && (
             <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
@@ -113,7 +113,7 @@ export default function ProductCard({ product }: { product: Product }) {
           )}
         </CardContent>
 
-        <CardFooter className="p-4 pt-0">
+        <CardFooter className="p-4 pt-0 h-[60px]">
           <div
             className={`w-full rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 ${
               isNavigating

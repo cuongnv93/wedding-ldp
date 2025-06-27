@@ -83,3 +83,60 @@ html {
     display: block; /* Visible on desktop */
   }
 }
+
+/* Prevent CLS với CSS */
+@layer base {
+  /* Font loading optimization */
+  html {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  /* Image containers */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Prevent layout shift during loading */
+  img[loading="lazy"] {
+    min-height: 200px;
+  }
+
+  /* Skeleton animations */
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Smooth transitions */
+  * {
+    transition-property: transform, opacity;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Component-specific CLS prevention */
+@layer components {
+  /* Product cards */
+  .product-card {
+    min-height: 520px;
+  }
+
+  /* Hero section */
+  .hero-3d-container {
+    height: 300px;
+    min-height: 300px;
+  }
+
+  @media (min-width: 640px) {
+    .hero-3d-container {
+      height: 400px;
+      min-height: 400px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero-3d-container {
+      height: 500px;
+      min-height: 500px;
+    }
+  }
+}

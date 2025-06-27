@@ -25,7 +25,7 @@ const FAQSection = memo(() => (
 FAQSection.displayName = "FAQSection";
 
 const ThreeDPlaceholder = memo(() => (
-  <div className="relative w-full h-full rounded-xl overflow-hidden bg-white flex items-center justify-center">
+  <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] bg-gray-100 rounded-xl flex items-center justify-center">
     <div className="text-center">
       <div className="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-4"></div>
       <p className="text-sm text-muted-foreground">Đang tải mô hình 3D...</p>

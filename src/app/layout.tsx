@@ -7,8 +7,9 @@ import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap", // ← THÊM CÁI NÀY
+  display: "swap",
   preload: true,
+  fallback: ["system-ui", "arial"],
 });
 
 export const metadata: Metadata = {
@@ -65,6 +66,23 @@ export default function RootLayout({
           gtag('config', 'G-XXXXXXX');
         `}
         </Script>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              /* Prevent font loading layout shift */
+              body { font-family: system-ui, arial, sans-serif; }
+              
+              /* Reserve space for images */
+              .aspect-square { aspect-ratio: 1 / 1; }
+              
+              /* Prevent animation layout shift */
+              * { transform-origin: center; }
+              
+              /* Smooth transitions */
+              img { transition: opacity 0.2s ease; }
+            `,
+          }}
+        />
       </head>
       <body className={inter.className}>
         <ClientLayout>{children}</ClientLayout>

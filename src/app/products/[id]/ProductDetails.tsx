@@ -102,7 +102,7 @@ const OptimizedIframe = memo(
       if (view === "mobile") {
         return {
           ...baseStyles,
-          width: "375px", // iPhone width
+          width: "425px", // iPhone width
           background: "white",
           borderRadius: "1.25rem",
         };
@@ -128,7 +128,7 @@ const OptimizedIframe = memo(
       }
       // Mobile: fixed width và height
       return {
-        width: "375px",
+        width: "425px",
         height: "calc(100vh - 65px)",
         maxHeight: "812px", // iPhone 13 height
       };
@@ -180,7 +180,6 @@ export default function ProductDetails({ product }: { product: Product }) {
     (newView: "desktop" | "mobile") => {
       if (newView !== view) {
         setView(newView);
-        setIsLoading(true);
         setHasError(false);
       }
     },
