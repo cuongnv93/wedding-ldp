@@ -103,7 +103,7 @@ function NavigationLinks() {
 // Component con: AuthButtons
 function CreatCard() {
   return (
-    <>
+    <Link href="/create-invitation" passHref legacyBehavior>
       <Button className="hidden md:flex">
         Tạo thiệp cưới
         <motion.div
@@ -114,7 +114,7 @@ function CreatCard() {
           <ArrowRight className="h-4 w-4" />
         </motion.div>
       </Button>
-    </>
+    </Link>
   );
 }
 

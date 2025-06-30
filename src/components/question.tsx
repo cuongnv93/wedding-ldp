@@ -15,9 +15,19 @@ const FAQSection = memo(() => (
     transition={{ duration: 0.3 }}
     className="flex flex-col gap-6 pt-8 md:pt-0 h-full justify-between"
   >
-    <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-3 text-center">
+    <motion.h1
+      className="text-3xl font-bold tracking-tighter sm:text-4xl mb-3 text-center"
+      initial={{ opacity: 0, y: -30, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{
+        type: "spring",
+        stiffness: 400,
+        damping: 28,
+        delay: 0.15,
+      }}
+    >
       Câu hỏi thường gặp
-    </h1>
+    </motion.h1>
     <FAQCollapse />
   </motion.div>
 ));

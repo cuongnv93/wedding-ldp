@@ -9,12 +9,14 @@ import {
   Mail,
   Phone,
   MapPin,
+  CheckCircle,
 } from "lucide-react";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -137,7 +139,7 @@ function QuickLinks() {
 // Component con: ContactInfo
 function ContactInfo() {
   const contacts = [
-    { icon: MapPin, text: "123 Đường Nguyễn Huệ, Quận 1, TP. Hồ Chí Minh" },
+    { icon: MapPin, text: "54A Nguyễn Chí Thanh - Hà Nội" },
     { icon: Phone, text: "0776 718 994" },
     { icon: Mail, text: "uwedding.online@gmail.com" },
   ];
@@ -161,25 +163,114 @@ function ContactInfo() {
 
 // Component con: Newsletter
 function Newsletter() {
+  const [phone, setPhone] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // Hàm kiểm tra số điện thoại chỉ chứa số và tối thiểu 8, tối đa 15 ký tự
+  const isValidPhone = (value: string) => {
+    return /^[0-9]{8,15}$/.test(value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!isValidPhone(phone)) {
+      toast.error("Vui lòng nhập số điện thoại hợp lệ!");
+      return;
+    }
+    setLoading(true);
+    const result = await savePhoneToSheet(phone);
+    setLoading(false);
+    if (result.status === "success") {
+      toast.success(
+        "Đăng ký tư vấn thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.",
+        {
+          icon: (
+            <CheckCircle
+              color="#22c55e"
+              size={22}
+              style={{ minWidth: 22, marginRight: 16 }}
+            />
+          ),
+        }
+      );
+      setPhone("");
+    } else {
+      toast.error("Có lỗi xảy ra, vui lòng thử lại sau!");
+    }
+  };
+
   return (
     <div className="space-y-4">
-      <h3 className="font-bold">Nhận ưu đãi đặc biệt</h3>
+      <h3 className="font-bold">Đăng ký tư vấn miễn phí</h3>
       <p className="text-muted-foreground">
-        Đăng ký để nhận thông tin về các mẫu thiệp cưới mới nhất và ưu đãi đặc
-        biệt.
+        Để lại số điện thoại, đội ngũ uWedding sẽ liên hệ tư vấn giúp bạn chọn
+        mẫu thiệp phù hợp nhất cho ngày trọng đại.
       </p>
-      <motion.div
-        className="flex flex-col sm:flex-row gap-2"
-        whileHover={{ scale: 1.02 }}
-        transition={{ type: "spring", stiffness: 300 }}
-      >
-        <Input type="email" placeholder="Email của bạn" />
-        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-          <Button type="submit">Đăng ký</Button>
+      <form onSubmit={handleSubmit}>
+        <motion.div
+          className="flex flex-col sm:flex-row gap-2"
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <Input
+            type="tel"
+            placeholder="Số điện thoại của bạn"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+            disabled={loading}
+            inputMode="numeric"
+            pattern="[0-9]{8,15}"
+          />
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button type="submit" disabled={loading}>
+              {loading ? (
+                <span className="flex items-center gap-2">
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="#22c55e"
+                      strokeWidth="4"
+                      fill="none"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="#22c55e"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    />
+                  </svg>
+                  Đang gửi...
+                </span>
+              ) : (
+                "Đăng ký"
+              )}
+            </Button>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </form>
     </div>
   );
+}
+
+async function savePhoneToSheet(phone: string) {
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbzQNxEe35_7uGvBCwiSd5YO-MAF0yK0CvIgHr-se2HmpW4LPar_PCD9ezFNX4cMiwXIPw/exec",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: JSON.stringify({ phone }),
+      }
+    );
+    return await response.json();
+  } catch (error) {
+    return { status: "error", error };
+  }
 }
 
 // Footer Component
@@ -231,20 +322,18 @@ export default function Footer() {
             © {new Date().getFullYear()} uWedding. Tất cả quyền được bảo lưu.
           </p>
           <div className="flex gap-4">
-            {["Điều khoản sử dụng", "Chính sách bảo mật"].map((link, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <Link
-                  href="#"
-                  className="text-sm text-muted-foreground hover:text-primary"
-                >
-                  {link}
-                </Link>
-              </motion.div>
-            ))}
+            <Link
+              href="/terms"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
+              Điều khoản sử dụng
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-sm text-muted-foreground hover:text-primary"
+            >
+              Chính sách bảo mật
+            </Link>
           </div>
         </motion.div>
       </div>
