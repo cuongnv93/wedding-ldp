@@ -103,7 +103,7 @@ function NavigationLinks() {
 // Component con: AuthButtons
 function CreatCard() {
   return (
-    <Link href="/create-invitation" passHref legacyBehavior>
+    <Link href="/create-invitation">
       <Button className="hidden md:flex">
         Tạo thiệp cưới
         <motion.div
@@ -145,11 +145,6 @@ export default function Navbar() {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-4">
-            {/* <Button variant="ghost" size="icon" className="hidden md:flex">
-              <Search className="h-5 w-5" />
-              <span className="sr-only">Tìm kiếm</span>
-            </Button> */}
-            {/* <CartButton onClick={() => setIsCheckoutModalOpen(true)} /> */}
             <CreatCard />
             <MobileMenuButton />
           </div>

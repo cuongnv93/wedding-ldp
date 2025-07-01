@@ -507,9 +507,19 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     new: true,
     stock: 15,
     description:
-      "New Balance 327 với thiết kế độc đáo và màu sắc nổi bật, tạo nên phong cách riêng biệt.",
+      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
     target: "web",
     isFavourite: true,
+  },
+  {
+    id: 48,
+    name: "MB_033",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description:
+      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
+    target: "mobile",
   },
 ];
 
