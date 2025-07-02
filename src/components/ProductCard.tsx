@@ -19,7 +19,7 @@ interface Product {
   description?: string;
 }
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({ product, activeTab }: { product: Product, activeTab: string }) {
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
 
@@ -63,14 +63,13 @@ export default function ProductCard({ product }: { product: Product }) {
       onMouseEnter={prefetchRoute}
     >
       <Card
-        className={`h-full min-h-[520px] transition-shadow duration-200 hover:shadow-lg ${
-          isNavigating ? "opacity-75 pointer-events-none" : ""
-        }`}
+        className={`h-full min-h-[520px] transition-shadow duration-200 hover:shadow-lg ${isNavigating ? "opacity-75 pointer-events-none" : ""
+          }`}
       >
-        <div className="relative aspect-square overflow-hidden">
+        <div className="relative aspect-square overflow-hidden" style={activeTab === "card" ? { height: "455px", width: "100%" } : undefined}>
           {/* Giữ nguyên tính năng preview ảnh dài 15000ms */}
           <div
-            className="relative shadow-lg min-h-[450px] z-0 rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] duration-[15000ms] ease-linear hover:bg-bottom"
+            className={`relative shadow-lg min-h-[450px] z-0 rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] ${activeTab === "card" ? "duration-[1000ms]" : "duration-[15000ms]"} ease-linear hover:bg-bottom`}
             style={{
               backgroundImage: `url('${product.image}')`,
             }}
@@ -115,11 +114,10 @@ export default function ProductCard({ product }: { product: Product }) {
 
         <CardFooter className="p-4 pt-0 h-[60px]">
           <div
-            className={`w-full rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 ${
-              isNavigating
-                ? "bg-primary/70 text-primary-foreground cursor-not-allowed"
-                : "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-md"
-            }`}
+            className={`w-full rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 ${isNavigating
+              ? "bg-primary/70 text-primary-foreground cursor-not-allowed"
+              : "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-md"
+              }`}
           >
             {isNavigating ? (
               <>
