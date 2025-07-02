@@ -10,7 +10,7 @@ export type Product = {
   image: string;
   gallery: string[];
   linkRedirect: string;
-  target: "web" | "mobile" | "web beautiful";
+  target: "web" | "mobile" | "web beautiful" | "card";
   isHot?: boolean;
   isFavourite?: boolean;
 };
@@ -520,6 +520,26 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description:
       "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
     target: "mobile",
+  },
+  {
+    id: 49,
+    name: "MB_034",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description:
+      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
+    target: "mobile",
+  },
+  {
+    id: 50,
+    name: "THIEP_001",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description:
+      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
+    target: "card",
   },
 ];
 
