@@ -27,6 +27,21 @@ const nextConfig: NextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "www.uwedding.online", // Thay bằng domain thật của bạn
+          },
+        ],
+        destination: "https://uwedding.online/:path*", // Thay bằng domain không www
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
