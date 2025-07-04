@@ -200,10 +200,10 @@ export default function ProductsPage() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+              className={`grid grid-cols-1 sm:grid-cols-2 ${activeTab === "card" ? "lg:grid-cols-2" : "lg:grid-cols-4"} gap-6 mt-12`}
             >
               {visibleProducts.map((product) => (
-                <MemoizedProductCard key={product.id} product={product} />
+                <MemoizedProductCard key={product.id} product={product} activeTab={activeTab} />
               ))}
             </m.div>
           </AnimatePresence>
@@ -242,11 +242,10 @@ const TabButton = memo(
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
       className={`relative px-4 py-2 rounded-full border transition-colors duration-150 overflow-hidden
-      ${
-        isActive
+      ${isActive
           ? "border-primary"
           : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-      }`}
+        }`}
       onClick={onClick}
     >
       <AnimatePresence>
@@ -266,9 +265,8 @@ const TabButton = memo(
         )}
       </AnimatePresence>
       <span
-        className={`relative z-10 transition-colors duration-150 ${
-          isActive ? "text-white" : "text-gray-700"
-        }`}
+        className={`relative z-10 transition-colors duration-150 ${isActive ? "text-white" : "text-gray-700"
+          }`}
       >
         {tab.label}
       </span>
