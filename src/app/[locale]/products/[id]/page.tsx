@@ -2,12 +2,12 @@ import { products } from "@/data/products";
 import ProductDetails from "./ProductDetails";
 
 type PageProps = {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 };
 
+
 export default async function ProductPage(props: PageProps) {
-  const params = await props.params;
-  const productId = Number.parseInt(params.id, 10);
+  const productId = Number(props.params.id);
 
   const product = products.find((p) => p.id === productId);
 
