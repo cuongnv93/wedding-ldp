@@ -19,7 +19,13 @@ export function SwitchFlag() {
   };
 
   return (
-    <div className="flag-switch" data-first-lang="EN" data-second-lang="VI">
+    <div
+      className={`flag-switch ${
+        checked ? "is-second-active" : "is-first-active"
+      }`}
+      data-first-lang="EN"
+      data-second-lang="VI"
+    >
       <input
         type="checkbox"
         id="check1"
