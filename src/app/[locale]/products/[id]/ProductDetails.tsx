@@ -34,9 +34,8 @@ const ViewToggleButton = memo(
     onClick: () => void;
   }) => (
     <button
-      className={`p-2 rounded transition-colors hover:bg-gray-100 ${
-        view === currentView ? "bg-primary/10 text-primary" : "text-gray-600"
-      }`}
+      className={`p-2 rounded transition-colors hover:bg-gray-100 ${view === currentView ? "bg-primary/10 text-primary" : "text-gray-600"
+        }`}
       onClick={onClick}
       title={title}
       aria-pressed={view === currentView}
@@ -171,7 +170,8 @@ export default function ProductDetails({ product }: { product: Product }) {
 
   // Memoize iframe src để tránh tạo lại string
   const iframeSrc = useMemo(
-    () => `/api/proxy?urlId=${product.id}`,
+    // () => `/api/proxy?urlId=${product.id}`,
+    () => product.linkRedirect,
     [product.id]
   );
 
