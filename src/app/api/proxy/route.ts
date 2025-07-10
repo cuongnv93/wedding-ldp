@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Product, products } from "@/data/products";
 
-// export const runtime = "edge"; // chạy Edge nếu deploy Vercel
+export const runtime = "edge"; // chạy Edge nếu deploy Vercel
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -29,9 +29,14 @@ export async function GET(request: Request) {
     const urlObj = new URL(product.linkRedirect);
     const origin = urlObj.origin;
     const basePath = urlObj.pathname.replace(/\/[^\/]*$/, "/");
+    const baseTag = `<base href="${origin}${basePath}">`;
+    const encodedBase = btoa(unescape(encodeURIComponent(baseTag)));
 
-    // Regex đơn giản
-    html = html.replace(/(src|href)=["']\/(?!\/)/g, `$1="${origin}${basePath}`);
+    html = html.replace(/<head[^>]*>/i, (match) => {
+      return `${match}<script>document.write(decodeURIComponent(escape(atob("${encodedBase}"))))</script>`;
+    });
+
+    html = html.replace(/(src|href)=["']\/(?!\/)/g, `$1="${origin}/`);
 
     return new NextResponse(html, {
       headers: {
