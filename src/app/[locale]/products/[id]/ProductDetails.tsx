@@ -170,8 +170,7 @@ export default function ProductDetails({ product }: { product: Product }) {
 
   // Memoize iframe src để tránh tạo lại string
   const iframeSrc = useMemo(
-    // () => `/api/proxy?urlId=${product.id}`,
-    () => product.linkRedirect,
+    () => `/api/proxy?urlId=${product.id}`,
     [product.id]
   );
 
