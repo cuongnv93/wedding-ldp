@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, ArrowRight } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "../components/ui/button";
 import AuthModal from "./auth-modal";
 import CheckoutModal from "./checkout-modal";
-import { motion } from "framer-motion"; // Import framer-motion
+// import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { SwitchFlag } from "./ui/switchFlag";
+import { useTranslations } from "next-intl";
 
 function Logo() {
   return (
@@ -21,6 +23,7 @@ function Logo() {
 function NavigationLinks() {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(true);
+  const t = useTranslations("");
 
   useEffect(() => {
     setIsHomePage(window.location.pathname === "/");
@@ -28,7 +31,7 @@ function NavigationLinks() {
 
   const links = [
     {
-      name: "Giới thiệu",
+      name: t("about"),
       href: "#about",
     },
     {
@@ -101,22 +104,13 @@ function NavigationLinks() {
 // }
 
 // Component con: AuthButtons
-function CreatCard() {
-  return (
-    <Link href="/create-invitation">
-      <Button className="hidden md:flex">
-        Tạo thiệp cưới
-        <motion.div
-          style={{ display: "inline-block" }}
-          whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.5 }}
-        >
-          <ArrowRight className="h-4 w-4" />
-        </motion.div>
-      </Button>
-    </Link>
-  );
-}
+// function CreatCard() {
+//   return (
+//     <Link href="/create-invitation">
+//       <Button className="hidden md:flex">Tạo thiệp cưới ngay</Button>
+//     </Link>
+//   );
+// }
 
 // Component con: MobileMenuButton
 function MobileMenuButton() {
@@ -144,8 +138,9 @@ export default function Navbar() {
           <NavigationLinks />
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4">
-            <CreatCard />
+          <div className="flex items-center gap-16">
+            {/* <CreatCard /> */}
+            <SwitchFlag />
             <MobileMenuButton />
           </div>
         </div>
