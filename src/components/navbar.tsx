@@ -145,7 +145,6 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-
       {/* Modals */}
       <AuthModal
         isOpen={isAuthModalOpen}

@@ -21,7 +21,7 @@ export default async function RootLayout(props: {
   return (
     <html lang={locale}>
       <body>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider locale={locale}>
           <ClientLayout>{children}</ClientLayout>
         </NextIntlClientProvider>
       </body>

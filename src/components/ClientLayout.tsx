@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import { CartProvider } from "../contexts/cart-context";
+import NextTopLoader from "nextjs-toploader";
 
 // const LazySplashCursor = dynamic(() => import("@/components/SplashCursor"), {
 //   ssr: false,
@@ -52,6 +53,7 @@ export default function ClientLayout({
         {children}
         <LazyToaster />
       </CartProvider>
+      <NextTopLoader color="hsl(var(--primary))" showSpinner={false} />
     </>
   );
 }

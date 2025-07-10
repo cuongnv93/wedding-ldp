@@ -5,8 +5,8 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Shuffle } from "lucide-react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
+import { useRouter } from "nextjs-toploader/app";
 
 interface Product {
   id: string | number;
