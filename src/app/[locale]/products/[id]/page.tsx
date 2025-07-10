@@ -2,10 +2,11 @@ import { products } from "@/data/products";
 import ProductDetails from "./ProductDetails";
 
 type PageProps = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
-export default function ProductPage({ params }: PageProps) {
+export default async function ProductPage(props: PageProps) {
+  const params = await props.params;
   const productId = Number.parseInt(params.id, 10);
 
   const product = products.find((p) => p.id === productId);
@@ -17,7 +18,8 @@ export default function ProductPage({ params }: PageProps) {
   return <ProductDetails product={product} />;
 }
 
-export function generateMetadata({ params }: PageProps) {
+export async function generateMetadata(props: PageProps) {
+  const params = await props.params;
   const productId = Number.parseInt(params.id, 10);
   const product = products.find((p) => p.id === productId);
 
@@ -33,8 +35,9 @@ export function generateMetadata({ params }: PageProps) {
   };
 }
 
-export function generateStaticParams() {
-  return products.map((product) => ({
-    id: product.id.toString(),
-  }));
-}
+// Generate static params (optional - for static generation)
+// export async function generateStaticParams() {
+//   return products.map((product) => ({
+//     id: product.id.toString(),
+//   }));
+// }
