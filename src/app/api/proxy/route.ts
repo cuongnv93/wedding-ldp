@@ -29,9 +29,14 @@ export async function GET(request: Request) {
     const urlObj = new URL(product.linkRedirect);
     const origin = urlObj.origin;
     const basePath = urlObj.pathname.replace(/\/[^\/]*$/, "/");
+    const baseTag = `<base href="${origin}${basePath}">`;
+    const encodedBase = Buffer.from(baseTag).toString("base64");
 
-    // Regex đơn giản
-    html = html.replace(/(src|href)=["']\/(?!\/)/g, `$1="${origin}${basePath}`);
+    html = html.replace(/<head[^>]*>/i, (match) => {
+      return `${match}<script>document.write(atob("${encodedBase}"))</script>`;
+    });
+
+    html = html.replace(/(src|href)=["']\/(?!\/)/g, `$1="${origin}/`);
 
     return new NextResponse(html, {
       headers: {
