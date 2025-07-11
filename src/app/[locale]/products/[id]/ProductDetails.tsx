@@ -9,7 +9,7 @@ import Link from "next/link";
 const Logo = memo(() => (
   <Link
     href="/"
-    className="font-bold text-xl hover:opacity-80 transition-opacity"
+    className="font-bold text-2xl hover:opacity-80 transition-opacity"
   >
     <span className="text-primary">u</span>Wedding
   </Link>
