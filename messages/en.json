@@ -21,7 +21,21 @@
     "new": "New",
     "details": "View details",
     "view_all": "View all wedding invitations",
-    "loading": "Loading"
+    "loading": "Loading",
+    "list": "Wedding invitation list",
+    "favorite_interface": "Favorite Interface",
+    "invitation_interface": "Invitation Interface",
+    "web_interface": "Web Interface",
+    "mobile_interface": "Mobile Interface",
+    "load_more": "Scroll down to load more",
+    "favorite_interface_desc": "Modern, intuitive invitation designs trusted and adored by countless couples.",
+    "invitation_interface_desc": "Exquisitely designed invitation templates that can be effortlessly personalized to match your unique style.",
+    "web_interface_desc": "Wedding websites beautifully optimized for seamless browsing, presenting all key details with perfect clarity.",
+    "mobile_interface_desc": "Perfectly responsive mobile interface lets you share your wedding invitation instantly, anywhere you go.",
+    "desktop_interface": "Desktop Interface",
+    "unable_load": "Unable to load interface",
+    "try": "Please try again later",
+    "preview": "Preview interface"
   },
   "benefits": {
     "why_choose": "Why Choose uWedding?",

@@ -21,7 +21,21 @@
     "new": "Mới",
     "details": "Xem chi tiết",
     "view_all": "Xem tất cả thiệp cưới",
-    "loading": "Đang tải"
+    "loading": "Đang tải",
+    "list": "Danh sách thiệp cưới",
+    "favorite_interface": "Giao diện được yêu thích",
+    "invitation_interface": "Giao diện thiệp cưới",
+    "web_interface": "Giao diện website",
+    "mobile_interface": "Giao diện di động",
+    "load_more": "Kéo xuống để tải thêm",
+    "favorite_interface_desc": "Những thiết kế thiệp cưới được nhiều cặp đôi tin chọn, mang phong cách hiện đại và dễ sử dụng.",
+    "invitation_interface_desc": "Mẫu giao diện thiệp cưới tinh tế, đẹp mắt, dễ dàng tùy chỉnh theo ý muốn.",
+    "web_interface_desc": "Thiết kế web thiệp cưới tối ưu trải nghiệm người dùng trên trình duyệt, hiển thị đầy đủ thông tin cần thiết.",
+    "mobile_interface_desc": "Giao diện thiệp cưới hiển thị hoàn hảo trên thiết bị di động, tiện lợi chia sẻ mọi lúc, mọi nơi.",
+    "desktop_interface": "Giao diện máy tính",
+    "unable_load": "Không thể tải giao diện",
+    "try": "Vui lòng thử lại sau",
+    "preview": "Xem trước giao diện"
   },
   "benefits": {
     "why_choose": "Vì sao nên chọn uWedding?",

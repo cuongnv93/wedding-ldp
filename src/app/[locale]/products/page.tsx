@@ -8,6 +8,7 @@ import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import Loading from "@/components/loading";
 import { AnimatePresence, motion as m } from "framer-motion";
 import { memo } from "react";
+import { useTranslations } from "next-intl";
 
 // Session storage utilities
 const SESSION_STORAGE_KEY = "activeTab";
@@ -62,16 +63,33 @@ const containerVariants = {
 const LOAD_COUNT = 8; // Tăng số lượng load để giảm số lần fetch
 const INTERSECTION_THRESHOLD = 0.8; // Tối ưu threshold
 
-const TABS = [
-  { label: "Giao diện được yêu thích", value: "favourite" },
-  { label: "Giao diện Thiệp", value: "card" },
-  { label: "Giao diện Mobile", value: "mobile" },
-  { label: "Giao diện Web", value: "web" },
-] as const;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getTabs = (t: any) =>
+  [
+    {
+      label: t("favorite_interface"),
+      value: "favourite",
+      desc: t("favorite_interface_desc"),
+    },
+    {
+      label: t("invitation_interface"),
+      value: "card",
+      desc: t("invitation_interface_desc"),
+    },
+    {
+      label: t("mobile_interface"),
+      value: "mobile",
+      desc: t("mobile_interface_desc"),
+    },
+    { label: t("web_interface"), value: "web", desc: t("web_interface_desc") },
+  ] as const;
 
-type TabValue = (typeof TABS)[number]["value"];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type TabValue = any;
 
 export default function ProductsPage() {
+  const t = useTranslations("list_product");
+  const TABS = getTabs(t);
   const [isLoaded, setIsLoaded] = useState(false);
   const [visibleCount, setVisibleCount] = useState(LOAD_COUNT);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
@@ -176,9 +194,7 @@ export default function ProductsPage() {
       <Navbar />
       <main className="flex-grow">
         <section className="container mx-auto py-12">
-          <h1 className="text-3xl font-bold mb-6 text-center">
-            Danh sách Thiệp cưới
-          </h1>
+          <h1 className="text-3xl font-bold mb-6 text-center">{t("list")}</h1>
 
           {/* Tối ưu tab buttons */}
           <div className="flex flex-wrap justify-center mb-8 gap-8 sm:gap-4 relative">
@@ -191,7 +207,11 @@ export default function ProductsPage() {
               />
             ))}
           </div>
-
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mt-8">
+            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              {TABS.find((item) => item.value === activeTab)?.desc}
+            </p>
+          </div>
           {/* Products grid với tối ưu animation */}
           <AnimatePresence mode="wait">
             <m.div
@@ -200,10 +220,16 @@ export default function ProductsPage() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className={`grid grid-cols-1 sm:grid-cols-2 ${activeTab === "card" ? "lg:grid-cols-2" : "lg:grid-cols-4"} gap-6 mt-12`}
+              className={`grid grid-cols-1 sm:grid-cols-2 ${
+                activeTab === "card" ? "lg:grid-cols-2" : "lg:grid-cols-4"
+              } gap-6 mt-12`}
             >
               {visibleProducts.map((product) => (
-                <MemoizedProductCard key={product.id} product={product} activeTab={activeTab} />
+                <MemoizedProductCard
+                  key={product.id}
+                  product={product}
+                  activeTab={activeTab}
+                />
               ))}
             </m.div>
           </AnimatePresence>
@@ -215,7 +241,7 @@ export default function ProductsPage() {
           >
             {isLoadingMore && <Loading />}
             {!isLoadingMore && hasMoreProducts && (
-              <span className="text-gray-500">Kéo xuống để tải thêm...</span>
+              <span className="text-gray-500">{t("load_more")}...</span>
             )}
           </div>
         </section>
@@ -232,7 +258,8 @@ const TabButton = memo(
     isActive,
     onClick,
   }: {
-    tab: (typeof TABS)[number];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    tab: any;
     isActive: boolean;
     onClick: () => void;
   }) => (
@@ -242,10 +269,11 @@ const TabButton = memo(
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
       className={`relative px-4 py-2 rounded-full border transition-colors duration-150 overflow-hidden
-      ${isActive
+      ${
+        isActive
           ? "border-primary"
           : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-        }`}
+      }`}
       onClick={onClick}
     >
       <AnimatePresence>
@@ -265,8 +293,9 @@ const TabButton = memo(
         )}
       </AnimatePresence>
       <span
-        className={`relative z-10 transition-colors duration-150 ${isActive ? "text-white" : "text-gray-700"
-          }`}
+        className={`relative z-10 transition-colors duration-150 ${
+          isActive ? "text-white" : "text-gray-700"
+        }`}
       >
         {tab.label}
       </span>
