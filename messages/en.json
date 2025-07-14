@@ -172,5 +172,19 @@
           "desc_5": "This privacy policy may be updated periodically. Users are responsible for reviewing it before continuing to use the service."
         },
         "contact": "If you have any questions about the privacy policy, please contact us:"
+    },
+    "create_invitation": {
+      "title": "Instructions for ordering online invitations",
+      "step_title_1": "Choose your favorite invitation template",
+      "step_content_1": "<Link href='/products' className='text-primary underline'>Access the Wedding Invitations list </Link>{' '}and choose a template that matches your style.",
+      "step_content_2": "<> Call the phone number <Phone className='inline-block mx-1' size={18} />{' '} <a href='tel:0355565741' className='underline text-primary'> 0355 565 741 </a>, or place an order via{' '} <a href='https://zalo.me/' target='blank' rel='noopener noreferrer' className='underline text-primary'><MessageCircle className='inline-block mx-1' size={18} /> Zalo </a>{' '} or{' '} <a href='https://facebook.com/' target='blank' rel='noopener noreferrer' className='underline text-primary'><Facebook className='inline-block mx-1' size={18} /> Facebook</a>.</>",
+      "step_title_2": "Contact to order invitations",
+      "step_title_3": "Send wedding information & photos",
+      "step_content_3": "Send complete necessary information (bride's name, groom's name, date, time, location, invitation message...) and wedding photos for designing the invitation.",
+      "step_title_4": "Receive the web demo & make edits",
+      "step_content_4": "You will receive a web invitation demo to review and can request changes to the information or images until satisfied.",
+      "step_title_5": "Delivery & Payment",
+      "step_content_5": "After finalizing the content, you will receive the invitation website, QR code, guestbook file, attendance list, and proceed with payment.",
+      "contact": "If you need further assistance, please contact us:"
     }
 }

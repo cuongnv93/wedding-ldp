@@ -20,7 +20,6 @@ export default function TermsPage() {
   return (
     <>
       <Navbar />
-
       <main
         style={{ minHeight: "calc(100vh - 448px)" }}
         className="container mx-auto max-w-3xl py-12 px-4"
