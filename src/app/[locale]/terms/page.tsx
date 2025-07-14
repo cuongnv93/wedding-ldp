@@ -3,8 +3,20 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export default function TermsPage() {
+  const t = useTranslations("terms");
+
+  const listItems = [
+    { titleKey: "list.title_1", descKey: "list.desc_1" },
+    { titleKey: "list.title_2", descKey: "list.desc_2" },
+    { titleKey: "list.title_3", descKey: "list.desc_3" },
+    { titleKey: "list.title_4", descKey: "list.desc_4" },
+    { titleKey: "list.title_5", descKey: "list.desc_5" },
+    { titleKey: "list.title_6", descKey: "list.desc_6" },
+  ];
+
   return (
     <>
       <Navbar />
@@ -20,44 +32,23 @@ export default function TermsPage() {
           className="rounded-2xl p-8 md:p-12"
         >
           <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-primary tracking-tight">
-            Điều khoản sử dụng
+            {t("title")}
           </h1>
-          <p className="mb-4 text-gray-700 leading-relaxed">
-            Chào mừng bạn đến với dịch vụ Thiệp cưới Online. Bằng cách sử dụng
-            website này, bạn đồng ý tuân thủ các điều khoản dưới đây:
-          </p>
-          <ol className="list-decimal pl-6 space-y-4 text-gray-700 text-base md:text-lg">
-            <li>
-              <span className="font-semibold text-primary">
-                Sử dụng hợp pháp:
-              </span>{" "}
-              Không chia sẻ nội dung vi phạm pháp luật.
-            </li>
-            <li>
-              <span className="font-semibold text-primary">Quyền sở hữu:</span>{" "}
-              Mọi nội dung thuộc quyền sở hữu của chúng tôi.
-            </li>
-            <li>
-              <span className="font-semibold text-primary">
-                Chỉnh sửa dịch vụ:
-              </span>{" "}
-              Có thể thay đổi bất cứ lúc nào.
-            </li>
-            <li>
-              <span className="font-semibold text-primary">
-                Miễn trừ trách nhiệm:
-              </span>{" "}
-              Không chịu trách nhiệm về thiệt hại phát sinh.
-            </li>
-            <li>
-              <span className="font-semibold text-primary">
-                Điều khoản bổ sung:
-              </span>{" "}
-              Có thể cập nhật mà không cần báo trước.
-            </li>
+          <p className="mb-4 text-gray-700 leading-relaxed">{t("desc")}</p>
+          <ol className="list-decimal ml-4 space-y-4 text-gray-700 text-base md:text-lg">
+            {listItems.map((item, index) => (
+              <li key={index} className="text-justify">
+                {" "}
+                {/* Sử dụng index làm key nếu thứ tự các mục không thay đổi và không có thêm/bớt */}
+                <span className="font-semibold text-primary">
+                  {t(item.titleKey)}
+                </span>{" "}
+                {t(item.descKey)}
+              </li>
+            ))}
           </ol>
           <p className="mt-8 text-gray-700">
-            Liên hệ:{" "}
+            {t("contact")}{" "}
             <a
               href="mailto:uweeding.online@gmail.com"
               className="text-primary underline font-medium"

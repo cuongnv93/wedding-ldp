@@ -14,5 +14,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
   return {
     locale,
     messages: locale === "vi" ? vi : en,
+    defaultTranslationValues: (key: string) => key,
   };
 });

@@ -7,7 +7,7 @@ import { Shuffle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useCallback, useState } from "react";
 import { useRouter } from "nextjs-toploader/app";
-import { useTranslations } from "next-intl";
+import { useSafeTranslations } from "../hooks/useSafeTranslations";
 
 interface Product {
   id: string | number;
@@ -29,7 +29,8 @@ export default function ProductCard({
 }) {
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
-  const t = useTranslations("list_product");
+  const t = useSafeTranslations("list_product");
+  const t_desc = useSafeTranslations("item_desc");
 
   // Navigation với loading state và prevent double clicks
   const handleCardClick = useCallback(async () => {
@@ -125,7 +126,7 @@ export default function ProductCard({
           <h3 className="font-semibold text-lg line-clamp-2">{product.name}</h3>
           {product.description && (
             <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-              {product.description}
+              {t_desc(product.description)}
             </p>
           )}
         </CardContent>

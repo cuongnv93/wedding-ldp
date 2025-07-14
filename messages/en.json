@@ -77,6 +77,100 @@
     "success_message": "Thank you for registering! The uWedding team will contact you as soon as possible.",
     "error": "An error occurred, please try again later.",
     "sending": "Sending",
-    "reserved": "All Rights Reserved."
-  }
+    "reserved": "All Rights Reserved.",
+    "adress": "54A Nguyen Chi Thanh - Ha Noi City - Viet Nam"
+  },
+  "item_desc": {
+    "WEB_001": "A modern, personalized invitation template, perfect for energetic and youthful couples. Features standout designs that effortlessly impress guests.",
+    "WEB_002": "A luxurious and sophisticated wedding invitation that brings warmth and intimacy to your special day. Perfect for those who love minimalist yet striking designs.",
+    "WEB_003": "A bold, unconventional invitation template designed for couples who crave uniqueness and want to leave their personal stamp on the big day.",
+    "WEB_004": "A delicate invitation that beautifully narrates your love story - from the first meeting to your wedding day. Perfect for couples who cherish romance and tradition.",
+    "WEB_005": "A wedding invitation with subtle motion effects, creating a modern and captivating experience for your guests.",
+    "WEB_006": "A floral wedding invitation symbolizing new beginnings and everlasting happiness—where every bloom tells a chapter of your love story.",
+    "WEB_007": "A fairytale-inspired wedding invitation designed for couples who dream of a storybook-perfect celebration—where love dances like magic on every page.",
+    "WEB_008": "A fresh green-toned wedding invitation that brings a natural, revitalizing vibe—perfect for nature-loving couples.",
+    "WEB_009": "An autumn-inspired wedding invitation wrapped in warm amber and gold tones, radiating romance and sweetness—like your love story in its golden season.",
+    "WEB_010": "A mosaic-inspired wedding invitation—where intricate patterns and vibrant colors collide to create a one-of-a-kind celebration of your love.",
+    "WEB_011": "An island-inspired wedding invitation that captures the spirit of freedom, adventure, and romance—perfect for couples who dream of ocean breezes and endless horizons.",
+    "WEB_012": "A festival-inspired wedding invitation bursting with joy and lively energy—setting the tone for a celebration as vibrant as your love.",
+    "WEB_014": "A 3D-effect wedding invitation that leaps off the page—immersive, unforgettable, and designed to dazzle your guests from the first glance.",
+    "WEB_015": "An abstract art-inspired wedding invitation—where bold creativity meets unconventional elegance, crafted for couples who dare to redefine tradition.",
+    "WEB_016": "A garden-inspired wedding invitation blooming with freshness, vitality, and pure joy—where every petal celebrates your love story.",
+    "WEB_017": "A literary love-inspired wedding invitation, drawing from timeless romance tales—infused with wishes for a future as enduring and joyful as the greatest love stories.",
+    "WEB_018": "A teddy bear-themed wedding invitation, evoking sweet childhood memories—perfect for couples who cherish innocence and warmth in their love story.",
+
+
+    "MB_001": "A striking, bold invitation designed for couples who crave distinctive style and want to make an unforgettable statement on their wedding day.",
+    "MB_002": "A contemporary, minimalist invitation template designed for couples who appreciate elegance and sophistication. Features a user-friendly interface accessible for all age groups.",
+    "MB_003": "A retro-style wedding invitation that evokes nostalgia and warmth. Features unique patterns to create a distinctive statement for your special day.",
+    "MB_004": "A youthful, vibrant wedding invitation designed for couples who love fresh and creative styles. Eye-catching design that effortlessly captures everyone’s attention.",
+    "MB_005": "A wedding invitation in soft pastel tones, exuding sweetness and romance. Perfect for those who adore gentle elegance.",
+    "MB_006": "A bold, unconventional wedding invitation designed for couples who want to make their big day truly one-of-a-kind.",
+    "MB_007": "A nature-inspired wedding invitation featuring vibrant floral motifs, bringing a fresh and lively energy to your special day.",
+    "MB_008": "A luxury wedding invitation with gold accents, designed for upscale celebrations that reflect thoughtfulness and honor your guests.",
+    "MB_009": "A minimalist wedding invitation that focuses on your love story and the bond you share—simple, meaningful, and deeply personal.",
+    "MB_010": "A watercolor-effect wedding invitation that brings a soft, dreamy, and artistic touch to your special day",
+    "MB_011": "A modern wedding invitation featuring a timeline of your love story, inviting guests to relive your unique journey together.",
+    "MB_012": "A vintage cinema-inspired wedding invitation that evokes nostalgia and uniqueness—perfect for couples who adore retro charm.",
+    "MB_014": "A vibrant floral wedding invitation bursting with joy, infusing your special day with happiness and lively energy.",
+    "MB_015": "A modern geometric-patterned wedding invitation, designed for couples who love creativity and dare to stand out.",
+    "MB_016": "An ocean-inspired wedding invitation featuring cool blue tones and wave motifs, evoking a sense of serenity for your special day.",
+    "MB_017": "An adorable couple-themed wedding invitation, perfect for those who love youthful and cheerful vibes.",
+    "MB_018": "A luxury-style wedding invitation crafted with premium materials and sophisticated effects, designed to leave a lasting impression on your guests.",
+    "MB_019": "A travel-themed wedding invitation designed for adventurous couples who want to share their journey with loved ones.",
+    "MB_020": "A celestial-inspired wedding invitation adorned with stars and moon motifs, evoking a sense of mystery and romance for your cosmic love story.",
+    "MB_021": "A traditionally-styled wedding invitation that preserves cultural beauty while blending contemporary elegance—perfect for honoring heritage with a modern touch.",
+    "MB_022": "An artfully crafted wedding invitation featuring unique hand-drawn motifs, creating a deeply personal touch for your special day.",
+    "MB_023": "A spring-themed wedding invitation that radiates renewal, vibrant energy, and hope—perfect for new beginnings.",
+    "MB_024": "A winter-themed wedding invitation that wraps your love in warmth, serenity, and blissful harmony—perfect for cozy celebrations under the stars.",
+    "MB_025": "A boho-chic wedding invitation—free-spirited, effortlessly romantic, and perfect for couples who dance to their own rhythm.",
+    "MB_026": "A cherry blossom-themed wedding invitation, symbolizing new beginnings and eternal love—where delicate petals whisper your promise.",
+    "MB_027": "A wedding invitation with a shimmering light effect, creating an ethereal and romantic atmosphere for your magical celebration.",
+    "MB_028": "A rustic wedding invitation—earthy, unpretentious, and deeply connected to nature—perfect for couples who cherish simplicity and authentic charm.",
+    "MB_029": "A music-themed wedding invitation designed for couples who share a passion for the arts—where every note celebrates your harmony.",
+    "MB_030": "An urban-inspired wedding invitation featuring sleek, contemporary motifs—perfect for young, dynamic couples who thrive in the heartbeat of the city.",
+    "MB_031": "A vintage-inspired wedding invitation, radiating nostalgic elegance—perfect for couples who appreciate timeless sophistication.",
+    "MB_032": "A wedding invitation adorned with golden leaf motifs, symbolizing enduring strength and everlasting happiness—where love grows richer with time.",
+    "MB_033": "A galaxy-themed wedding invitation adorned with shimmering stars and nebulae—symbolizing a love as infinite and radiant as the cosmos itself.",
+    "MB_034": "A vintage library-style invitation, featuring delicate calligraphy and aged paper textures—perfect for book-loving couples whose romance reads like a classic novel.",
+
+    "THIEP_001": "A classically designed wedding invitation, exuding elegance and sophistication—perfect for couples who appreciate timeless tradition and refined style. Featuring delicate motifs that evoke warmth and intimacy."
+
+  },
+      "terms": {
+        "title": "Terms of Service for Online Wedding Invitation Platform",
+        "desc": "Welcome to our Online Wedding Invitation service. By using this website, you agree to comply with the following terms and conditions:",
+        "list": {
+          "title_1": "Permitted Use:",
+          "desc_1": "You agree to use our online wedding invitation service solely for lawful purposes, in compliance with Vietnamese and international laws. Any illegal, offensive, or copyrighted content is strictly prohibited.",
+          "title_2": "Intellectual Property Rights:",
+          "desc_2": "All designs, templates, and platform content are uWedding’s intellectual property. Unauthorized copying, modification, or distribution is strictly forbidden.",
+          "title_3": "Service Modifications:",
+          "desc_3": "We reserve the right to modify, suspend, or discontinue services/features at any time to optimize user experience, without prior notice.",
+          "title_4": "Disclaimer of Liability:",
+          "desc_4": "uWedding disclaims all liability for any damages incurred through the use of its services, including, without limitation, technical malfunctions, data loss, or security breaches.",
+          "title_5": "Supplemental Terms:",
+          "desc_5": "These terms may be updated periodically to reflect policy changes. Users are responsible for reviewing them before continued use.",
+          "title_6": "Binding Nature:",
+          "desc_6": "By using our service, you acknowledge and agree to these terms unconditionally."
+      },
+      "contact": "Contact Us:"
+    },
+      "privacy": {
+        "title": "Privacy Policy for Online Wedding Invitation Platform",
+        "desc": "We are committed to protecting your personal information when you use our Online Wedding Invitation service. Below are the privacy principles we adhere to:",
+        "list": {
+          "title_1": "Information Collection:",
+          "desc_1": "We collect necessary personal data to provide our services, including your name, email address, phone number, and other relevant details.",
+          "title_2": "Use of Information:",
+          "desc_2": "Your personal data will be used to deliver services, send notifications, and provide customer support. We pledge not to sell or share your personal information with third parties.",
+          "title_3": "Data Security:",
+          "desc_3": "We implement technical and organizational measures to protect your personal information from unauthorized access, loss, or leakage.",
+          "title_4": "User rights: ",
+          "desc_4": "You have the right to request access, correction, or deletion of your personal information at any time. Please contact us to exercise this right.",
+          "title_5": "Policy changes:",
+          "desc_5": "This privacy policy may be updated periodically. Users are responsible for reviewing it before continuing to use the service."
+        },
+        "contact": "If you have any questions about the privacy policy, please contact us:"
+    }
 }

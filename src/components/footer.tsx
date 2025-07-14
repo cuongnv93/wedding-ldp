@@ -140,8 +140,9 @@ function QuickLinks() {
 
 // Component con: ContactInfo
 function ContactInfo() {
+  const t = useTranslations("footer");
   const contacts = [
-    { icon: MapPin, text: "54A Nguyễn Chí Thanh - Hà Nội" },
+    { icon: MapPin, text: t("adress") },
     { icon: Phone, text: "0776 718 994" },
     { icon: Mail, text: "uwedding.online@gmail.com" },
   ];
