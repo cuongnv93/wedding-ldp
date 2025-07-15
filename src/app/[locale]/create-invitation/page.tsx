@@ -5,73 +5,69 @@ import Footer from "@/components/footer";
 import { motion } from "framer-motion";
 import { Phone, Facebook, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
-const steps = [
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const getSteps = (t: any) => [
   {
-    title: "step_title_1",
-    content: "step_content_1",
+    title: t("step_title_1"),
+    content: (
+      <>
+        <Link href="/products" className="text-primary underline">
+          {t("step_content_1_1")}
+        </Link>{" "}
+        {t("step_content_1_2")}
+      </>
+    ),
   },
-  // {
-  //   title: "Bước 2: Liên hệ đặt thiệp",
-  //   content: (
-  //     <>
-  //       Gọi điện thoại <Phone className="inline-block mx-1" size={18} />{" "}
-  //       <a href="tel:0355565741" className="underline text-primary">
-  //         0355 565 741
-  //       </a>
-  //       , hoặc đặt qua{" "}
-  //       <a
-  //         href="https://zalo.me/"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //         className="underline text-primary"
-  //       >
-  //         <MessageCircle className="inline-block mx-1" size={18} /> Zalo
-  //       </a>{" "}
-  //       hoặc{" "}
-  //       <a
-  //         href="https://facebook.com/"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //         className="underline text-primary"
-  //       >
-  //         <Facebook className="inline-block mx-1" size={18} /> Facebook
-  //       </a>
-  //       .
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: "Bước 3: Gửi thông tin & ảnh cưới",
-  //   content: (
-  //     <>
-  //       Gửi đầy đủ thông tin cần thiết (tên cô dâu, chú rể, ngày giờ, địa điểm,
-  //       lời mời...) và ảnh cưới để thiết kế thiệp.
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: "Bước 4: Nhận bản web demo & chỉnh sửa",
-  //   content: (
-  //     <>
-  //       Bạn sẽ nhận được bản web thiệp mời để kiểm tra, có thể yêu cầu chỉnh sửa
-  //       lại thông tin hoặc hình ảnh cho đến khi hài lòng.
-  //     </>
-  //   ),
-  // },
-  // {
-  //   title: "Bước 5: Bàn giao & thanh toán",
-  //   content: (
-  //     <>
-  //       Sau khi chốt nội dung, bạn sẽ nhận được website thiệp mời, mã QR, file
-  //       lời chúc, danh sách tham dự và tiến hành thanh toán.
-  //     </>
-  //   ),
-  // },
+  {
+    title: t("step_title_2"),
+    content: (
+      <>
+        {t("step_content_2_1")}{" "}
+        <Phone className="inline-block mx-1" size={18} />{" "}
+        <a href="tel:0355565741" className="underline text-primary">
+          0355 565 741
+        </a>
+        , {t("step_content_2_2")}{" "}
+        <a
+          href="https://zalo.me/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-primary"
+        >
+          <MessageCircle className="inline-block mx-1" size={18} /> Zalo
+        </a>{" "}
+        {t("step_content_2_3")}{" "}
+        <a
+          href="https://facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline text-primary"
+        >
+          <Facebook className="inline-block mx-1" size={18} /> Facebook
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    title: t("step_title_3"),
+    content: t("step_content_3"),
+  },
+  {
+    title: t("step_title_4"),
+    content: t("step_content_4"),
+  },
+  {
+    title: t("step_title_5"),
+    content: t("step_content_5"),
+  },
 ];
 
 export default function CreateInvitationPage() {
   const t = useTranslations("create_invitation");
+  const steps = getSteps(t);
 
   return (
     <>
@@ -102,11 +98,9 @@ export default function CreateInvitationPage() {
                   ease: "easeOut",
                 }}
               >
-                <span className="font-semibold text-primary">
-                  {t(step.title)}
-                </span>
+                <span className="font-semibold text-primary">{step.title}</span>
                 <br />
-                <div dangerouslySetInnerHTML={{ __html: t(step.content) }} />
+                {step.content}
               </motion.div>
             ))}
           </div>
