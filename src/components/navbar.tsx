@@ -10,7 +10,7 @@ import CheckoutModal from "./checkout-modal";
 import { useRouter } from "next/navigation";
 import { SwitchFlag } from "./ui/switchFlag";
 import { useTranslations } from "next-intl";
-import useLocale from "@/hooks/useLocale";
+import useLocale from "../hooks/useLocale";
 
 function Logo() {
   return (

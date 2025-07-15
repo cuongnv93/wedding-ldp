@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
-import useLocale from "@/hooks/useLocale";
+import useLocale from "../hooks/useLocale";
 
 const containerVariants = {
   hidden: { opacity: 0 },

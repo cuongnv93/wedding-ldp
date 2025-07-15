@@ -9,7 +9,7 @@ import { useCallback, useState } from "react";
 import { useRouter } from "nextjs-toploader/app";
 // import { useSafeTranslations } from "../hooks/useSafeTranslations";
 import { useTranslations } from "next-intl";
-import useLocale from "@/hooks/useLocale";
+import useLocale from "../hooks/useLocale";
 
 interface Product {
   id: string | number;
