@@ -9,7 +9,7 @@ import { useCallback, useState } from "react";
 import { useRouter } from "nextjs-toploader/app";
 // import { useSafeTranslations } from "../hooks/useSafeTranslations";
 import { useTranslations } from "next-intl";
-import useLocale from "../hooks/useLocale";
+import { usePathname } from "next/navigation";
 
 interface Product {
   id: string | number;
@@ -20,6 +20,19 @@ interface Product {
   linkRedirect: string;
   isFavourite?: boolean;
   description?: string;
+}
+
+function useLocale(defaultLocale: string = "vi") {
+  const pathname = usePathname();
+
+  // pathname ví dụ: "/en/product/abc"
+  const segments = pathname.split("/").filter(Boolean);
+
+  // Locale thường là segment đầu tiên
+  const locale = segments[0];
+
+  // Nếu không match thì trả về defaultLocale
+  return locale?.length === 2 ? locale : defaultLocale;
 }
 
 export default function ProductCard({

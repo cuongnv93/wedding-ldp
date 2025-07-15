@@ -7,10 +7,9 @@ import { Button } from "../components/ui/button";
 import AuthModal from "./auth-modal";
 import CheckoutModal from "./checkout-modal";
 // import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { SwitchFlag } from "./ui/switchFlag";
 import { useTranslations } from "next-intl";
-import useLocale from "../hooks/useLocale";
 
 function Logo() {
   return (
@@ -18,6 +17,19 @@ function Logo() {
       <span className="text-primary">u</span>Wedding
     </Link>
   );
+}
+
+function useLocale(defaultLocale: string = "vi") {
+  const pathname = usePathname();
+
+  // pathname ví dụ: "/en/product/abc"
+  const segments = pathname.split("/").filter(Boolean);
+
+  // Locale thường là segment đầu tiên
+  const locale = segments[0];
+
+  // Nếu không match thì trả về defaultLocale
+  return locale?.length === 2 ? locale : defaultLocale;
 }
 
 // Component con: Navigation Links

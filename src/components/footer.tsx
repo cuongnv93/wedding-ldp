@@ -18,7 +18,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
-import { getLocale } from "../ultis/index";
 import { usePathname } from "next/navigation";
 
 const containerVariants = {
@@ -72,12 +71,25 @@ function SocialLinks() {
   );
 }
 
+function useLocale(defaultLocale: string = "vi") {
+  const pathname = usePathname();
+
+  // pathname ví dụ: "/en/product/abc"
+  const segments = pathname.split("/").filter(Boolean);
+
+  // Locale thường là segment đầu tiên
+  const locale = segments[0];
+
+  // Nếu không match thì trả về defaultLocale
+  return locale?.length === 2 ? locale : defaultLocale;
+}
+
 // Component con: QuickLinks
 function QuickLinks() {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(true);
   const t = useTranslations("");
-  const locale = getLocale(usePathname);
+  const locale = useLocale();
 
   useEffect(() => {
     setIsHomePage(window.location.pathname === "/");
