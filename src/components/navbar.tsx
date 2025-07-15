@@ -13,7 +13,7 @@ import { useTranslations } from "next-intl";
 
 function Logo() {
   return (
-    <Link href="/" className="font-bold text-xl">
+    <Link href="/" className="font-bold text-2xl">
       <span className="text-primary">u</span>Wedding
     </Link>
   );
@@ -35,15 +35,15 @@ function NavigationLinks() {
       href: "#about",
     },
     {
-      name: "Thiệp mời",
+      name: t("product"),
       href: "#product",
     },
     {
-      name: "Câu hỏi thường gặp",
+      name: t("faq_menu"),
       href: "#faq",
     },
     {
-      name: "Liên hệ",
+      name: t("contact"),
       href: "#footer",
     },
   ];
