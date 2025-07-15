@@ -6,7 +6,6 @@ import { Button } from "../components/ui/button";
 import { products } from "../data/products";
 import ProductCard from "./ProductCard";
 import { useMemo, memo } from "react";
-import { useTranslations } from "next-intl";
 
 // Constants để tránh tạo lại object
 const CONTAINER_VARIANTS = {
@@ -37,7 +36,6 @@ const BUTTON_ANIMATION = {
 const MemoizedProductCard = memo(ProductCard);
 
 export default function FeaturedProducts() {
-  const t = useTranslations("list_product");
   // Memoize filtered products để tránh filter lại mỗi render
   const featuredProducts = useMemo(() => {
     return products
@@ -58,10 +56,11 @@ export default function FeaturedProducts() {
         >
           <div className="space-y-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              {t("featured")}
+              Thiệp cưới nổi bật
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {t("list_product_desc")}
+              Khám phá những mẫu thiệp cưới online được các cặp đôi yêu thích và
+              lựa chọn nhiều nhất.
             </p>
           </div>
         </motion.div>
@@ -81,7 +80,7 @@ export default function FeaturedProducts() {
         <motion.div {...BUTTON_ANIMATION} className="flex justify-center mt-12">
           <Link href="/products">
             <Button variant="outline" size="lg">
-              {t("view_all")}
+              Xem tất cả thiệp cưới
             </Button>
           </Link>
         </motion.div>

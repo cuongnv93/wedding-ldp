@@ -7,8 +7,6 @@ import { Shuffle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useCallback, useState } from "react";
 import { useRouter } from "nextjs-toploader/app";
-// import { useSafeTranslations } from "../hooks/useSafeTranslations";
-import { useTranslations } from "next-intl";
 
 interface Product {
   id: string | number;
@@ -30,8 +28,6 @@ export default function ProductCard({
 }) {
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
-  const t = useTranslations("list_product");
-  const t_desc = useTranslations("item_desc");
 
   // Navigation với loading state và prevent double clicks
   const handleCardClick = useCallback(async () => {
@@ -115,9 +111,9 @@ export default function ProductCard({
             {/* Badge overlay */}
             <div className="absolute top-2 right-2 flex flex-col gap-2 z-10">
               {product.isFavourite ? (
-                <Badge className="text-xs bg-primary">{t("favorite")}</Badge>
+                <Badge className="text-xs bg-primary">Yêu thích</Badge>
               ) : product.new ? (
-                <Badge className="text-xs bg-primary">{t("new")}</Badge>
+                <Badge className="text-xs bg-primary">Mới</Badge>
               ) : null}
             </div>
           </div>
@@ -127,7 +123,7 @@ export default function ProductCard({
           <h3 className="font-semibold text-lg line-clamp-2">{product.name}</h3>
           {product.description && (
             <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-              {t_desc(product.description)}
+              {product.description}
             </p>
           )}
         </CardContent>
@@ -143,12 +139,12 @@ export default function ProductCard({
             {isNavigating ? (
               <>
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current"></div>
-                {t("loading")}...
+                Đang tải...
               </>
             ) : (
               <>
                 <Shuffle className="h-4 w-4" />
-                {t("details")}
+                Xem chi tiết
               </>
             )}
           </div>

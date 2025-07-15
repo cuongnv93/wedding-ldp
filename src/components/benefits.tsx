@@ -1,29 +1,31 @@
 "use client";
 import { BadgeCheck, Map, Palette, Headset } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getBenefits = (t: any) => [
+const benefits = [
   {
     icon: <BadgeCheck className="h-10 w-10 text-primary" />,
-    title: t("benefits_title_1"),
-    description: t("benefits_desc_1"),
+    title: "Đầy đủ tính năng hiện đại",
+    description:
+      "Đếm ngược ngày cưới, bản đồ chỉ đường, xác nhận tham dự, album ảnh, nhạc nền… tất cả đều tích hợp sẵn trong thiệp.",
   },
   {
     icon: <Map className="h-10 w-10 text-primary" />,
-    title: t("benefits_title_2"),
-    description: t("benefits_desc_2"),
+    title: "Tạo thiệp nhanh, không cần chờ lâu",
+    description:
+      "Không cần mất nhiều thời gian, uWedding giúp bạn nhanh chóng có thiệp chỉn chu, sẵn sàng gửi đến khách mời.",
   },
   {
     icon: <Palette className="h-10 w-10 text-primary" />,
-    title: t("benefits_title_3"),
-    description: t("benefits_desc_3"),
+    title: "Thiết kế theo ý, không cần tự làm",
+    description:
+      "Thiệp được cá nhân hóa theo phong cách riêng của bạn – đẹp, chỉn chu và đúng ý.",
   },
   {
     icon: <Headset className="h-10 w-10 text-primary" />,
-    title: t("benefits_title_4"),
-    description: t("benefits_desc_4"),
+    title: "Hỗ trợ tận tâm, phản hồi nhanh",
+    description:
+      "Bạn chỉ cần gửi ý tưởng, uWedding lo từ A–Z và luôn sẵn sàng điều chỉnh theo yêu cầu.",
   },
 ];
 
@@ -49,9 +51,6 @@ const itemVariants = {
 };
 
 export default function Benefits() {
-  const t = useTranslations("benefits");
-  const benefits = getBenefits(t);
-
   return (
     <section id="about" className="w-full py-12 md:py-24 bg-muted">
       <div className="container px-4 md:px-6">
@@ -64,10 +63,12 @@ export default function Benefits() {
         >
           <div className="space-y-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-              {t("why_choose")}
+              Vì sao nên chọn uWedding?
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {t("why_choose_desc")}
+              Với uWedding, bạn sẽ có thiệp cưới online đẹp, đầy đủ tiện ích mà
+              khoảng thời gian tự thiết kế – để dành tâm trí cho những khoảnh
+              khắc ý nghĩa hơn trong hành trình cưới.
             </p>
           </div>
         </motion.div>

@@ -36,8 +36,8 @@ export async function generateMetadata(props: PageProps) {
 }
 
 // Generate static params (optional - for static generation)
-// export async function generateStaticParams() {
-//   return products.map((product) => ({
-//     id: product.id.toString(),
-//   }));
-// }
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    id: product.id.toString(),
+  }));
+}

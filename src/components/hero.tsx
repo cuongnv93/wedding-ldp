@@ -6,7 +6,6 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import AnimatedNumber from "./animatedNumber";
-import { useTranslations } from "next-intl";
 
 // Lazy load toàn bộ 3D section
 const ThreeDSection = lazy(() => import("./ThreeDSection"));
@@ -22,20 +21,16 @@ const StatisticBlock = ({ value, label }: { value: number; label: string }) => (
 );
 
 // Placeholder cho 3D section khi chưa load
-const ThreeDPlaceholder = () => {
-  const t = useTranslations("");
-  return (
-    <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] bg-gray-100 rounded-xl flex items-center justify-center">
-      <div className="text-center">
-        <div className="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-4"></div>
-        <p className="text-sm text-muted-foreground">{t("loading_3d")}...</p>
-      </div>
+const ThreeDPlaceholder = () => (
+  <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] bg-gray-100 rounded-xl flex items-center justify-center">
+    <div className="text-center">
+      <div className="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-4"></div>
+      <p className="text-sm text-muted-foreground">Đang tải mô hình 3D...</p>
     </div>
-  );
-};
+  </div>
+);
 
 export default function HeroSectionOptimized() {
-  const t = useTranslations("");
   const [shouldLoad3D, setShouldLoad3D] = useState(false);
 
   // Intersection Observer để chỉ load 3D khi user scroll đến
@@ -89,14 +84,15 @@ export default function HeroSectionOptimized() {
             className="flex flex-col gap-6 pt-8 md:pt-0 text-center lg:text-left"
           >
             <div className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm text-primary">
-              {t("banner_hottest")}
+              Bộ sưu tập thiệp cưới hot nhất 2025
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              {t("banner_Preserve")} <br />
-              <span className="text-primary">{t("banner_lifelong")}</span>
+              Lưu giữ khoảnh khắc <br />
+              <span className="text-primary">Hạnh phúc trọn đời</span>
             </h1>
             <p className="text-base sm:text-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
-              {t("banner_desc")}
+              Khám phá bộ sưu tập thiệp cưới độc đáo, sang trọng và hiện đại,
+              giúp bạn tạo nên ngày trọng đại hoàn hảo.
             </p>
             <div className="flex md:flex-col sm:flex-row gap-4 mt-4 justify-center lg:justify-start">
               <Link href="/products">
@@ -118,7 +114,7 @@ export default function HeroSectionOptimized() {
                   onMouseEnter={preload3D} // Preload khi hover
                 >
                   <Button size="lg" variant="outline" className="gap-2">
-                    {t("banner_view")} <ArrowRight className="h-4 w-4" />
+                    Xem bộ sưu tập <ArrowRight className="h-4 w-4" />
                   </Button>
                 </motion.div>
               </Link>
@@ -140,16 +136,16 @@ export default function HeroSectionOptimized() {
                   className="inline-block"
                   onMouseEnter={preload3D}
                 >
-                  <Button size="lg">{t("banner_create")}</Button>
+                  <Button size="lg">Tạo thiệp cưới ngay</Button>
                 </motion.div>
               </Link>
             </div>
             <div className="flex md:flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 mt-8">
-              <StatisticBlock value={50} label={t("banner_template")} />
+              <StatisticBlock value={50} label="Mẫu thiệp cưới" />
               <div className="hidden sm:block h-12 w-px bg-border"></div>
-              <StatisticBlock value={200} label={t("banner_customers")} />
+              <StatisticBlock value={1000} label="Khách hàng hài lòng" />
               <div className="hidden sm:block h-12 w-px bg-border"></div>
-              <StatisticBlock value={50} label={t("banner_partners")} />
+              <StatisticBlock value={50} label="Đối tác uy tín" />
             </div>
           </motion.div>
 

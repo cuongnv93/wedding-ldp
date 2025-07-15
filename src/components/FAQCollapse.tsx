@@ -1,41 +1,42 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { useTranslations } from "next-intl";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getFaq = (t: any) => [
+const faq = [
   {
     id: 1,
-    question: t("question_1"),
-    answer: t("answer_1"),
+    question: "Làm thế nào để tạo thiệp cưới online?",
+    answer:
+      "Bạn có thể tạo thiệp cưới online bằng cách chọn mẫu thiệp và tùy chỉnh nội dung theo ý muốn. Không cần phải biết về thiết kế hay lập trình để tạo thiệp cưới online.",
   },
   {
     id: 2,
-    question: t("question_2"),
-    answer: t("answer_2"),
+    question: "Làm thế nào để gửi thiệp cưới điện tử?",
+    answer:
+      "Sau khi tạo thiệp, bạn có thể gửi thiệp qua email hoặc chia sẻ online với bạn bè và người thân. Hoặc in mã QR thiệp lên thiệp giấy và chia sẻ cho mọi người.",
   },
   {
     id: 3,
-    question: t("question_3"),
-    answer: t("answer_3"),
+    question: "Có những mẫu thiệp cưới nào để lựa chọn?",
+    answer:
+      "Có nhiều mẫu thiệp cưới đẹp và đa dạng để bạn lựa chọn, từ thiệp truyền thống đến thiệp hiện đại.",
   },
   {
     id: 4,
-    question: t("question_4"),
-    answer: t("answer_4"),
+    question: "Tôi có thể tùy chỉnh nội dung và hình ảnh trên thiệp không?",
+    answer:
+      "Đúng vậy, bạn có thể tùy chỉnh nội dung và hình ảnh, thậm chí là thêm video cưới và địa điểm tổ chức trên thiệp theo ý muốn để tạo nên một thiệp cưới độc đáo.",
   },
   {
     id: 5,
-    question: t("question_5"),
-    answer: t("answer_5"),
+    question: "Tôi có thể in thiệp cưới điện tử không?",
+    answer:
+      "Thiệp cưới điện tử thường được gửi qua email hoặc chia sẻ trực tuyến, nên không cần in thiệp.",
   },
 ];
 
 export default function FAQCollapse() {
   const [selected, setSelected] = useState<number | null>(null);
-  const t = useTranslations("faq");
-  const faq = getFaq(t);
 
   const toggle = (id: number) => {
     setSelected(selected === id ? null : id);

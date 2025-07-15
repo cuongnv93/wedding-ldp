@@ -17,7 +17,6 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { useTranslations } from "next-intl";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -74,26 +73,25 @@ function SocialLinks() {
 function QuickLinks() {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(true);
-  const t = useTranslations("");
 
   useEffect(() => {
     setIsHomePage(window.location.pathname === "/");
   }, []);
   const links = [
     {
-      name: t("home"),
+      name: "Trang chủ",
       href: "/",
     },
     {
-      name: t("about"),
+      name: "Giới thiệu",
       href: "#about",
     },
     {
-      name: t("product"),
+      name: "Thiệp mời",
       href: "#product",
     },
     {
-      name: t("faq_menu"),
+      name: "Câu hỏi thường gặp",
       href: "#faq",
     },
   ];
@@ -140,9 +138,8 @@ function QuickLinks() {
 
 // Component con: ContactInfo
 function ContactInfo() {
-  const t = useTranslations("footer");
   const contacts = [
-    { icon: MapPin, text: t("adress") },
+    { icon: MapPin, text: "54A Nguyễn Chí Thanh - Hà Nội" },
     { icon: Phone, text: "0776 718 994" },
     { icon: Mail, text: "uwedding.online@gmail.com" },
   ];
@@ -168,7 +165,6 @@ function ContactInfo() {
 function Newsletter() {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
-  const t = useTranslations("footer");
 
   // Hàm kiểm tra số điện thoại chỉ chứa số và tối thiểu 8, tối đa 15 ký tự
   const isValidPhone = (value: string) => {
@@ -178,32 +174,38 @@ function Newsletter() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isValidPhone(phone)) {
-      toast.error(t("valid_phone"));
+      toast.error("Vui lòng nhập số điện thoại hợp lệ!");
       return;
     }
     setLoading(true);
     const result = await savePhoneToSheet(phone);
     setLoading(false);
     if (result.status === "success") {
-      toast.success(t("success_message"), {
-        icon: (
-          <CheckCircle
-            color="#22c55e"
-            size={22}
-            style={{ minWidth: 22, marginRight: 16 }}
-          />
-        ),
-      });
+      toast.success(
+        "Đăng ký tư vấn thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.",
+        {
+          icon: (
+            <CheckCircle
+              color="#22c55e"
+              size={22}
+              style={{ minWidth: 22, marginRight: 16 }}
+            />
+          ),
+        }
+      );
       setPhone("");
     } else {
-      toast.error(t("error"));
+      toast.error("Có lỗi xảy ra, vui lòng thử lại sau!");
     }
   };
 
   return (
     <div className="space-y-4">
-      <h3 className="font-bold">{t("register_consultation")}</h3>
-      <p className="text-muted-foreground">{t("register_desc")}</p>
+      <h3 className="font-bold">Đăng ký tư vấn miễn phí</h3>
+      <p className="text-muted-foreground">
+        Để lại số điện thoại, đội ngũ uWedding sẽ liên hệ tư vấn giúp bạn chọn
+        mẫu thiệp phù hợp nhất cho ngày trọng đại.
+      </p>
       <form onSubmit={handleSubmit}>
         <motion.div
           className="flex flex-col sm:flex-row gap-2"
@@ -212,7 +214,7 @@ function Newsletter() {
         >
           <Input
             type="tel"
-            placeholder={t("register_placeholder")}
+            placeholder="Số điện thoại của bạn"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
@@ -240,10 +242,10 @@ function Newsletter() {
                       d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                     />
                   </svg>
-                  {t("sending")}...
+                  Đang gửi...
                 </span>
               ) : (
-                t("register")
+                "Đăng ký"
               )}
             </Button>
           </motion.div>
@@ -273,8 +275,6 @@ async function savePhoneToSheet(phone: string) {
 
 // Footer Component
 export default function Footer() {
-  const t = useTranslations("footer");
-
   return (
     <footer id="footer" className="w-full bg-muted/50 border-t">
       <div className="container px-4 md:px-6 py-12">
@@ -286,20 +286,23 @@ export default function Footer() {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="font-bold text-2xl">
+            <h3 className="font-bold text-xl">
               <span className="text-primary">u</span>Wedding
             </h3>
-            <p className="text-muted-foreground">{t("desc")}</p>
+            <p className="text-muted-foreground">
+              Cùng uWedding tạo nên những chiếc thiệp cưới độc đáo và ấn tượng,
+              ghi dấu ngày trọng đại của bạn.
+            </p>
             <SocialLinks />
           </motion.div>
 
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="font-bold">{t("quick_links")}</h3>
+            <h3 className="font-bold">Liên kết nhanh</h3>
             <QuickLinks />
           </motion.div>
 
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="font-bold">{t("contact")}</h3>
+            <h3 className="font-bold">Liên hệ</h3>
             <ContactInfo />
           </motion.div>
 
@@ -316,20 +319,20 @@ export default function Footer() {
           className="border-t mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} uWedding. {t("reserved")}
+            © {new Date().getFullYear()} uWedding. Tất cả quyền được bảo lưu.
           </p>
           <div className="flex gap-4">
             <Link
               href="/terms"
               className="text-sm text-muted-foreground hover:text-primary"
             >
-              {t("terms")}
+              Điều khoản sử dụng
             </Link>
             <Link
               href="/privacy"
               className="text-sm text-muted-foreground hover:text-primary"
             >
-              {t("privacy")}
+              Chính sách bảo mật
             </Link>
           </div>
         </motion.div>
