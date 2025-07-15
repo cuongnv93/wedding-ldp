@@ -174,7 +174,7 @@ export default function ProductDetails({ product }: { product: Product }) {
   // Memoize view title để tránh tính toán lại
   const viewTitle = useMemo(() => {
     return view === "desktop" ? t("desktop_interface") : t("mobile_interface");
-  }, [view]);
+  }, [view, t]);
 
   // Memoize iframe src để tránh tạo lại string
   const iframeSrc = useMemo(
