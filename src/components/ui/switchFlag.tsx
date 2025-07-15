@@ -1,6 +1,7 @@
 "use client";
 import { usePathname, useParams } from "next/navigation";
-import { useRouter } from "nextjs-toploader/app";
+// import { useRouter } from "nextjs-toploader/app";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export function SwitchFlag() {
@@ -20,9 +21,8 @@ export function SwitchFlag() {
 
   return (
     <div
-      className={`flag-switch ${
-        checked ? "is-second-active" : "is-first-active"
-      }`}
+      className={`flag-switch ${checked ? "is-second-active" : "is-first-active"
+        }`}
       data-first-lang="EN"
       data-second-lang="VI"
     >
