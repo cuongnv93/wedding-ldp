@@ -22,8 +22,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 124,
     new: false,
     stock: 15,
-    description:
-      "Mẫu thiệp hiện đại, cá tính, phù hợp với các cặp đôi yêu thích sự năng động và trẻ trung. Thiết kế nổi bật, dễ dàng gây ấn tượng với khách mời.",
+    description: "WEB_001",
     target: "web",
     isHot: true,
   },
@@ -33,8 +32,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     new: true,
     stock: 20,
     reviews: 56,
-    description:
-      "Mẫu thiệp cưới sang trọng, tinh tế, mang lại cảm giác ấm áp và gần gũi cho ngày trọng đại của bạn. Phù hợp với những ai yêu thích sự tối giản mà vẫn nổi bật.",
+    description: "WEB_002",
     target: "web",
   },
   {
@@ -43,8 +41,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     new: false,
     stock: 12,
     reviews: 56,
-    description:
-      "Mẫu thiệp cá tính, phá cách, dành cho các cặp đôi thích sự độc đáo và muốn tạo dấu ấn riêng trong ngày cưới.",
+    description: "WEB_003",
     target: "web",
     isFavourite: true,
   },
@@ -54,8 +51,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 78,
     new: true,
     stock: 25,
-    description:
-      "Mẫu thiệp nhẹ nhàng, kể về quá trình quen và cưới nhau của hai bạn. Phù hợp với những ai yêu thích sự lãng mạn và truyền thống.",
+    description: "WEB_004",
     target: "web",
   },
   {
@@ -64,8 +60,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 156,
     new: false,
     stock: 8,
-    description:
-      "Mẫu thiệp nổi bật, mạnh mẽ, dành cho các cặp đôi yêu thích phong cách cá tính và muốn tạo dấu ấn riêng trong ngày cưới.",
+    description: "MB_001",
     target: "mobile",
   },
   {
@@ -74,8 +69,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     new: false,
     reviews: 156,
     stock: 18,
-    description:
-      "Mẫu thiệp hiện đại, tối giản, phù hợp với các cặp đôi yêu thích sự tinh tế và sang trọng. Giao diện thân thiện, dễ sử dụng cho mọi lứa tuổi.",
+    description: "MB_002",
     target: "mobile",
     isFavourite: true,
   },
@@ -85,8 +79,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 45,
     new: false,
     stock: 22,
-    description:
-      "Thiệp cưới phong cách retro, mang lại cảm giác hoài niệm và ấm áp. Họa tiết độc đáo, tạo dấu ấn riêng cho ngày trọng đại.",
+    description: "MB_003",
     target: "mobile",
     isFavourite: true,
   },
@@ -96,8 +89,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp trẻ trung, năng động, phù hợp với các cặp đôi yêu thích sự mới mẻ và sáng tạo. Thiết kế bắt mắt, dễ dàng thu hút mọi ánh nhìn.",
+    description: "MB_004",
     target: "mobile",
   },
   {
@@ -106,8 +98,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới với tông màu pastel nhẹ nhàng, mang lại cảm giác ngọt ngào và lãng mạn. Phù hợp cho những ai yêu thích sự dịu dàng.",
+    description: "MB_005",
     target: "mobile",
     isFavourite: true,
   },
@@ -117,8 +108,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp cá tính, phá cách, dành cho các cặp đôi muốn tạo dấu ấn riêng biệt trong ngày cưới của mình.",
+    description: "MB_006",
     target: "mobile",
     isFavourite: true,
   },
@@ -128,8 +118,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ thiên nhiên, với họa tiết hoa lá tươi tắn, mang lại cảm giác tươi mới và tràn đầy sức sống.",
+    description: "MB_007",
     target: "mobile",
   },
   {
@@ -138,8 +127,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp sang trọng với điểm nhấn ánh vàng, phù hợp cho những lễ cưới đẳng cấp, thể hiện sự đầu tư và trân trọng khách mời.",
+    description: "MB_008",
     target: "mobile",
   },
   {
@@ -148,8 +136,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới phong cách tối giản, tập trung vào thông điệp yêu thương và sự gắn kết của hai bạn.",
+    description: "MB_009",
     target: "mobile",
   },
   {
@@ -158,8 +145,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với hiệu ứng màu nước mềm mại, tạo cảm giác nhẹ nhàng, bay bổng và đầy nghệ thuật cho ngày trọng đại.",
+    description: "MB_010",
     target: "mobile",
   },
   {
@@ -168,8 +154,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới hiện đại với dòng thời gian kể lại hành trình tình yêu của hai bạn, giúp khách mời cảm nhận được câu chuyện riêng biệt.",
+    description: "MB_011",
     target: "mobile",
     isFavourite: true,
   },
@@ -179,8 +164,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp lấy cảm hứng từ phim cổ điển, mang lại cảm giác hoài niệm và độc đáo, phù hợp với các cặp đôi yêu thích retro.",
+    description: "MB_012",
     target: "mobile",
   },
   {
@@ -189,8 +173,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới hoa lá rực rỡ, tươi vui, mang đến cảm giác hạnh phúc và tràn đầy sức sống cho ngày cưới của bạn.",
+    description: "MB_014",
     target: "mobile",
   },
   {
@@ -199,8 +182,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với họa tiết hình học hiện đại, phù hợp với các cặp đôi yêu thích sự sáng tạo và khác biệt.",
+    description: "MB_015",
     target: "mobile",
     isFavourite: true,
   },
@@ -210,8 +192,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ biển cả, với tông màu xanh mát và họa tiết sóng nước, mang lại cảm giác bình yên.",
+    description: "MB_016",
     target: "mobile",
   },
   {
@@ -220,8 +201,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với hình ảnh cặp đôi dễ thương, phù hợp với những ai yêu thích sự trẻ trung và vui tươi.",
+    description: "MB_017",
     target: "mobile",
   },
   {
@@ -230,8 +210,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới phong cách luxury, sử dụng chất liệu và hiệu ứng cao cấp, tạo ấn tượng mạnh với khách mời.",
+    description: "MB_018",
     target: "mobile",
   },
   {
@@ -240,8 +219,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với chủ đề du lịch, dành cho các cặp đôi yêu thích khám phá và muốn chia sẻ hành trình của mình.",
+    description: "MB_019",
     target: "mobile",
   },
   {
@@ -250,8 +228,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ vũ trụ, với các họa tiết ngôi sao, mặt trăng, mang lại cảm giác huyền bí và lãng mạn.",
+    description: "MB_020",
     target: "mobile",
   },
   {
@@ -260,8 +237,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với hiệu ứng chuyển động nhẹ nhàng, tạo cảm giác hiện đại và cuốn hút cho người nhận.",
+    description: "WEB_005",
     target: "web",
   },
   {
@@ -270,8 +246,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới phong cách truyền thống, giữ nguyên nét đẹp văn hóa nhưng vẫn mang hơi thở hiện đại.",
+    description: "MB_021",
     target: "mobile",
   },
   {
@@ -280,8 +255,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với hình ảnh hoa cưới, tượng trưng cho sự khởi đầu mới và hạnh phúc viên mãn.",
+    description: "WEB_006",
     target: "web",
   },
   {
@@ -290,8 +264,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ truyện cổ tích, dành cho các cặp đôi muốn ngày cưới như một câu chuyện thần tiên.",
+    description: "WEB_007",
     target: "web",
   },
   {
@@ -300,8 +273,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với tông màu xanh lá, mang lại cảm giác tươi mát và gần gũi với thiên nhiên.",
+    description: "WEB_008",
     target: "web",
   },
   {
@@ -310,8 +282,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới phong cách nghệ thuật, với các họa tiết vẽ tay độc đáo, tạo dấu ấn cá nhân cho cặp đôi.",
+    description: "MB_022",
     target: "mobile",
   },
   {
@@ -320,8 +291,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với chủ đề mùa xuân, mang lại cảm giác tươi mới, tràn đầy sức sống và hy vọng.",
+    description: "MB_023",
     target: "mobile",
   },
   {
@@ -330,8 +300,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ mùa thu, với tông màu vàng cam ấm áp, tạo cảm giác lãng mạn và ngọt ngào.",
+    description: "WEB_009",
     target: "web",
   },
   {
@@ -340,19 +309,16 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với chủ đề mùa đông, mang lại cảm giác ấm áp, an lành và hạnh phúc viên mãn.",
+    description: "MB_024",
     target: "mobile",
   },
   {
     id: 33,
     name: "MB_025",
     reviews: 67,
-
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới phong cách Boho, phóng khoáng, tự do, phù hợp với các cặp đôi cá tính.",
+    description: "MB_025",
     target: "mobile",
   },
   {
@@ -361,8 +327,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với họa tiết hoa anh đào, tượng trưng cho sự khởi đầu mới và tình yêu vĩnh cửu.",
+    description: "MB_026",
     target: "mobile",
   },
   {
@@ -371,8 +336,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ nghệ thuật mosaic, tạo nên sự độc đáo và nổi bật cho ngày cưới.",
+    description: "WEB_010",
     target: "web",
     isFavourite: true,
   },
@@ -382,8 +346,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với hiệu ứng ánh sáng lung linh, mang lại cảm giác huyền ảo và lãng mạn.",
+    description: "MB_027",
     target: "mobile",
   },
   {
@@ -392,8 +355,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới phong cách rustic, mộc mạc, gần gũi với thiên nhiên, phù hợp với các cặp đôi yêu thích sự giản dị.",
+    description: "MB_028",
     target: "mobile",
   },
   {
@@ -403,8 +365,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
 
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với chủ đề âm nhạc, dành cho các cặp đôi có chung niềm đam mê nghệ thuật.",
+    description: "MB_029",
     target: "mobile",
     isFavourite: true,
   },
@@ -414,8 +375,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ thành phố, với các họa tiết hiện đại, phù hợp với các cặp đôi trẻ trung, năng động.",
+    description: "MB_030",
     target: "mobile",
   },
   {
@@ -424,8 +384,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với chủ đề biển đảo, mang lại cảm giác tự do, phóng khoáng và lãng mạn.",
+    description: "WEB_011",
     target: "web",
   },
   {
@@ -434,8 +393,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới phong cách vintage, hoài cổ, phù hợp với các cặp đôi yêu thích sự tinh tế và sang trọng.",
+    description: "MB_031",
     target: "mobile",
     isFavourite: true,
   },
@@ -445,8 +403,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với họa tiết lá vàng, tượng trưng cho sự bền vững và hạnh phúc lâu dài.",
+    description: "MB_032",
     target: "mobile",
   },
   {
@@ -455,8 +412,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ lễ hội, mang lại không khí vui tươi, rộn ràng cho ngày trọng đại.",
+    description: "WEB_012",
     target: "web",
   },
   {
@@ -465,8 +421,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với hiệu ứng 3D, tạo cảm giác sống động và ấn tượng mạnh với khách mời.",
+    description: "WEB_014",
     target: "web",
   },
   {
@@ -475,8 +430,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới phong cách nghệ thuật trừu tượng, phù hợp với các cặp đôi yêu thích sự sáng tạo và khác biệt.",
+    description: "WEB_015",
     target: "web",
     isFavourite: true,
   },
@@ -486,8 +440,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Mẫu thiệp với chủ đề vườn hoa, mang lại cảm giác tươi mới, tràn đầy sức sống và hạnh phúc.",
+    description: "WEB_016",
     target: "web",
   },
   {
@@ -496,8 +449,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
+    description: "WEB_017",
     target: "web",
   },
   {
@@ -506,8 +458,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
+    description: "WEB_018",
     target: "web",
     isFavourite: true,
   },
@@ -517,8 +468,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
+    description: "MB_033",
     target: "mobile",
   },
   {
@@ -527,8 +477,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
+    description: "MB_034",
     target: "mobile",
   },
   {
@@ -537,8 +486,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 67,
     new: true,
     stock: 15,
-    description:
-      "Thiệp cưới lấy cảm hứng từ những câu chuyện tình yêu nổi tiếng, gửi gắm lời chúc về một tương lai hạnh phúc và bền vững.",
+    description: "THIEP_001",
     target: "card",
   },
 ];

@@ -4,12 +4,13 @@ import { useState, useCallback, useMemo, memo } from "react";
 import { Monitor, Smartphone, Loader2, AlertCircle } from "lucide-react";
 import type { Product } from "@/data/products";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 // Memoized Logo component
 const Logo = memo(() => (
   <Link
     href="/"
-    className="font-bold text-xl hover:opacity-80 transition-opacity"
+    className="font-bold text-2xl hover:opacity-80 transition-opacity"
   >
     <span className="text-primary">u</span>Wedding
   </Link>
@@ -53,7 +54,7 @@ const IframeLoader = memo(() => (
   <div className="flex items-center justify-center h-full bg-gray-50">
     <div className="text-center">
       <Loader2 className="w-8 h-8 animate-spin text-primary mx-auto mb-2" />
-      <p className="text-sm text-gray-600">Đang tải giao diện...</p>
+      <p className="text-sm text-gray-600">Loading...</p>
     </div>
   </div>
 ));
@@ -61,20 +62,24 @@ const IframeLoader = memo(() => (
 IframeLoader.displayName = "IframeLoader";
 
 // Error component for iframe
-const IframeError = memo(({ onRetry }: { onRetry: () => void }) => (
-  <div className="flex items-center justify-center h-full bg-gray-50">
-    <div className="text-center">
-      <AlertCircle className="w-8 h-8 text-red-500 mx-auto mb-2" />
-      <p className="text-sm text-gray-600 mb-3">Không thể tải giao diện</p>
-      <button
-        onClick={onRetry}
-        className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors"
-      >
-        Thử lại
-      </button>
+const IframeError = memo(({ onRetry }: { onRetry: () => void }) => {
+  const t = useTranslations("list_product");
+
+  return (
+    <div className="flex items-center justify-center h-full bg-gray-50">
+      <div className="text-center">
+        <AlertCircle className="w-8 h-8 text-red-500 mx-auto mb-2" />
+        <p className="text-sm text-gray-600 mb-3">{t("unable_load")}</p>
+        <button
+          onClick={onRetry}
+          className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors"
+        >
+          {t("try")}
+        </button>
+      </div>
     </div>
-  </div>
-));
+  );
+});
 
 IframeError.displayName = "IframeError";
 
@@ -91,6 +96,7 @@ const OptimizedIframe = memo(
     onLoad: () => void;
     onError: () => void;
   }) => {
+    const t = useTranslations("list_product");
     // Memoize iframe styles để tránh tạo lại object
     const iframeStyles = useMemo(() => {
       const baseStyles = {
@@ -137,7 +143,7 @@ const OptimizedIframe = memo(
     const iframe = (
       <iframe
         src={src}
-        title="Xem trước giao diện"
+        title={t("preview")}
         style={iframeStyles}
         frameBorder={0}
         allowFullScreen
@@ -163,11 +169,12 @@ export default function ProductDetails({ product }: { product: Product }) {
   const [view, setView] = useState<"desktop" | "mobile">("desktop");
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const t = useTranslations("list_product");
 
   // Memoize view title để tránh tính toán lại
   const viewTitle = useMemo(() => {
-    return view === "desktop" ? "Giao diện máy tính" : "Giao diện mobile";
-  }, [view]);
+    return view === "desktop" ? t("desktop_interface") : t("mobile_interface");
+  }, [view, t]);
 
   // Memoize iframe src để tránh tạo lại string
   const iframeSrc = useMemo(
