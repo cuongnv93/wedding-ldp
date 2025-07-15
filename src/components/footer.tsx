@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
+import useLocale from "@/hooks/useLocale";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -75,6 +76,7 @@ function QuickLinks() {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(true);
   const t = useTranslations("");
+  const locale = useLocale();
 
   useEffect(() => {
     setIsHomePage(window.location.pathname === "/");
@@ -110,7 +112,7 @@ function QuickLinks() {
       }
     } else {
       // Navigate to homepage with hash, browser will handle scrolling
-      router.push(`/#${href.substring(1)}`);
+      router.push(`/${locale}/#${href.substring(1)}`);
     }
   };
 

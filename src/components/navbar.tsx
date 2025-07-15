@@ -10,6 +10,7 @@ import CheckoutModal from "./checkout-modal";
 import { useRouter } from "next/navigation";
 import { SwitchFlag } from "./ui/switchFlag";
 import { useTranslations } from "next-intl";
+import useLocale from "@/hooks/useLocale";
 
 function Logo() {
   return (
@@ -24,6 +25,7 @@ function NavigationLinks() {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(true);
   const t = useTranslations("");
+  const locale = useLocale();
 
   useEffect(() => {
     setIsHomePage(window.location.pathname === "/");
@@ -60,7 +62,7 @@ function NavigationLinks() {
       }
     } else {
       // Navigate to homepage with hash, browser will handle scrolling
-      router.push(`/#${href.substring(1)}`);
+      router.push(`/${locale}/#${href.substring(1)}`);
     }
   };
 

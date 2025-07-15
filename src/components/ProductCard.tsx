@@ -9,6 +9,7 @@ import { useCallback, useState } from "react";
 import { useRouter } from "nextjs-toploader/app";
 // import { useSafeTranslations } from "../hooks/useSafeTranslations";
 import { useTranslations } from "next-intl";
+import useLocale from "@/hooks/useLocale";
 
 interface Product {
   id: string | number;
@@ -32,6 +33,7 @@ export default function ProductCard({
   const [isNavigating, setIsNavigating] = useState(false);
   const t = useTranslations("list_product");
   const t_desc = useTranslations("item_desc");
+  const locale = useLocale();
 
   // Navigation với loading state và prevent double clicks
   const handleCardClick = useCallback(async () => {
@@ -41,7 +43,7 @@ export default function ProductCard({
 
     // Smooth transition với requestAnimationFrame
     requestAnimationFrame(() => {
-      router.push(`/products/${product.id}`);
+      router.push(`/${locale}/products/${product.id}`);
     });
 
     // Reset loading state sau 2s (fallback)
@@ -50,8 +52,8 @@ export default function ProductCard({
 
   // Prefetch khi hover để tăng tốc
   const prefetchRoute = useCallback(() => {
-    router.prefetch(`/products/${product.id}`);
-  }, [router, product.id]);
+    router.prefetch(`/${locale}/products/${product.id}`);
+  }, [router, product.id, locale]);
 
   return (
     <motion.div
