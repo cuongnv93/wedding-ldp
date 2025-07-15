@@ -18,7 +18,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
-import useLocale from "../hooks/useLocale";
+import { getLocale } from "../ultis/index";
+import { usePathname } from "next/navigation";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -76,7 +77,7 @@ function QuickLinks() {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(true);
   const t = useTranslations("");
-  const locale = useLocale();
+  const locale = getLocale(usePathname);
 
   useEffect(() => {
     setIsHomePage(window.location.pathname === "/");
