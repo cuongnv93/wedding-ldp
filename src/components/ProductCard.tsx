@@ -7,8 +7,7 @@ import { Shuffle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useCallback, useState } from "react";
 import { useRouter } from "nextjs-toploader/app";
-// import { useSafeTranslations } from "../hooks/useSafeTranslations";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 interface Product {
   id: string | number;
@@ -32,6 +31,7 @@ export default function ProductCard({
   const [isNavigating, setIsNavigating] = useState(false);
   const t = useTranslations("list_product");
   const t_desc = useTranslations("item_desc");
+  const currentLocale = useLocale();
 
   // Navigation với loading state và prevent double clicks
   const handleCardClick = useCallback(async () => {
@@ -41,17 +41,17 @@ export default function ProductCard({
 
     // Smooth transition với requestAnimationFrame
     requestAnimationFrame(() => {
-      router.push(`/products/${product.id}`);
+      router.push(`/${currentLocale}/products/${product.id}`);
     });
 
     // Reset loading state sau 2s (fallback)
     setTimeout(() => setIsNavigating(false), 2000);
-  }, [router, product.id, isNavigating]);
+  }, [router, product.id, isNavigating, currentLocale]);
 
   // Prefetch khi hover để tăng tốc
   const prefetchRoute = useCallback(() => {
-    router.prefetch(`/products/${product.id}`);
-  }, [router, product.id]);
+    router.prefetch(`/${currentLocale}/products/${product.id}`);
+  }, [router, product.id, currentLocale]);
 
   return (
     <motion.div

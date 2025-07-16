@@ -9,8 +9,7 @@ import CheckoutModal from "./checkout-modal";
 // import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { SwitchFlag } from "./ui/switchFlag";
-import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 function Logo() {
   const currentLocale = useLocale();
@@ -27,6 +26,7 @@ function NavigationLinks() {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(true);
   const t = useTranslations("");
+  const currentLocale = useLocale();
 
   useEffect(() => {
     setIsHomePage(window.location.pathname === "/");
@@ -63,7 +63,7 @@ function NavigationLinks() {
       }
     } else {
       // Navigate to homepage with hash, browser will handle scrolling
-      router.push(`/#${href.substring(1)}`);
+      router.push(`/${currentLocale}/#${href.substring(1)}`);
     }
   };
 
