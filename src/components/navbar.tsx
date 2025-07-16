@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { SwitchFlag } from "./ui/switchFlag";
 import { useTranslations } from "next-intl";
 import { getCookie } from "cookies-next";
+import { useLocale } from "next-intl";
 
 function Logo() {
   return (
@@ -127,10 +128,12 @@ function MobileMenuButton() {
 export default function Navbar() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+  const currentLocale = useLocale();
 
   useEffect(() => {
     const myCookie = getCookie("NEXT_LOCALE");
     console.log(33333, myCookie);
+    console.log(44444, currentLocale);
   }, []);
 
   return (
