@@ -10,6 +10,7 @@ import CheckoutModal from "./checkout-modal";
 import { useRouter } from "next/navigation";
 import { SwitchFlag } from "./ui/switchFlag";
 import { useTranslations } from "next-intl";
+import { getCookie } from "cookies-next";
 
 function Logo() {
   return (
@@ -126,6 +127,11 @@ function MobileMenuButton() {
 export default function Navbar() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+
+  useEffect(() => {
+    const myCookie = getCookie("NEXT_LOCALE");
+    console.log(33333, myCookie);
+  }, []);
 
   return (
     <>
