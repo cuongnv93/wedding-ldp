@@ -35,9 +35,8 @@ const ViewToggleButton = memo(
     onClick: () => void;
   }) => (
     <button
-      className={`p-2 rounded transition-colors hover:bg-gray-100 ${
-        view === currentView ? "bg-primary/10 text-primary" : "text-gray-600"
-      }`}
+      className={`p-2 rounded transition-colors hover:bg-gray-100 ${view === currentView ? "bg-primary/10 text-primary" : "text-gray-600"
+        }`}
       onClick={onClick}
       title={title}
       aria-pressed={view === currentView}
@@ -235,7 +234,7 @@ export default function ProductDetails({ product }: { product: Product }) {
 
           {/* Center content */}
           <div className="flex-1 flex justify-center">
-            <span className="font-semibold text-lg">{viewTitle}</span>
+            <span className="font-semibold md:text-lg">{viewTitle}</span>
           </div>
 
           {/* Action Buttons */}
