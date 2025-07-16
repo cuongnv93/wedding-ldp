@@ -6,11 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Shuffle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useCallback, useState } from "react";
-// import { useRouter } from "nextjs-toploader/app";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 // import { useSafeTranslations } from "../hooks/useSafeTranslations";
 import { useTranslations } from "next-intl";
-import { usePathname } from "next/navigation";
 
 interface Product {
   id: string | number;
@@ -21,19 +19,6 @@ interface Product {
   linkRedirect: string;
   isFavourite?: boolean;
   description?: string;
-}
-
-function useLocale(defaultLocale: string = "vi") {
-  const pathname = usePathname();
-
-  // pathname ví dụ: "/en/product/abc"
-  const segments = pathname.split("/").filter(Boolean);
-
-  // Locale thường là segment đầu tiên
-  const locale = segments[0];
-
-  // Nếu không match thì trả về defaultLocale
-  return locale?.length === 2 ? locale : defaultLocale;
 }
 
 export default function ProductCard({
@@ -47,7 +32,6 @@ export default function ProductCard({
   const [isNavigating, setIsNavigating] = useState(false);
   const t = useTranslations("list_product");
   const t_desc = useTranslations("item_desc");
-  const locale = useLocale();
 
   // Navigation với loading state và prevent double clicks
   const handleCardClick = useCallback(async () => {
@@ -57,7 +41,7 @@ export default function ProductCard({
 
     // Smooth transition với requestAnimationFrame
     requestAnimationFrame(() => {
-      router.push(`/${locale}/products/${product.id}`);
+      router.push(`/products/${product.id}`);
     });
 
     // Reset loading state sau 2s (fallback)
@@ -66,8 +50,8 @@ export default function ProductCard({
 
   // Prefetch khi hover để tăng tốc
   const prefetchRoute = useCallback(() => {
-    router.prefetch(`/${locale}/products/${product.id}`);
-  }, [router, product.id, locale]);
+    router.prefetch(`/products/${product.id}`);
+  }, [router, product.id]);
 
   return (
     <motion.div
@@ -89,8 +73,9 @@ export default function ProductCard({
       onMouseEnter={prefetchRoute}
     >
       <Card
-        className={`h-full min-h-[520px] transition-shadow duration-200 hover:shadow-lg ${isNavigating ? "opacity-75 pointer-events-none" : ""
-          }`}
+        className={`h-full min-h-[520px] transition-shadow duration-200 hover:shadow-lg ${
+          isNavigating ? "opacity-75 pointer-events-none" : ""
+        }`}
       >
         <div
           className="relative aspect-square overflow-hidden"
@@ -102,8 +87,9 @@ export default function ProductCard({
         >
           {/* Giữ nguyên tính năng preview ảnh dài 15000ms */}
           <div
-            className={`relative shadow-lg min-h-[450px] z-0 rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] ${activeTab === "card" ? "duration-[1000ms]" : "duration-[15000ms]"
-              } ease-linear hover:bg-bottom`}
+            className={`relative shadow-lg min-h-[450px] z-0 rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] ${
+              activeTab === "card" ? "duration-[1000ms]" : "duration-[15000ms]"
+            } ease-linear hover:bg-bottom`}
             style={{
               backgroundImage: `url('${product.image}')`,
             }}
@@ -148,10 +134,11 @@ export default function ProductCard({
 
         <CardFooter className="p-4 pt-0 h-[60px]">
           <div
-            className={`w-full rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 ${isNavigating
-              ? "bg-primary/70 text-primary-foreground cursor-not-allowed"
-              : "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-md"
-              }`}
+            className={`w-full rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 ${
+              isNavigating
+                ? "bg-primary/70 text-primary-foreground cursor-not-allowed"
+                : "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-md"
+            }`}
           >
             {isNavigating ? (
               <>

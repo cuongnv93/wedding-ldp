@@ -7,7 +7,7 @@ import { Button } from "../components/ui/button";
 import AuthModal from "./auth-modal";
 import CheckoutModal from "./checkout-modal";
 // import { motion } from "framer-motion";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { SwitchFlag } from "./ui/switchFlag";
 import { useTranslations } from "next-intl";
 
@@ -19,25 +19,11 @@ function Logo() {
   );
 }
 
-function useLocale(defaultLocale: string = "vi") {
-  const pathname = usePathname();
-
-  // pathname ví dụ: "/en/product/abc"
-  const segments = pathname.split("/").filter(Boolean);
-
-  // Locale thường là segment đầu tiên
-  const locale = segments[0];
-
-  // Nếu không match thì trả về defaultLocale
-  return locale?.length === 2 ? locale : defaultLocale;
-}
-
 // Component con: Navigation Links
 function NavigationLinks() {
   const router = useRouter();
   const [isHomePage, setIsHomePage] = useState(true);
   const t = useTranslations("");
-  const locale = useLocale();
 
   useEffect(() => {
     setIsHomePage(window.location.pathname === "/");
@@ -74,7 +60,7 @@ function NavigationLinks() {
       }
     } else {
       // Navigate to homepage with hash, browser will handle scrolling
-      router.push(`/${locale}/#${href.substring(1)}`);
+      router.push(`/#${href.substring(1)}`);
     }
   };
 
