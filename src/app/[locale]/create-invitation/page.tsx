@@ -6,14 +6,18 @@ import { motion } from "framer-motion";
 import { Phone, Facebook, MessageCircle } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useLocale } from "next-intl";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getSteps = (t: any) => [
+const getSteps = (t: any, currentLocale: string) => [
   {
     title: t("step_title_1"),
     content: (
       <>
-        <Link href="/products" className="text-primary underline">
+        <Link
+          href={`/${currentLocale}/products`}
+          className="text-primary underline"
+        >
           {t("step_content_1_1")}
         </Link>{" "}
         {t("step_content_1_2")}
@@ -67,7 +71,8 @@ const getSteps = (t: any) => [
 
 export default function CreateInvitationPage() {
   const t = useTranslations("create_invitation");
-  const steps = getSteps(t);
+  const currentLocale = useLocale();
+  const steps = getSteps(t, currentLocale);
 
   return (
     <>

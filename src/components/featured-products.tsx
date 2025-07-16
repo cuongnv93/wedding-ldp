@@ -6,7 +6,7 @@ import { Button } from "../components/ui/button";
 import { products } from "../data/products";
 import ProductCard from "./ProductCard";
 import { useMemo, memo } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 // Constants để tránh tạo lại object
 const CONTAINER_VARIANTS = {
@@ -38,6 +38,7 @@ const MemoizedProductCard = memo(ProductCard);
 
 export default function FeaturedProducts() {
   const t = useTranslations("list_product");
+  const currentLocale = useLocale();
   // Memoize filtered products để tránh filter lại mỗi render
   const featuredProducts = useMemo(() => {
     return products
@@ -79,7 +80,7 @@ export default function FeaturedProducts() {
         </motion.div>
 
         <motion.div {...BUTTON_ANIMATION} className="flex justify-center mt-12">
-          <Link href="/products">
+          <Link href={`/${currentLocale}/products`}>
             <Button variant="outline" size="lg">
               {t("view_all")}
             </Button>

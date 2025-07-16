@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import AnimatedNumber from "./animatedNumber";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 // Lazy load toàn bộ 3D section
 const ThreeDSection = lazy(() => import("./ThreeDSection"));
@@ -36,6 +36,7 @@ const ThreeDPlaceholder = () => {
 
 export default function HeroSectionOptimized() {
   const t = useTranslations("");
+  const currentLocale = useLocale();
   const [shouldLoad3D, setShouldLoad3D] = useState(false);
 
   // Intersection Observer để chỉ load 3D khi user scroll đến
@@ -99,7 +100,7 @@ export default function HeroSectionOptimized() {
               {t("banner_desc")}
             </p>
             <div className="flex md:flex-col sm:flex-row gap-4 mt-4 justify-center lg:justify-start">
-              <Link href="/products">
+              <Link href={`/${currentLocale}/products`}>
                 <motion.div
                   whileHover={{
                     scale: 1.08,
@@ -122,7 +123,7 @@ export default function HeroSectionOptimized() {
                   </Button>
                 </motion.div>
               </Link>
-              <Link href="/create-invitation">
+              <Link href={`/${currentLocale}/create-invitation`}>
                 <motion.div
                   whileHover={{
                     scale: 1.08,
