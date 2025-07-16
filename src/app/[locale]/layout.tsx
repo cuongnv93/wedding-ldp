@@ -50,7 +50,7 @@ export default async function RootLayout(props: {
         <meta property="og:site_name" content="uWedding" />
         <meta
           property="og:image"
-          content="https://trinhtham.com/wp-content/uploads/2025/07/icon.png"
+          content="https://opengraph.b-cdn.net/production/images/05b3d602-774f-4932-94e5-ab2161feaf9f.png?token=ZoUD4Gyaq_ULmt9AjBz50gwVGRH6P99XkmSsy0U45IA&height=500&width=500&expires=33288639650"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -65,6 +65,7 @@ export default async function RootLayout(props: {
         <meta property="og:site_name" content="uWeeding" />
         <meta property="og:image:width" content="500" />
         <meta property="og:image:height" content="500" />
+        <meta property="fb:app_id" content="none" />
 
         {/* Zalo */}
         <meta
