@@ -2,6 +2,7 @@
 import { usePathname, useParams } from "next/navigation";
 import { useRouter } from "nextjs-toploader/app";
 import { useState } from "react";
+import { setCookie } from "cookies-next";
 
 export function SwitchFlag() {
   const router = useRouter();
@@ -13,6 +14,7 @@ export function SwitchFlag() {
   const handleChange = () => {
     const newLocale = checked ? "vi" : "en";
     // Thay locale ở đầu pathname
+    setCookie("NEXT_LOCALE", newLocale);
     const newPath = pathname.replace(/^\/(vi|en)/, `/${newLocale}`);
     router.push(newPath);
     setChecked(!checked);
