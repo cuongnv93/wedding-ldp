@@ -14,7 +14,6 @@ const inter = Inter({
   fallback: ["system-ui", "arial"],
 });
 
-
 export const metadata: Metadata = {
   title: "Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ",
   description:
@@ -49,7 +48,10 @@ export default async function RootLayout(props: {
         <meta property="og:locale" content="vi_VN" />
         <meta property="og:url" content="https://uwedding.online" />
         <meta property="og:site_name" content="uWedding" />
-        <meta property="og:image" content="/favicon.ico" />
+        <meta
+          property="og:image"
+          content="https://trinhtham.com/wp-content/uploads/2025/07/icon.png"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -59,6 +61,25 @@ export default async function RootLayout(props: {
           name="twitter:description"
           content="uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR."
         />
+
+        <meta property="og:site_name" content="uWeeding" />
+        <meta property="og:image:width" content="500" />
+        <meta property="og:image:height" content="500" />
+
+        {/* Zalo */}
+        <meta
+          property="zalo:image"
+          content="https://trinhtham.com/wp-content/uploads/2025/07/icon.png"
+        />
+        <meta
+          property="zalo:title"
+          content="Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ"
+        />
+        <meta
+          property="zalo:description"
+          content="uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR."
+        />
+
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
           strategy="afterInteractive"
