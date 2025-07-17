@@ -13,6 +13,7 @@ export function SwitchFlag() {
   const handleChange = () => {
     const newLocale = checked ? "vi" : "en";
     // Thay locale ở đầu pathname
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000`;
     const newPath = pathname.replace(/^\/(vi|en)/, `/${newLocale}`);
     router.push(newPath);
     setChecked(!checked);

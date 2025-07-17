@@ -12,10 +12,10 @@ import { SwitchFlag } from "./ui/switchFlag";
 import { useTranslations, useLocale } from "next-intl";
 
 function Logo() {
-  const currentLocale = useLocale();
+  // const currentLocale = useLocale();
 
   return (
-    <Link href={`/${currentLocale}`} className="font-bold text-2xl">
+    <Link href={`/`} className="font-bold text-2xl">
       <span className="text-primary">u</span>Wedding
     </Link>
   );
