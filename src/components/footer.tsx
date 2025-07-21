@@ -275,6 +275,7 @@ async function savePhoneToSheet(phone: string) {
 // Footer Component
 export default function Footer() {
   const t = useTranslations("footer");
+  const currentLocale = useLocale();
 
   return (
     <footer id="footer" className="w-full bg-muted/50 border-t">
@@ -321,13 +322,13 @@ export default function Footer() {
           </p>
           <div className="flex gap-4">
             <Link
-              href="/terms"
+              href={`/${currentLocale}/terms`}
               className="text-sm text-muted-foreground hover:text-primary"
             >
               {t("terms")}
             </Link>
             <Link
-              href="/privacy"
+              href={`/${currentLocale}/privacy`}
               className="text-sm text-muted-foreground hover:text-primary"
             >
               {t("privacy")}

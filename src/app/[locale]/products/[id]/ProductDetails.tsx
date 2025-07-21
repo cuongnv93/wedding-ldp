@@ -4,17 +4,21 @@ import { useState, useCallback, useMemo, memo } from "react";
 import { Monitor, Smartphone, Loader2, AlertCircle } from "lucide-react";
 import type { Product } from "@/data/products";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 // Memoized Logo component
-const Logo = memo(() => (
-  <Link
-    href="/"
-    className="font-bold text-2xl hover:opacity-80 transition-opacity"
-  >
-    <span className="text-primary">u</span>Wedding
-  </Link>
-));
+const Logo = memo(() => {
+  const currentLocale = useLocale();
+
+  return (
+    <Link
+      href={`/${currentLocale}`}
+      className="font-bold text-2xl hover:opacity-80 transition-opacity"
+    >
+      <span className="text-primary">u</span>Wedding
+    </Link>
+  );
+});
 
 Logo.displayName = "Logo";
 
