@@ -54,8 +54,7 @@ export default async function RootLayout(props: {
           property="og:image"
           content="https://i.ibb.co/qYSMYkHw/favicon.png"
         />
-        <meta property="og:image:width" content="500" />
-        <meta property="og:image:height" content="500" />
+        <meta name="og:image" content="https://i.ibb.co/qYSMYkHw/favicon.png" />
         <link
           rel="icon"
           type="image/x-icon"
@@ -76,11 +75,6 @@ export default async function RootLayout(props: {
         />
         <meta
           name="twitter:image"
-          content="https://i.ibb.co/qYSMYkHw/favicon.png"
-        />
-
-        <meta
-          property="zalo:image"
           content="https://i.ibb.co/qYSMYkHw/favicon.png"
         />
         <meta
