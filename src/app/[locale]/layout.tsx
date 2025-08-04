@@ -52,11 +52,19 @@ export default async function RootLayout(props: {
         <meta property="og:site_name" content="uWedding" />
         <meta
           property="og:image"
-          content="https://trinhtham.com/wp-content/uploads/2025/07/favicon-300x300.png"
+          content="https://i.ibb.co/qYSMYkHw/favicon.png"
         />
         <meta property="og:image:width" content="500" />
         <meta property="og:image:height" content="500" />
-
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="https://i.ibb.co/qYSMYkHw/favicon.png"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://i.ibb.co/qYSMYkHw/favicon.png"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
@@ -68,12 +76,12 @@ export default async function RootLayout(props: {
         />
         <meta
           name="twitter:image"
-          content="https://trinhtham.com/wp-content/uploads/2025/07/favicon-300x300.png"
+          content="https://i.ibb.co/qYSMYkHw/favicon.png"
         />
 
         <meta
           property="zalo:image"
-          content="https://trinhtham.com/wp-content/uploads/2025/07/favicon-300x300.png"
+          content="https://i.ibb.co/qYSMYkHw/favicon.png"
         />
         <meta
           property="zalo:title"
