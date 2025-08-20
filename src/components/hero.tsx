@@ -81,7 +81,7 @@ export default function HeroSectionOptimized() {
     >
       <div className="absolute inset-0 bg-white/70 pointer-events-none z-0"></div>
       <div className="container">
-        <div className="md:text-center grid lg:grid-cols-2 gap-8 py-6 md:py-12 items-center relative z-10">
+        <div className="md:text-center lg:grid-cols-2 gap-8 py-6 md:py-12 items-center relative z-10">
           {/* Left Section */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}

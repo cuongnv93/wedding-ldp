@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu } from "lucide-react";
-import { Button } from "../components/ui/button";
+import { Menu, X } from "lucide-react";
 import AuthModal from "./auth-modal";
 import CheckoutModal from "./checkout-modal";
 // import { motion } from "framer-motion";
@@ -117,11 +116,57 @@ function NavigationLinks() {
 
 // Component con: MobileMenuButton
 function MobileMenuButton() {
+  const [open, setOpen] = useState(false);
+  const t = useTranslations("");
+  const currentLocale = useLocale();
+
+  const links = [
+    { name: t("about"), href: "#about" },
+    { name: t("product"), href: "#product" },
+    { name: t("faq_menu"), href: "#faq" },
+    { name: t("contact"), href: "#footer" },
+  ];
+
   return (
-    <Button variant="ghost" size="icon" className="md:hidden">
-      <Menu className="h-5 w-5" />
-      <span className="sr-only">Menu</span>
-    </Button>
+    <>
+      <button
+        type="button"
+        className="md:hidden flex items-center justify-center p-2"
+        onClick={() => setOpen(true)}
+        aria-label="Open menu"
+      >
+        <Menu className="h-5 w-5" />
+      </button>
+      {open && (
+        <div className="fixed inset-0 z-[2000] bg-black/40 flex">
+          <div className="bg-white w-64 h-full shadow-lg p-6 flex flex-col gap-6">
+            <button
+              type="button"
+              className="self-end mb-4"
+              onClick={() => setOpen(false)}
+              aria-label="Close menu"
+            >
+              <X className="h-6 w-6" />
+            </button>
+            {links.map((link, idx) => (
+              <Link
+                key={idx}
+                href={`/${currentLocale}/#${link.href.replace("#", "")}`}
+                className="text-lg font-medium py-2"
+                onClick={() => setOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+          <div
+            className="flex-1"
+            onClick={() => setOpen(false)}
+            aria-label="Close menu overlay"
+          />
+        </div>
+      )}
+    </>
   );
 }
 
