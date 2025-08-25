@@ -1947,18 +1947,6 @@ concat-map@0.0.1:
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
 
-cookie@^1.0.1:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/cookie/-/cookie-1.0.2.tgz#27360701532116bd3f1f9416929d176afe1e4610"
-  integrity sha512-9Kr/j4O16ISv8zBBhJoi4bXOYNTkFLOqSL3UDB0njXxCXNezjeyVrJyGOWtgfs/q2km1gwBcfH8q1yEGoMYunA==
-
-cookies-next@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/cookies-next/-/cookies-next-6.1.0.tgz#0bdfe6e78166d494a0b3d30afcdac9456d1164da"
-  integrity sha512-8MqWliHg6YRatqlup5HlKCqXM5cFtwq9BVowDpPniPfbTOmrfIEXUQOcRFVXQltV+hyvKDRGJPNtceICkiJ/IA==
-  dependencies:
-    cookie "^1.0.1"
-
 cross-env@^7.0.3:
   version "7.0.3"
   resolved "https://registry.npmjs.org/cross-env/-/cross-env-7.0.3.tgz"
@@ -3128,11 +3116,6 @@ jiti@^2.4.2:
   resolved "https://registry.npmjs.org/jiti/-/jiti-2.4.2.tgz"
   integrity sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==
 
-js-cookie@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-3.0.5.tgz#0b7e2fd0c01552c58ba86e0841f94dc2557dcdbc"
-  integrity sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==
-
 "js-tokens@^3.0.0 || ^4.0.0":
   version "4.0.0"
   resolved "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz"
@@ -3717,6 +3700,11 @@ react-is@^18.3.1:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.3.1.tgz"
   integrity sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==
+
+react-modern-drawer@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-modern-drawer/-/react-modern-drawer-1.4.0.tgz#2d616b3f6f45a214186c099dff0c0233f51c2ac2"
+  integrity sha512-5OkcUstqUdd/CNW9+BvLkzm36R2G54RFXWF2mWCH13cUsz5SNo9aB9KzPRbJp2LEVfRL/u+MgikOWRe7/6wKEQ==
 
 react-reconciler@^0.31.0:
   version "0.31.0"
