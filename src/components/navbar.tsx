@@ -133,7 +133,7 @@ function MobileMenuButton() {
     <>
       <button
         type="button"
-        className="md:hidden flex items-center justify-center p-2"
+        className="md:hidden flex items-center justify-center p-2 ml-8"
         onClick={() => setOpen(true)}
         aria-label="Open menu"
       >
@@ -187,7 +187,7 @@ export default function Navbar() {
           <NavigationLinks />
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-16">
+          <div className="flex items-center">
             {/* <CreatCard /> */}
             <SwitchFlag />
             <MobileMenuButton />

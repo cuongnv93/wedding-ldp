@@ -253,3 +253,15 @@ html {
   }
 
 }
+
+.responsive-grid {
+  display: block;
+  /* Mặc định là block trên mobile */
+}
+
+@media (min-width: 768px) {
+  .responsive-grid {
+    display: grid;
+    /* Chỉ áp dụng grid từ kích thước md trở lên */
+  }
+}
