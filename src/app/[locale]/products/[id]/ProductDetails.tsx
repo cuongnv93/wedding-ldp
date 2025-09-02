@@ -170,7 +170,7 @@ OptimizedIframe.displayName = "OptimizedIframe";
 
 export default function ProductDetails({ product }: { product: Product }) {
   const [view, setView] = useState<"desktop" | "mobile">("desktop");
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const t = useTranslations("list_product");
 
