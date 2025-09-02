@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import AuthModal from "./auth-modal";
 import CheckoutModal from "./checkout-modal";
+import { useIsMobile } from "@/hooks/use-mobile"
 // import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { SwitchFlag } from "./ui/switchFlag";
@@ -175,6 +176,7 @@ function MobileMenuButton() {
 export default function Navbar() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+  const isMobile = useIsMobile()
 
   return (
     <>
@@ -190,7 +192,7 @@ export default function Navbar() {
           <div className="flex items-center">
             {/* <CreatCard /> */}
             <SwitchFlag />
-            <MobileMenuButton />
+            {isMobile && <MobileMenuButton />}
           </div>
         </div>
       </header>
