@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: "uWedding",
     images: [
       {
-        url: "https://i.ibb.co/qYSMYkHw/favicon.png",
+        url: "https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg",
         width: 500,
         height: 500,
         alt: "uWedding - Thiệp cưới online hiện đại",
@@ -43,11 +43,11 @@ export const metadata: Metadata = {
     title: "Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ",
     description:
       "uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR.",
-    images: ["https://i.ibb.co/qYSMYkHw/favicon.png"],
+    images: ["https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"],
   },
   icons: {
-    icon: "https://i.ibb.co/qYSMYkHw/favicon.png",
-    shortcut: "https://i.ibb.co/qYSMYkHw/favicon.png",
+    icon: "https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg",
+    shortcut: "https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg",
   },
   other: {
     "zalo:title":
