@@ -6,6 +6,7 @@ import "./layout.css";
 import ClientLayout from "../../components/ClientLayout";
 import { NextIntlClientProvider } from "next-intl";
 import Script from "next/script";
+import AntiDebug from "../../components/AntiDebug";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,11 +44,14 @@ export const metadata: Metadata = {
     title: "Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ",
     description:
       "uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR.",
-    images: ["https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"],
+    images: [
+      "https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg",
+    ],
   },
   icons: {
     icon: "https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg",
-    shortcut: "https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg",
+    shortcut:
+      "https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg",
   },
   other: {
     "zalo:title":
@@ -63,6 +67,7 @@ export default async function RootLayout(props: {
 }) {
   const { children } = props;
   const { locale } = await props.params;
+  const isProd = process.env.NODE_ENV === "production";
 
   return (
     <html lang={locale}>
@@ -98,6 +103,7 @@ export default async function RootLayout(props: {
         `}
       </Script>
       <body className={inter.className}>
+        {isProd && <AntiDebug />}
         <NextIntlClientProvider locale={locale}>
           <ClientLayout>{children}</ClientLayout>
         </NextIntlClientProvider>

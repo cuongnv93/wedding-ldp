@@ -8,9 +8,9 @@ export type Product = {
   stock: number;
   description: string;
   image: string;
-  gallery: string[];
+  gallery?: string[];
   linkRedirect: string;
-  target: "web" | "mobile" | "web beautiful" | "card";
+  target: "web" | "mobile" | "web beautiful" | "card" | "signature";
   isHot?: boolean;
   isFavourite?: boolean;
 };
@@ -488,6 +488,24 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "THIEP_001",
     target: "card",
+  },
+  {
+    id: 51,
+    name: "CHUKY_001",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_001",
+    target: "signature",
+  },
+  {
+    id: 52,
+    name: "CHUKY_002",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_002",
+    target: "signature",
   },
 ];
 

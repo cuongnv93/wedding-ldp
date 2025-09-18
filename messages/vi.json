@@ -27,12 +27,14 @@
     "invitation_interface": "Giao diện thiệp cưới",
     "web_interface": "Giao diện website",
     "mobile_interface": "Giao diện di động",
+    "signature_interface": "Giao diện chữ ký",
     "load_more": "Kéo xuống để tải thêm",
     "favorite_interface_desc": "Những thiết kế thiệp cưới được nhiều cặp đôi tin chọn, mang phong cách hiện đại và dễ sử dụng.",
     "invitation_interface_desc": "Mẫu giao diện thiệp cưới tinh tế, đẹp mắt, dễ dàng tùy chỉnh theo ý muốn.",
     "web_interface_desc": "Thiết kế web thiệp cưới tối ưu trải nghiệm người dùng trên trình duyệt, hiển thị đầy đủ thông tin cần thiết.",
     "mobile_interface_desc": "Giao diện thiệp cưới hiển thị hoàn hảo trên thiết bị di động, tiện lợi chia sẻ mọi lúc, mọi nơi.",
     "desktop_interface": "Giao diện máy tính",
+    "signature_interface_desc": "Giao diện chữ ký điện tử độc đáo, giúp khách mời dễ dàng gửi lời chúc mừng và lưu giữ kỷ niệm.",
     "unable_load": "Không thể tải giao diện",
     "try": "Vui lòng thử lại sau",
     "preview": "Xem trước giao diện"
@@ -131,7 +133,9 @@
     "MB_032": "Mẫu thiệp với họa tiết lá vàng, tượng trưng cho sự bền vững và hạnh phúc lâu dài.",
     "MB_033": "Thiệp cưới lấy cảm hứng từ vũ trụ bao la, với những ngôi sao lấp lánh và tinh vân huyền ảo. Tượng trưng cho tình yêu không giới hạn, như những vì sao tỏa sáng mãi.",
     "MB_034": "Thiệp cưới thiết kế như trang sách cổ, với nét chữ calligraphy tinh tế. Dành cho các cặp đôi yêu sách và muốn kể lại hành trình tình yêu như một tiểu thuyết lãng mạn.",
-    "THIEP_001": "Thiệp cưới với thiết kế cổ điển, sang trọng, phù hợp với các cặp đôi yêu thích sự truyền thống và lịch lãm. Họa tiết tinh tế, mang lại cảm giác ấm áp và gần gũi."
+    "THIEP_001": "Thiệp cưới với thiết kế cổ điển, sang trọng, phù hợp với các cặp đôi yêu thích sự truyền thống và lịch lãm. Họa tiết tinh tế, mang lại cảm giác ấm áp và gần gũi.",
+    "CHUKY_001": "Thiệp cưới chữ ký điện tử độc đáo, giúp khách mời dễ dàng gửi lời chúc mừng và lưu giữ kỷ niệm. Phù hợp với các cặp đôi hiện đại, yêu thích sự tiện lợi và sáng tạo.",
+    "CHUKY_002": "Thiệp cưới chữ ký số duyên dáng kết hợp thiết kế vui tươi với tình cảm chân thành. Lý tưởng cho các cặp đôi muốn thêm dấu ấn cá nhân vào ngày trọng đại của mình."
   },
   "terms": {
     "title": "Điều khoản sử dụng",

@@ -1,6 +1,6 @@
 type ProductImageInfo = {
   main: string;
-  gallery: string[];
+  gallery?: string[];
   linkRedirect: string;
 };
 
@@ -512,5 +512,13 @@ export const productImages: Record<string, ProductImageInfo> = {
       "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
     ],
     linkRedirect: "https://thiep1.uwedding.online/",
+  },
+  CHUKY_001: {
+    main: "/image/chuky1.png",
+    linkRedirect: "http://chuky1.uwedding.online/",
+  },
+  CHUKY_002: {
+    main: "/image/chuky2.png",
+    linkRedirect: "http://chuky2.uwedding.online/",
   },
 };

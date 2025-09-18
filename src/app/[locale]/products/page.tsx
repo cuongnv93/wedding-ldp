@@ -82,6 +82,11 @@ const getTabs = (t: any) =>
       desc: t("mobile_interface_desc"),
     },
     { label: t("web_interface"), value: "web", desc: t("web_interface_desc") },
+    {
+      label: t("signature_interface"),
+      value: "signature",
+      desc: t("signature_interface_desc"),
+    },
   ] as const;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

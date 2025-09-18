@@ -26,6 +26,7 @@
     "favorite_interface": "Favorite Interface",
     "invitation_interface": "Invitation Interface",
     "web_interface": "Web Interface",
+    "signature_interface": "Signature Interface",
     "mobile_interface": "Mobile Interface",
     "load_more": "Scroll down to load more",
     "favorite_interface_desc": "Modern, intuitive invitation designs trusted and adored by countless couples.",
@@ -33,6 +34,7 @@
     "web_interface_desc": "Wedding websites beautifully optimized for seamless browsing, presenting all key details with perfect clarity.",
     "mobile_interface_desc": "Perfectly responsive mobile interface lets you share your wedding invitation instantly, anywhere you go.",
     "desktop_interface": "Desktop Interface",
+    "signature_interface_desc": "Unique digital signature interface that allows guests to easily send their congratulations and create lasting memories.",
     "unable_load": "Unable to load interface",
     "try": "Please try again later",
     "preview": "Preview interface"
@@ -133,9 +135,9 @@
     "MB_032": "A wedding invitation adorned with golden leaf motifs, symbolizing enduring strength and everlasting happiness—where love grows richer with time.",
     "MB_033": "A galaxy-themed wedding invitation adorned with shimmering stars and nebulae—symbolizing a love as infinite and radiant as the cosmos itself.",
     "MB_034": "A vintage library-style invitation, featuring delicate calligraphy and aged paper textures—perfect for book-loving couples whose romance reads like a classic novel.",
-
-    "THIEP_001": "A classically designed wedding invitation, exuding elegance and sophistication—perfect for couples who appreciate timeless tradition and refined style. Featuring delicate motifs that evoke warmth and intimacy."
-
+    "THIEP_001": "A classically designed wedding invitation, exuding elegance and sophistication—perfect for couples who appreciate timeless tradition and refined style. Featuring delicate motifs that evoke warmth and intimacy.",
+    "CHUKY_001": "A unique digital signature wedding invitation that allows guests to easily send their congratulations and create lasting memories. Perfect for modern couples who value convenience and creativity.",
+    "CHUKY_002": "A charming digital signature wedding invitation that combines playful design with heartfelt sentiment. Ideal for couples who want to add a personal touch to their special day."
   },
       "terms": {
         "title": "Terms of Service for Online Wedding Invitation Platform",
