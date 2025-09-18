@@ -515,10 +515,10 @@ export const productImages: Record<string, ProductImageInfo> = {
   },
   CHUKY_001: {
     main: "/image/chuky1.png",
-    linkRedirect: "http://chuky1.uwedding.online/",
+    linkRedirect: "https://chuky1.uwedding.online/",
   },
   CHUKY_002: {
     main: "/image/chuky2.png",
-    linkRedirect: "http://chuky2.uwedding.online/",
+    linkRedirect: "https://chuky2.uwedding.online/",
   },
 };
