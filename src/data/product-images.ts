@@ -521,4 +521,8 @@ export const productImages: Record<string, ProductImageInfo> = {
     main: "/image/chuky2.png",
     linkRedirect: "https://chuky2.uwedding.online/",
   },
+  CHUKY_003: {
+    main: "/image/chuky2.png",
+    linkRedirect: "https://chuky3.uwedding.online/",
+  },
 };

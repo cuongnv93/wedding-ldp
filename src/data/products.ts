@@ -395,7 +395,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_031",
     target: "mobile",
-    isFavourite: true,
+    isFavourite: false,
   },
   {
     id: 41,
@@ -460,7 +460,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_018",
     target: "web",
-    isFavourite: true,
+    isFavourite: false,
   },
   {
     id: 48,
@@ -506,6 +506,17 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "CHUKY_002",
     target: "signature",
+    isFavourite: true,
+  },
+  {
+    id: 53,
+    name: "CHUKY_003",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_003",
+    target: "signature",
+    isFavourite: true,
   },
 ];
 
