@@ -103,7 +103,7 @@ export default async function RootLayout(props: {
         `}
       </Script>
       <body className={inter.className}>
-        {isProd && <AntiDebug />}
+        {!isProd && <AntiDebug />}
         {/* {isProd && <AntiDebug />} */}
         <NextIntlClientProvider locale={locale}>
           <ClientLayout>{children}</ClientLayout>
