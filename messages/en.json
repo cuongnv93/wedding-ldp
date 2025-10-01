@@ -192,5 +192,9 @@
       "step_title_5": "Step 5: Delivery & Payment",
       "step_content_5": "After finalizing the content, you will receive the invitation website, QR code, guestbook file, attendance list, and proceed with payment.",
       "contact": "If you need further assistance, please contact us:"
+    },
+    "create_name_invitation": {
+      "copied_toast": "Link copied successfully",
+      "title": "Create guest name invitation"
     }
 }

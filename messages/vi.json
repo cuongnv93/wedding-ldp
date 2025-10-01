@@ -190,5 +190,9 @@
     "step_title_5": "Bước 5: Bàn giao & thanh toán",
     "step_content_5": "Sau khi chốt nội dung, bạn sẽ nhận được website thiệp mời, mã QR, file lời chúc, danh sách tham dự và tiến hành thanh toán.",
     "contact": "Nếu cần hỗ trợ thêm, vui lòng liên hệ:"
+  },
+  "create_name_invitation": {
+    "copied_toast": "Sao chép link thành công",
+    "title": "Tạo tên khách mời vào thiệp"
   }
 }

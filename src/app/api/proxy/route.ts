@@ -48,7 +48,7 @@ export async function GET(request: Request) {
     return new NextResponse(html, {
       headers: {
         "Content-Type": "text/html",
-        "Cache-Control": "s-maxage=300, stale-while-revalidate", // CDN cache 5 phút
+        "Cache-Control": "no-cache",
       },
     });
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
