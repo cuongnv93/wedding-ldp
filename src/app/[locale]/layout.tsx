@@ -89,6 +89,11 @@ export default async function RootLayout(props: {
             `,
           }}
         />
+        <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
+        <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
+        <link rel="apple-touch-icon-precomposed" href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
+        <meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
       </head>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
