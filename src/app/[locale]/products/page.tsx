@@ -66,26 +66,25 @@ const INTERSECTION_THRESHOLD = 0.8; // Tối ưu threshold
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getTabs = (t: any) =>
   [
+    // {
+    //   label: t("favorite_interface"),
+    //   value: "favourite",
+    //   desc: t("favorite_interface_desc"),
+    // },
     {
-      label: t("favorite_interface"),
-      value: "favourite",
-      desc: t("favorite_interface_desc"),
+      label: t("classic"),
+      value: "classic",
+      desc: t("classic_desc"),
     },
     {
-      label: t("invitation_interface"),
-      value: "card",
-      desc: t("invitation_interface_desc"),
+      label: t("romance"),
+      value: "romance",
+      desc: t("romance_desc"),
     },
     {
-      label: t("mobile_interface"),
-      value: "mobile",
-      desc: t("mobile_interface_desc"),
-    },
-    { label: t("web_interface"), value: "web", desc: t("web_interface_desc") },
-    {
-      label: t("signature_interface"),
+      label: t("signature"),
       value: "signature",
-      desc: t("signature_interface_desc"),
+      desc: t("signature_desc"),
     },
   ] as const;
 
@@ -101,9 +100,9 @@ export default function ProductsPage() {
   const [activeTab, setActiveTab] = useState<TabValue>(() => {
     // Only access sessionStorage on client side
     if (typeof window !== "undefined") {
-      return loadFromSessionStorage() || "favourite";
+      return loadFromSessionStorage() || "classic";
     }
-    return "favourite";
+    return "classic";
   });
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
@@ -122,7 +121,7 @@ export default function ProductsPage() {
         (product: Product) => product.isFavourite === true
       );
     }
-    return products.filter((product: Product) => product.target === activeTab);
+    return products.filter((product: Product) => product.type === activeTab);
   }, [activeTab]);
 
   // Memoize visible products để tránh slice lại không cần thiết

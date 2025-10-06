@@ -525,4 +525,37 @@ export const productImages: Record<string, ProductImageInfo> = {
     main: "/image/chuky3.png",
     linkRedirect: "https://chuky3.uwedding.online/",
   },
+  CHUKY_004: {
+    main: "/image/chuky4.png",
+    linkRedirect: "https://chuky4.uwedding.online/",
+  },
+  CHUKY_005: {
+    main: "/image/chuky5.png",
+    linkRedirect: "https://chuky5.uwedding.online/",
+  },
+  CHUKY_006: {
+    main: "/image/chuky6.png",
+    linkRedirect: "https://chuky6.uwedding.online/",
+  },
+  CHUKY_007: {
+    main: "/image/chuky7.png",
+    linkRedirect: "https://chuky7.uwedding.online/",
+  },
+  CHUKY_008: {
+    main: "/image/chuky8.png",
+    linkRedirect: "https://chuky8.uwedding.online/",
+  },
+  CHUKY_009: {
+    main: "/image/chuky3.png",
+    linkRedirect: "https://chuky9.uwedding.online/",
+  },
+
+  CHUKY_010: {
+    main: "/image/chuky3.png",
+    linkRedirect: "https://chuky10.uwedding.online/",
+  },
+  CHUKY_011: {
+    main: "/image/chuky3.png",
+    linkRedirect: "https://chuky11.uwedding.online/",
+  },
 };

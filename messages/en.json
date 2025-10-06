@@ -37,7 +37,13 @@
     "signature_interface_desc": "Unique digital signature interface that allows guests to easily send their congratulations and create lasting memories.",
     "unable_load": "Unable to load interface",
     "try": "Please try again later",
-    "preview": "Preview interface"
+    "preview": "Preview interface",
+    "classic": "Classic Template",
+    "romance": "Romance Template",
+    "signature": "Signature Template",
+    "classic_desc": "Elegant, simple yet sophisticated – for couples who love lightness and simplicity.",
+    "romance_desc": "Modern, romantic and emotional – bringing your love story to life.",
+    "signature_desc": "Classy, luxurious, custom-designed – experience the most premium digital wedding invitation."
   },
   "benefits": {
     "why_choose": "Why Choose uWedding?",
@@ -138,7 +144,15 @@
     "THIEP_001": "A classically designed wedding invitation, exuding elegance and sophistication—perfect for couples who appreciate timeless tradition and refined style. Featuring delicate motifs that evoke warmth and intimacy.",
     "CHUKY_001": "A unique digital signature wedding invitation that allows guests to easily send their congratulations and create lasting memories. Perfect for modern couples who value convenience and creativity.",
     "CHUKY_002": "A charming digital signature wedding invitation that combines playful design with heartfelt sentiment. Ideal for couples who want to add a personal touch to their special day.",
-    "CHUKY_003": "A sweet and modern digital signature wedding invitation, perfect for young couples who love creativity and want to make a unique impression on their wedding day."
+    "CHUKY_003": "A sweet and modern digital signature wedding invitation, perfect for young couples who love creativity and want to make a unique impression on their wedding day.",
+    "CHUKY_004": "A minimalist digital signature wedding invitation that focuses on the message of love and connection between you two. Ideal for those who appreciate simplicity yet want to convey deep emotions.",
+    "CHUKY_005": "A vibrant floral-themed digital signature wedding invitation that brings freshness and vitality—perfect for nature-loving couples who want their wedding day to be truly special.",
+    "CHUKY_006": "An artistic digital signature wedding invitation featuring unique hand-drawn motifs, creating a deeply personal touch for your special day. Ideal for those who love creativity and want to express their individuality.",
+    "CHUKY_007": "A sea-inspired digital signature wedding invitation with cool blue tones and wave motifs, evoking a sense of tranquility and romance for your special day.",
+    "CHUKY_008": "A vintage-style digital signature wedding invitation that exudes nostalgia and sophistication—perfect for couples who appreciate timeless elegance. Featuring unique motifs that create a distinctive impression.",
+    "CHUKY_009": "A modern geometric-patterned digital signature wedding invitation, perfect for couples who love creativity and dare to stand out. Eye-catching design that easily captures everyone's attention.",
+    "CHUKY_010": "A boho-chic digital signature wedding invitation—free-spirited, effortlessly romantic, and perfect for couples who dance to their own rhythm.",
+    "CHUKY_011": "A cherry blossom-themed digital signature wedding invitation, symbolizing new beginnings and eternal love—where delicate petals whisper your promise."
   },
       "terms": {
         "title": "Terms of Service for Online Wedding Invitation Platform",

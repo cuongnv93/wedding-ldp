@@ -13,6 +13,7 @@ export type Product = {
   target: "web" | "mobile" | "web beautiful" | "card" | "signature";
   isHot?: boolean;
   isFavourite?: boolean;
+  type?: "classic" | "romance" | "signature";
 };
 
 const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
@@ -25,6 +26,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description: "WEB_001",
     target: "web",
     isHot: true,
+    type: "romance",
   },
   {
     id: 2,
@@ -34,6 +36,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     reviews: 56,
     description: "WEB_002",
     target: "web",
+    type: "romance",
   },
   {
     id: 3,
@@ -44,6 +47,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description: "WEB_003",
     target: "web",
     isFavourite: true,
+    type: "romance",
   },
   {
     id: 4,
@@ -53,6 +57,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 25,
     description: "WEB_004",
     target: "web",
+    type: "romance",
   },
   {
     id: 5,
@@ -62,6 +67,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 8,
     description: "MB_001",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 6,
@@ -71,7 +77,8 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 18,
     description: "MB_002",
     target: "mobile",
-    isFavourite: true,
+    isFavourite: false,
+    type: "classic",
   },
   {
     id: 7,
@@ -81,7 +88,8 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 22,
     description: "MB_003",
     target: "mobile",
-    isFavourite: true,
+    isFavourite: false,
+    type: "classic",
   },
   {
     id: 8,
@@ -91,6 +99,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_004",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 9,
@@ -101,6 +110,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description: "MB_005",
     target: "mobile",
     isFavourite: true,
+    type: "classic",
   },
   {
     id: 10,
@@ -110,7 +120,8 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_006",
     target: "mobile",
-    isFavourite: true,
+    isFavourite: false,
+    type: "classic",
   },
   {
     id: 11,
@@ -120,6 +131,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_007",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 12,
@@ -129,6 +141,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_008",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 13,
@@ -138,6 +151,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_009",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 14,
@@ -147,6 +161,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_010",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 15,
@@ -157,6 +172,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description: "MB_011",
     target: "mobile",
     isFavourite: true,
+    type: "classic",
   },
   {
     id: 16,
@@ -166,6 +182,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_012",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 17,
@@ -175,6 +192,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_014",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 18,
@@ -184,7 +202,8 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_015",
     target: "mobile",
-    isFavourite: true,
+    isFavourite: false,
+    type: "romance",
   },
   {
     id: 19,
@@ -194,6 +213,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_016",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 20,
@@ -203,6 +223,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_017",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 21,
@@ -212,6 +233,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_018",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 22,
@@ -221,6 +243,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_019",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 23,
@@ -230,6 +253,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_020",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 24,
@@ -239,6 +263,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_005",
     target: "web",
+    type: "classic",
   },
   {
     id: 25,
@@ -248,6 +273,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_021",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 26,
@@ -257,6 +283,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_006",
     target: "web",
+    type: "classic",
   },
   {
     id: 27,
@@ -266,6 +293,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_007",
     target: "web",
+    type: "classic",
   },
   {
     id: 28,
@@ -275,6 +303,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_008",
     target: "web",
+    type: "classic",
   },
   {
     id: 29,
@@ -284,6 +313,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_022",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 30,
@@ -293,6 +323,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_023",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 31,
@@ -302,6 +333,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_009",
     target: "web",
+    type: "classic",
   },
   {
     id: 32,
@@ -311,6 +343,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_024",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 33,
@@ -320,6 +353,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_025",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 34,
@@ -329,6 +363,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_026",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 35,
@@ -338,7 +373,8 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_010",
     target: "web",
-    isFavourite: true,
+    isFavourite: false,
+    type: "romance",
   },
   {
     id: 36,
@@ -348,6 +384,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_027",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 37,
@@ -357,17 +394,18 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_028",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 38,
     name: "MB_029",
     reviews: 67,
-
     new: true,
     stock: 15,
     description: "MB_029",
     target: "mobile",
     isFavourite: true,
+    type: "romance",
   },
   {
     id: 39,
@@ -377,6 +415,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_030",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 40,
@@ -386,6 +425,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_011",
     target: "web",
+    type: "romance",
   },
   {
     id: 40,
@@ -396,6 +436,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description: "MB_031",
     target: "mobile",
     isFavourite: false,
+    type: "romance",
   },
   {
     id: 41,
@@ -405,6 +446,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_032",
     target: "mobile",
+    type: "romance",
   },
   {
     id: 42,
@@ -414,6 +456,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_012",
     target: "web",
+    type: "romance",
   },
   {
     id: 43,
@@ -423,6 +466,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_014",
     target: "web",
+    type: "romance",
   },
   {
     id: 44,
@@ -432,7 +476,8 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_015",
     target: "web",
-    isFavourite: true,
+    isFavourite: false,
+    type: "romance",
   },
   {
     id: 45,
@@ -442,6 +487,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_016",
     target: "web",
+    type: "romance",
   },
   {
     id: 46,
@@ -451,6 +497,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "WEB_017",
     target: "web",
+    type: "classic",
   },
   {
     id: 47,
@@ -461,6 +508,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description: "WEB_018",
     target: "web",
     isFavourite: false,
+    type: "romance",
   },
   {
     id: 48,
@@ -470,6 +518,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_033",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 49,
@@ -479,6 +528,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "MB_034",
     target: "mobile",
+    type: "classic",
   },
   {
     id: 50,
@@ -488,6 +538,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "THIEP_001",
     target: "card",
+    type: "romance",
   },
   {
     id: 51,
@@ -497,6 +548,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     stock: 15,
     description: "CHUKY_001",
     target: "signature",
+    type: "signature",
   },
   {
     id: 52,
@@ -507,6 +559,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description: "CHUKY_002",
     target: "signature",
     isFavourite: true,
+    type: "signature",
   },
   {
     id: 53,
@@ -517,6 +570,95 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     description: "CHUKY_003",
     target: "signature",
     isFavourite: true,
+    type: "signature",
+  },
+  {
+    id: 54,
+    name: "CHUKY_004",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_004",
+    target: "signature",
+    isFavourite: true,
+    type: "signature",
+  },
+  {
+    id: 55,
+    name: "CHUKY_005",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_005",
+    target: "signature",
+    isFavourite: true,
+    type: "signature",
+  },
+  {
+    id: 56,
+    name: "CHUKY_006",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_006",
+    target: "signature",
+    isFavourite: true,
+    type: "signature",
+  },
+  {
+    id: 57,
+    name: "CHUKY_007",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_007",
+    target: "signature",
+    isFavourite: true,
+    type: "signature",
+  },
+  {
+    id: 58,
+    name: "CHUKY_008",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_008",
+    target: "signature",
+    isFavourite: true,
+    type: "signature",
+  },
+  {
+    id: 59,
+    name: "CHUKY_009",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_009",
+    target: "signature",
+    isFavourite: true,
+    type: "signature",
+  },
+  {
+    id: 60,
+    name: "CHUKY_010",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_010",
+    target: "signature",
+    isFavourite: true,
+    type: "signature",
+  },
+  {
+    id: 61,
+    name: "CHUKY_011",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "CHUKY_011",
+    target: "signature",
+    isFavourite: true,
+    type: "signature",
   },
 ];
 

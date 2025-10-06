@@ -37,7 +37,13 @@
     "signature_interface_desc": "Giao diện chữ ký điện tử độc đáo, giúp khách mời dễ dàng gửi lời chúc mừng và lưu giữ kỷ niệm.",
     "unable_load": "Không thể tải giao diện",
     "try": "Vui lòng thử lại sau",
-    "preview": "Xem trước giao diện"
+    "preview": "Xem trước giao diện",
+    "classic": "Mẫu cơ bản",
+    "romance": "Mẫu nâng cao",
+    "signature": "Mẫu cao cấp",
+    "classic_desc": "Tinh tế, đơn giản nhưng sang trọng – dành cho những cặp đôi yêu sự nhẹ nhàng, đơn giản.",
+    "romance_desc": "Hiện đại, lãng mạn và cảm xúc – mang câu chuyện tình yêu của bạn trở nên sống động hơn.",
+    "signature_desc": "Đẳng cấp, sang trọng, thiết kế riêng – trải nghiệm thiệp cưới kỹ thuật số cao cấp nhất."
   },
   "benefits": {
     "why_choose": "Vì sao nên chọn uWedding?",
@@ -136,7 +142,15 @@
     "THIEP_001": "Thiệp cưới với thiết kế cổ điển, sang trọng, phù hợp với các cặp đôi yêu thích sự truyền thống và lịch lãm. Họa tiết tinh tế, mang lại cảm giác ấm áp và gần gũi.",
     "CHUKY_001": "Thiệp cưới chữ ký điện tử độc đáo, giúp khách mời dễ dàng gửi lời chúc mừng và lưu giữ kỷ niệm. Phù hợp với các cặp đôi hiện đại, yêu thích sự tiện lợi và sáng tạo.",
     "CHUKY_002": "Thiệp cưới chữ ký số duyên dáng kết hợp thiết kế vui tươi với tình cảm chân thành. Lý tưởng cho các cặp đôi muốn thêm dấu ấn cá nhân vào ngày trọng đại của mình.",
-    "CHUKY_003": "Thiệp cưới chữ ký số ngọt ngào, mang phong cách hiện đại và tinh tế. Phù hợp với các cặp đôi trẻ trung, yêu thích sự sáng tạo và muốn tạo dấu ấn riêng trong ngày cưới."
+    "CHUKY_003": "Thiệp cưới chữ ký số ngọt ngào, mang phong cách hiện đại và tinh tế. Phù hợp với các cặp đôi trẻ trung, yêu thích sự sáng tạo và muốn tạo dấu ấn riêng trong ngày cưới.",
+    "CHUKY_004": "Thiệp cưới chữ ký số phong cách tối giản, tập trung vào thông điệp yêu thương và sự gắn kết của hai bạn. Lý tưởng cho những ai yêu thích sự giản dị nhưng vẫn muốn thể hiện tình cảm sâu sắc.",
+    "CHUKY_005": "Thiệp cưới chữ ký số với họa tiết hoa lá tươi tắn, mang lại cảm giác tươi mới và tràn đầy sức sống. Phù hợp với các cặp đôi yêu thiên nhiên và muốn ngày cưới của mình thật đặc biệt.",
+    "CHUKY_006": "Thiệp cưới chữ ký số phong cách nghệ thuật, với các họa tiết vẽ tay độc đáo, tạo dấu ấn cá nhân cho cặp đôi. Lý tưởng cho những ai yêu thích sự sáng tạo và muốn thể hiện cá tính riêng.",
+    "CHUKY_007": "Thiệp cưới chữ ký số lấy cảm hứng từ biển cả, với tông màu xanh mát và họa tiết sóng nước, mang lại cảm giác bình yên và lãng mạn cho ngày trọng đại.",
+    "CHUKY_008": "Thiệp cưới chữ ký số phong cách vintage, hoài cổ, phù hợp với các cặp đôi yêu thích sự tinh tế và sang trọng. Họa tiết độc đáo, tạo dấu ấn riêng cho ngày trọng đại.",
+    "CHUKY_009": "Thiệp cưới chữ ký số với họa tiết hình học hiện đại, phù hợp với các cặp đôi yêu thích sự sáng tạo và khác biệt. Thiết kế bắt mắt, dễ dàng thu hút mọi ánh nhìn.",
+    "CHUKY_010": "Thiệp cưới chữ ký số phong cách Boho, phóng khoáng, tự do, phù hợp với các cặp đôi cá tính và yêu thích sự tự nhiên.",
+    "CHUKY_011": "Thiệp cưới chữ ký số với họa tiết hoa anh đào, tượng trưng cho sự khởi đầu mới và tình yêu vĩnh cửu. Phù hợp với các cặp đôi yêu thích sự lãng mạn và tinh tế."
   },
   "terms": {
     "title": "Điều khoản sử dụng",
