@@ -513,6 +513,10 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile35.uwedding.online/",
   },
+  MB_036: {
+    main: "/image/weddingmobile36.png",
+    linkRedirect: "https://weddingmobile36.uwedding.online/",
+  },
   THIEP_001: {
     main: "/image/thiep1.png",
     gallery: [
