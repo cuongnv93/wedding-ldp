@@ -1,65 +1,42 @@
 "use client";
+
 import { useEffect } from "react";
 
-export default function AntiDebug() {
+function AntiDebug() {
   useEffect(() => {
-    // Chặn F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
-        (e.ctrlKey && e.key === "U")
-      ) {
-        e.preventDefault();
-        e.stopPropagation();
-        return false;
-      }
-    };
+    // Hàm kiểm tra debugger
+    const detectDebugger = () => {
+      const start = Date.now();
+      debugger;
+      const end = Date.now();
 
-    document.addEventListener("keydown", onKeyDown);
+      // Nếu nghi ngờ có DevTools
+      if (end - start > 200) {
+        document.body.innerHTML = "<h1>Access Blocked</h1>";
+        localStorage.setItem("roleRefresh", "true");
 
-    // Chặn mở context menu (chuột phải)
-    const onContextMenu = (e: MouseEvent) => {
-      e.preventDefault();
-    };
-    document.addEventListener("contextmenu", onContextMenu);
-
-    // Xoá giao diện và treo trình duyệt nếu phát hiện roleRefresh
-    if (
-      localStorage.getItem("roleRefresh") &&
-      localStorage.getItem("roleRefresh") === "true"
-    ) {
-      document.body.innerHTML = "";
-      while (true) {
+        // Treo vòng lặp (tùy chọn — KHÔNG nên giữ)
         while (true) {
           console.log("1");
         }
       }
+    };
+
+    // Nếu đã bị chặn trước đó
+    if (localStorage.getItem("roleRefresh") === "true") {
+      document.body.innerHTML = "<h1>Access Blocked</h1>";
+      while (true) {
+        console.log("1");
+      }
     }
 
-    // setInterval phát hiện debug
-    const interval = setInterval(() => {
-      const t1 = new Date().getTime();
+    // Lặp kiểm tra liên tục
+    const interval = setInterval(detectDebugger, 10);
 
-      debugger;
-      const t2 = new Date().getTime();
-      if (t2 - t1 > 200) {
-        document.body.innerHTML = "";
-        while (true) {
-          while (true) {
-            console.log("1");
-          }
-        }
-        localStorage.setItem("roleRefresh", "true");
-      }
-    }, 10);
-
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("contextmenu", onContextMenu);
-      clearInterval(interval);
-    };
+    return () => clearInterval(interval);
   }, []);
 
-  return null;
+  return null; // component không hiển thị gì
 }
+
+export default AntiDebug;

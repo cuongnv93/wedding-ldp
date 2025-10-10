@@ -503,6 +503,16 @@ export const productImages: Record<string, ProductImageInfo> = {
     ],
     linkRedirect: "https://weddingmobile34.uwedding.online/",
   },
+  MB_035: {
+    main: "/image/weddingmobile35.png",
+    gallery: [
+      "https://images.unsplash.com/photo-1561808841-24565c5fa4f3",
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+      "https://images.unsplash.com/photo-1578897365126-84e7d1bc4d49",
+      "https://images.unsplash.com/photo-1622667540770-8ba5fd2d2f75",
+    ],
+    linkRedirect: "https://weddingmobile35.uwedding.online/",
+  },
   THIEP_001: {
     main: "/image/thiep1.png",
     gallery: [
@@ -546,16 +556,16 @@ export const productImages: Record<string, ProductImageInfo> = {
     linkRedirect: "https://chuky8.uwedding.online/",
   },
   CHUKY_009: {
-    main: "/image/chuky3.png",
+    main: "/image/chuky9.png",
     linkRedirect: "https://chuky9.uwedding.online/",
   },
 
   CHUKY_010: {
-    main: "/image/chuky3.png",
+    main: "/image/chuky10.png",
     linkRedirect: "https://chuky10.uwedding.online/",
   },
   CHUKY_011: {
-    main: "/image/chuky3.png",
+    main: "/image/chuky11.png",
     linkRedirect: "https://chuky11.uwedding.online/",
   },
 };

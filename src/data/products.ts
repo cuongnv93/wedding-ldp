@@ -660,6 +660,17 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
     isFavourite: true,
     type: "signature",
   },
+  {
+    id: 61,
+    name: "MB_035",
+    reviews: 67,
+    new: true,
+    stock: 15,
+    description: "MB_035",
+    target: "mobile",
+    isFavourite: true,
+    type: "romance",
+  },
 ];
 
 export const products: Product[] = baseProducts.map((item) => ({
