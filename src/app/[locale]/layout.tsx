@@ -67,7 +67,7 @@ export default async function RootLayout(props: {
 }) {
   const { children } = props;
   const { locale } = await props.params;
-  const isProd = process.env.NODE_ENV === "production";
+  // const isProd = process.env.NODE_ENV === "production";
 
   return (
     <html lang={locale}>
@@ -89,20 +89,33 @@ export default async function RootLayout(props: {
             `,
           }}
         />
-        <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
-        <link rel="shortcut icon" href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
-        <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
-        <link rel="apple-touch-icon-precomposed" href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
-        <meta name="msapplication-TileImage" content="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg" />
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
+        />
+        <link
+          rel="shortcut icon"
+          href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
+        />
+        <meta
+          name="msapplication-TileImage"
+          content="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
+        />
       </head>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
         strategy="afterInteractive"
       />
-      {/* <Script
-        src={`https://www.27biggroup.com/librarywedding/functionWedding/library27biggroup.js`}
-        strategy="afterInteractive"
-      /> */}
+      <Script src={`/js/antiDebug.js`} strategy="afterInteractive" />
       <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -112,7 +125,7 @@ export default async function RootLayout(props: {
         `}
       </Script>
       <body className={inter.className}>
-        {isProd && <AntiDebug />}
+        {<AntiDebug />}
         {/* {isProd && <AntiDebug />} */}
         <NextIntlClientProvider locale={locale}>
           <ClientLayout>{children}</ClientLayout>
