@@ -67,7 +67,7 @@ export default async function RootLayout(props: {
 }) {
   const { children } = props;
   const { locale } = await props.params;
-  // const isProd = process.env.NODE_ENV === "production";
+  const isProd = process.env.NODE_ENV === "production";
 
   return (
     <html lang={locale}>
@@ -115,7 +115,6 @@ export default async function RootLayout(props: {
         src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
         strategy="afterInteractive"
       />
-      <Script src={`/js/antiDebug.js`} strategy="afterInteractive" />
       <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -125,8 +124,7 @@ export default async function RootLayout(props: {
         `}
       </Script>
       <body className={inter.className}>
-        {<AntiDebug />}
-        {/* {isProd && <AntiDebug />} */}
+        {isProd && <AntiDebug />}
         <NextIntlClientProvider locale={locale}>
           <ClientLayout>{children}</ClientLayout>
         </NextIntlClientProvider>

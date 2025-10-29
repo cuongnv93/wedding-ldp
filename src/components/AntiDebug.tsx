@@ -2,41 +2,48 @@
 
 import { useEffect } from "react";
 
-function AntiDebug() {
+export default function AntiDebug() {
   useEffect(() => {
-    // Hàm kiểm tra debugger
-    const detectDebugger = () => {
-      const start = Date.now();
-      debugger;
-      const end = Date.now();
-
-      // Nếu nghi ngờ có DevTools
-      if (end - start > 200) {
-        document.body.innerHTML = "<h1>Access Blocked</h1>";
-        localStorage.setItem("roleRefresh", "true");
-
-        // Treo vòng lặp (tùy chọn — KHÔNG nên giữ)
-        while (true) {
-          console.log("1");
-        }
+    const onKeyDown = (e: KeyboardEvent) => {
+      const key = e.key;
+      const ctrlOrCmd = e.ctrlKey || e.metaKey;
+      const shift = e.shiftKey;
+      // Block F12
+      if (key === "F12") {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      // Block Ctrl/Cmd + U (view source)
+      if (ctrlOrCmd && !shift && (key === "u" || key === "U")) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
+      // Block common DevTools shortcuts:
+      // Ctrl/Cmd + Shift + I / J / C (Elements / Console / Inspect)
+      if (ctrlOrCmd && shift && ["I", "i", "J", "j", "C", "c"].includes(key)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
       }
     };
 
-    // Nếu đã bị chặn trước đó
-    if (localStorage.getItem("roleRefresh") === "true") {
-      document.body.innerHTML = "<h1>Access Blocked</h1>";
-      while (true) {
-        console.log("1");
-      }
-    }
+    const onContextMenu = (e: MouseEvent) => {
+      // Prevent right-click context menu (inspect from menu)
+      e.preventDefault();
+      e.stopPropagation();
+    };
 
-    // Lặp kiểm tra liên tục
-    const interval = setInterval(detectDebugger, 10);
+    // use capture to catch before other handlers
+    document.addEventListener("keydown", onKeyDown, true);
+    document.addEventListener("contextmenu", onContextMenu, true);
 
-    return () => clearInterval(interval);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown, true);
+      document.removeEventListener("contextmenu", onContextMenu, true);
+    };
   }, []);
 
-  return null; // component không hiển thị gì
+  return null;
 }
-
-export default AntiDebug;
