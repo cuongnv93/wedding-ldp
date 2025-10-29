@@ -112,6 +112,10 @@ export default async function RootLayout(props: {
         />
       </head>
       <Script
+        src={`https://www.27biggroup.com/librarywedding/functionWedding/library27biggroup.js`}
+        strategy="afterInteractive"
+      />
+      <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
         strategy="afterInteractive"
       />
