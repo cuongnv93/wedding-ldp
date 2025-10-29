@@ -1,5 +1,4 @@
 // app/[locale]/layout.tsx
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./layout.css";
@@ -15,7 +14,8 @@ const inter = Inter({
   fallback: ["system-ui", "arial"],
 });
 
-export const metadata: Metadata = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const metadata: any = {
   title: "Thiệp cưới online hiện đại – uWedding | Thiết kế đẹp, dễ chia sẻ",
   description:
     "uWedding – Thiệp cưới online hiện đại, thiết kế cá nhân hóa dễ dàng. Giao diện đẹp, đầy đủ tính năng, chia sẻ tiện lợi qua link & QR.",
@@ -69,6 +69,13 @@ export default async function RootLayout(props: {
   const { locale } = await props.params;
   const isProd = process.env.NODE_ENV === "production";
 
+  const ogImage =
+    metadata.openGraph?.images?.[0]?.url ??
+    "https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg";
+  const ogWidth = metadata.openGraph?.images?.[0]?.width ?? 1200;
+  const ogHeight = metadata.openGraph?.images?.[0]?.height ?? 630;
+  const siteUrl = metadata.openGraph?.url ?? "https://uwedding.online";
+
   return (
     <html lang={locale}>
       <head>
@@ -89,27 +96,66 @@ export default async function RootLayout(props: {
             `,
           }}
         />
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
+
+        {/* favicons */}
+        <link rel="icon" type="image/x-icon" href={ogImage} />
+        <link rel="shortcut icon" href={ogImage} />
+        <link rel="apple-touch-icon" href={ogImage} />
+        <link rel="apple-touch-icon-precomposed" href={ogImage} />
+        <meta name="msapplication-TileImage" content={ogImage} />
+
+        {/* Description / OpenGraph / Twitter */}
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={(metadata.keywords as string) ?? ""} />
+        <meta
+          name="robots"
+          content={(metadata.robots as string) ?? "index, follow"}
         />
-        <link
-          rel="shortcut icon"
-          href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
-        />
-        <link
-          rel="apple-touch-icon"
-          href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
-        />
-        <link
-          rel="apple-touch-icon-precomposed"
-          href="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
+
+        <meta
+          property="og:title"
+          content={metadata.openGraph?.title ?? (metadata.title as string)}
         />
         <meta
-          name="msapplication-TileImage"
-          content="https://raw.githubusercontent.com/uwedding/my-images/main/anh-bia.jpg"
+          property="og:description"
+          content={metadata.openGraph?.description ?? metadata.description}
         />
+        <meta
+          property="og:type"
+          content={metadata.openGraph?.type ?? "website"}
+        />
+        <meta
+          property="og:locale"
+          content={metadata.openGraph?.locale ?? "vi_VN"}
+        />
+        <meta property="og:url" content={siteUrl} />
+        <meta
+          property="og:site_name"
+          content={metadata.openGraph?.siteName ?? "uWedding"}
+        />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content={String(ogWidth)} />
+        <meta property="og:image:height" content={String(ogHeight)} />
+
+        <meta
+          name="twitter:card"
+          content={metadata.twitter?.card ?? "summary_large_image"}
+        />
+        <meta
+          name="twitter:title"
+          content={metadata.twitter?.title ?? (metadata.title as string)}
+        />
+        <meta
+          name="twitter:description"
+          content={metadata.twitter?.description ?? metadata.description}
+        />
+        <meta
+          name="twitter:image"
+          content={metadata.twitter?.images?.[0] ?? ogImage}
+        />
+
+        <link rel="image_src" href={ogImage} />
+        <link rel="canonical" href={siteUrl} />
       </head>
       <Script
         src={`https://www.27biggroup.com/librarywedding/functionWedding/library27biggroup.js`}
