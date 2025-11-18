@@ -157,10 +157,10 @@ export default async function RootLayout(props: {
         <link rel="image_src" href={ogImage} />
         <link rel="canonical" href={siteUrl} />
       </head>
-      <Script
+      {/* <Script
         src={`https://www.27biggroup.com/librarywedding/functionWedding/library27biggroup.js`}
         strategy="afterInteractive"
-      />
+      /> */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
         strategy="afterInteractive"
