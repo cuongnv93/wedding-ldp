@@ -51,7 +51,7 @@ export default function HeroSectionOptimized() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: "100px" }
+      { threshold: 0.1, rootMargin: "100px" },
     );
 
     const heroElement = document.getElementById("hero-3d-section");
@@ -160,7 +160,7 @@ export default function HeroSectionOptimized() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative h-[300px] sm:h-[400px] md:h-[500px] w-full"
+            className="hidden md:block relative h-[300px] sm:h-[400px] md:h-[500px] w-full"
           >
             {shouldLoad3D ? (
               <Suspense fallback={<ThreeDPlaceholder />}>

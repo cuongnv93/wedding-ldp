@@ -1,7 +1,9 @@
+"use client";
+
 import { NextResponse } from "next/server";
 import { Product, products } from "@/data/products";
 
-export const runtime = "edge"; // chạy Edge nếu deploy Vercel
+export const runtime = "nodejs"; // chạy Edge nếu deploy Vercel
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
