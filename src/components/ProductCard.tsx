@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 interface Product {
   id: string | number;
   image: string;
+  previewImage?: string;
   name: string;
   new: boolean;
   reviews: number;
@@ -34,6 +35,12 @@ export default function ProductCard({
   const t = useTranslations("list_product");
   const t_desc = useTranslations("item_desc");
   const currentLocale = useLocale();
+  const previewImage =
+    product.previewImage || product.image || "/placeholder.svg";
+  const previewTransitionClass =
+    product.target === "card" || activeTab === "card"
+      ? "duration-[1000ms]"
+      : "duration-[15000ms]";
   const previewRatioClass =
     product.target === "mobile"
       ? "aspect-[3/4]"
@@ -87,20 +94,14 @@ export default function ProductCard({
       >
         <div className={cn("relative overflow-hidden", previewRatioClass)}>
           {/* Giữ nguyên tính năng preview ảnh dài 15000ms */}
-          <div
-            className={`relative z-0 h-full w-full rounded-lg rounded-b-none bg-cover bg-top shadow-lg transition-[background-position] ${
-              product.target === "card" || activeTab === "card"
-                ? "duration-[1000ms]"
-                : "duration-[15000ms]"
-            } ease-linear hover:bg-bottom`}
-            style={{
-              backgroundImage: `url('${product.image}')`,
-            }}
-          >
-            {/* Image component ẩn để SEO và accessibility */}
+          <div className="relative z-0 h-full w-full overflow-hidden rounded-lg rounded-b-none shadow-lg">
+            {/* Preview image uses a lightweight WebP source for the listing grid. */}
             <Image
-              className="h-full w-full object-cover opacity-0"
-              src={product.image || "/placeholder.svg"}
+              className={cn(
+                "object-cover object-top transition-[object-position] ease-linear group-hover:object-bottom",
+                previewTransitionClass
+              )}
+              src={previewImage}
               alt={product.name}
               fill
               loading="lazy"

@@ -8,6 +8,7 @@ export type Product = {
   stock: number;
   description: string;
   image: string;
+  previewImage?: string;
   gallery?: string[];
   linkRedirect: string;
   price?: string;
@@ -17,7 +18,17 @@ export type Product = {
   type?: "classic" | "romance" | "signature";
 };
 
-const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
+const getPreviewImage = (image?: string) => {
+  if (!image?.startsWith("/image/")) return image;
+  return image
+    .replace("/image/", "/image-preview/")
+    .replace(/\.[^.]+$/, ".webp");
+};
+
+const baseProducts: Omit<
+  Product,
+  "image" | "previewImage" | "gallery" | "linkRedirect"
+>[] = [
   {
     id: 1,
     name: "WEB_001",
@@ -686,6 +697,7 @@ const baseProducts: Omit<Product, "image" | "gallery" | "linkRedirect">[] = [
 export const products: Product[] = baseProducts.map((item) => ({
   ...item,
   image: productImages[item.name]?.main,
+  previewImage: getPreviewImage(productImages[item.name]?.main),
   gallery: productImages[item.name]?.gallery,
   linkRedirect: productImages[item.name]?.linkRedirect,
 }));
