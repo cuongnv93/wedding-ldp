@@ -72,10 +72,14 @@ export default function FeaturedProducts() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
+          className="grid grid-cols-1 items-stretch gap-6 mt-12 sm:grid-cols-2 lg:grid-cols-4"
         >
           {featuredProducts.map((product) => (
-            <MemoizedProductCard key={product.id} product={product} />
+            <MemoizedProductCard
+              key={product.id}
+              product={product}
+              uniformPreview
+            />
           ))}
         </motion.div>
 

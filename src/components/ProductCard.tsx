@@ -26,9 +26,11 @@ interface Product {
 export default function ProductCard({
   product,
   activeTab,
+  uniformPreview = false,
 }: {
   product: Product;
   activeTab?: string;
+  uniformPreview?: boolean;
 }) {
   const router = useRouter();
   const [isNavigating, setIsNavigating] = useState(false);
@@ -41,8 +43,9 @@ export default function ProductCard({
     product.target === "card" || activeTab === "card"
       ? "duration-[1000ms]"
       : "duration-[15000ms]";
-  const previewRatioClass =
-    product.target === "mobile"
+  const previewRatioClass = uniformPreview
+    ? "aspect-[3/4]"
+    : product.target === "mobile"
       ? "aspect-[3/4]"
       : product.target === "card" || product.target === "signature"
       ? "aspect-[4/5]"
@@ -83,12 +86,12 @@ export default function ProductCard({
         transition: { duration: 0.2, ease: "easeOut" },
       }}
       whileTap={{ scale: 0.98 }} // Feedback khi click
-      className="group cursor-pointer overflow-hidden"
+      className="group flex h-full cursor-pointer overflow-hidden"
       onClick={handleCardClick}
       onMouseEnter={prefetchRoute}
     >
       <Card
-        className={`h-full overflow-hidden transition-shadow duration-200 hover:shadow-lg ${
+        className={`flex h-full w-full flex-col overflow-hidden transition-shadow duration-200 hover:shadow-lg ${
           isNavigating ? "opacity-75 pointer-events-none" : ""
         }`}
       >
@@ -127,7 +130,7 @@ export default function ProductCard({
           </div>
         </div>
 
-        <CardContent className="min-h-[80px] p-4">
+        <CardContent className="min-h-[80px] flex-1 p-4">
           <h3 className="line-clamp-2 text-base font-semibold sm:text-lg">
             {product.name}
           </h3>
@@ -138,7 +141,7 @@ export default function ProductCard({
           )}
         </CardContent>
 
-        <CardFooter className="p-4 pt-0">
+        <CardFooter className="mt-auto p-4 pt-0">
           <div
             className={`flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 ${
               isNavigating
