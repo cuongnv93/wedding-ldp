@@ -47,11 +47,11 @@ export default function CreateNameInvitationPage() {
   return (
     <>
       <Navbar />
-      <main className="container mx-auto max-w-3xl py-12 px-4">
-        <h1 className="text-3xl md:text-4xl font-bold mb-6 text-center text-primary tracking-tight">
+      <main className="container mx-auto max-w-3xl px-4 py-8 sm:py-12">
+        <h1 className="mb-6 text-center text-2xl font-bold tracking-tight text-primary md:text-4xl">
           {t("title")}
         </h1>
-        <div className="bg-white rounded-xl shadow p-6 space-y-6 w-1/2 mx-auto min-w-[400px]">
+        <div className="mx-auto w-full max-w-md space-y-6 rounded-xl bg-white p-4 shadow sm:p-6">
           <div>
             <label className="block font-medium mb-2">Link thiệp cưới</label>
             <Input
@@ -73,7 +73,7 @@ export default function CreateNameInvitationPage() {
             />
           </div>
           <button
-            className="bg-primary text-white px-4 py-2 rounded font-semibold"
+            className="w-full rounded bg-primary px-4 py-2 font-semibold text-white sm:w-auto"
             onClick={handleCreateLink}
             disabled={!baseLink || !guestName}
           >
@@ -84,7 +84,7 @@ export default function CreateNameInvitationPage() {
               <label className="block font-medium mb-2">
                 Link thiệp đã gắn tên khách mời
               </label>
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
                 <Input
                   type="text"
                   className="w-full border rounded px-3 py-2"
@@ -92,9 +92,10 @@ export default function CreateNameInvitationPage() {
                   readOnly
                 />
                 <button
-                  className="bg-gray-200 px-2 py-2 rounded"
+                  className="flex shrink-0 items-center justify-center rounded bg-gray-200 px-3 py-2"
                   onClick={handleCopy}
                   title="Copy link"
+                  aria-label="Copy link"
                 >
                   <Copy className="w-5 h-5" />
                 </button>

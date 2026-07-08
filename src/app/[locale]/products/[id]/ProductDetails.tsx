@@ -1,19 +1,19 @@
 "use client";
 
-import { useState, useCallback, useMemo, memo } from "react";
-import { Monitor, Smartphone, Loader2, AlertCircle } from "lucide-react";
-import type { Product } from "@/data/products";
+import { memo, useCallback, useMemo, useState } from "react";
+import { AlertCircle, Loader2, Monitor, Smartphone } from "lucide-react";
 import Link from "next/link";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import type { Product } from "@/data/products";
+import { cn } from "@/lib/utils";
 
-// Memoized Logo component
 const Logo = memo(() => {
   const currentLocale = useLocale();
 
   return (
     <Link
       href={`/${currentLocale}`}
-      className="font-bold text-2xl hover:opacity-80 transition-opacity"
+      className="shrink-0 text-lg font-bold transition-opacity hover:opacity-80 sm:text-2xl"
     >
       <span className="text-primary">u</span>Wedding
     </Link>
@@ -22,7 +22,6 @@ const Logo = memo(() => {
 
 Logo.displayName = "Logo";
 
-// Memoized View Toggle Button
 const ViewToggleButton = memo(
   ({
     view,
@@ -39,25 +38,26 @@ const ViewToggleButton = memo(
     onClick: () => void;
   }) => (
     <button
-      className={`p-2 rounded transition-colors hover:bg-gray-100 ${
+      className={cn(
+        "rounded p-1.5 transition-colors hover:bg-gray-100 sm:p-2",
         view === currentView ? "bg-primary/10 text-primary" : "text-gray-600"
-      }`}
+      )}
       onClick={onClick}
       title={title}
+      aria-label={title}
       aria-pressed={view === currentView}
     >
-      <Icon className="w-6 h-6" />
+      <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
     </button>
   )
 );
 
 ViewToggleButton.displayName = "ViewToggleButton";
 
-// Loading component for iframe
 const IframeLoader = memo(() => (
-  <div className="flex items-center justify-center h-full bg-gray-50">
+  <div className="flex h-full items-center justify-center bg-gray-50">
     <div className="text-center">
-      <Loader2 className="w-8 h-8 animate-spin text-primary mx-auto mb-2" />
+      <Loader2 className="mx-auto mb-2 h-8 w-8 animate-spin text-primary" />
       <p className="text-sm text-gray-600">Loading...</p>
     </div>
   </div>
@@ -65,18 +65,17 @@ const IframeLoader = memo(() => (
 
 IframeLoader.displayName = "IframeLoader";
 
-// Error component for iframe
 const IframeError = memo(({ onRetry }: { onRetry: () => void }) => {
   const t = useTranslations("list_product");
 
   return (
-    <div className="flex items-center justify-center h-full bg-gray-50">
-      <div className="text-center">
-        <AlertCircle className="w-8 h-8 text-red-500 mx-auto mb-2" />
-        <p className="text-sm text-gray-600 mb-3">{t("unable_load")}</p>
+    <div className="flex h-full items-center justify-center bg-gray-50">
+      <div className="px-4 text-center">
+        <AlertCircle className="mx-auto mb-2 h-8 w-8 text-red-500" />
+        <p className="mb-3 text-sm text-gray-600">{t("unable_load")}</p>
         <button
           onClick={onRetry}
-          className="px-4 py-2 bg-primary text-white rounded hover:bg-primary/90 transition-colors"
+          className="rounded bg-primary px-4 py-2 text-white transition-colors hover:bg-primary/90"
         >
           {t("try")}
         </button>
@@ -87,7 +86,6 @@ const IframeError = memo(({ onRetry }: { onRetry: () => void }) => {
 
 IframeError.displayName = "IframeError";
 
-// Optimized Iframe component
 const OptimizedIframe = memo(
   ({
     src,
@@ -101,67 +99,54 @@ const OptimizedIframe = memo(
     onError: () => void;
   }) => {
     const t = useTranslations("list_product");
-    // Memoize iframe styles để tránh tạo lại object
-    const iframeStyles = useMemo(() => {
-      const baseStyles = {
-        height: "calc(100vh - 65px)",
+
+    const iframeStyles = useMemo(
+      () => ({
+        width: "100%",
+        height: "100%",
         border: "none",
         display: "block" as const,
-      };
+        background: "white",
+      }),
+      []
+    );
 
-      if (view === "mobile") {
+    const containerStyles = useMemo(() => {
+      if (view === "desktop") {
         return {
-          ...baseStyles,
-          width: "425px", // iPhone width
-          background: "white",
-          borderRadius: "1.25rem",
+          width: "100%",
+          height: "100%",
         };
       }
 
       return {
-        ...baseStyles,
-        width: "100%",
+        width: "min(100%, 425px)",
+        height: "100%",
+        maxHeight: "812px",
       };
     }, [view]);
 
-    const containerClassName = useMemo(() => {
-      if (view === "desktop") {
-        return "w-full max-w-5xl rounded-lg shadow-lg overflow-hidden bg-white";
-      }
-      // Mobile view: center container với shadow giống device
-      return "mx-auto shadow-2xl rounded-2xl overflow-hidden bg-white border border-gray-200";
-    }, [view]);
-
-    const containerStyles = useMemo(() => {
-      if (view === "desktop") {
-        return { height: "calc(100vh - 65px)" };
-      }
-      // Mobile: fixed width và height
-      return {
-        width: "425px",
-        height: "calc(100vh - 65px)",
-        maxHeight: "812px", // iPhone 13 height
-      };
-    }, [view]);
-
-    const iframe = (
-      <iframe
-        src={src}
-        title={t("preview")}
-        style={iframeStyles}
-        frameBorder={0}
-        allowFullScreen
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-        loading="lazy"
-        onLoad={onLoad}
-        onError={onError}
-      />
-    );
-
-    // Luôn dùng container cho cả desktop và mobile
     return (
-      <div className={containerClassName} style={containerStyles}>
-        {iframe}
+      <div
+        className={cn(
+          "overflow-hidden bg-white",
+          view === "desktop"
+            ? "h-full w-full shadow-sm md:rounded-lg md:shadow-lg"
+            : "mx-auto rounded-2xl border border-gray-200 shadow-2xl"
+        )}
+        style={containerStyles}
+      >
+        <iframe
+          src={src}
+          title={t("preview")}
+          style={iframeStyles}
+          frameBorder={0}
+          allowFullScreen
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          loading="lazy"
+          onLoad={onLoad}
+          onError={onError}
+        />
       </div>
     );
   }
@@ -175,22 +160,20 @@ export default function ProductDetails({ product }: { product: Product }) {
   const [hasError, setHasError] = useState(false);
   const t = useTranslations("list_product");
 
-  // Memoize view title để tránh tính toán lại
   const viewTitle = useMemo(() => {
     return view === "desktop" ? t("desktop_interface") : t("mobile_interface");
   }, [view, t]);
 
-  // Memoize iframe src để tránh tạo lại string
   const iframeSrc = useMemo(
     () => `/api/proxy?urlId=${product.id}`,
     [product.id]
   );
 
-  // Memoized handlers
   const handleViewChange = useCallback(
     (newView: "desktop" | "mobile") => {
       if (newView !== view) {
         setView(newView);
+        setIsLoading(true);
         setHasError(false);
       }
     },
@@ -201,6 +184,7 @@ export default function ProductDetails({ product }: { product: Product }) {
     () => handleViewChange("desktop"),
     [handleViewChange]
   );
+
   const handleMobileView = useCallback(
     () => handleViewChange("mobile"),
     [handleViewChange]
@@ -219,7 +203,6 @@ export default function ProductDetails({ product }: { product: Product }) {
   const handleRetry = useCallback(() => {
     setIsLoading(true);
     setHasError(false);
-    // Force iframe reload by changing src slightly
     const iframe = document.querySelector("iframe");
     if (iframe) {
       const currentSrc = iframe.src;
@@ -231,19 +214,18 @@ export default function ProductDetails({ product }: { product: Product }) {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-[1000] w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+    <div className="flex h-[100dvh] min-h-screen flex-col overflow-hidden bg-background">
+      <header className="sticky top-0 z-[1000] w-full shrink-0 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-16 items-center justify-between gap-2 px-3 sm:px-6">
           <Logo />
 
-          {/* Center content */}
-          <div className="flex-1 flex justify-center">
-            <span className="font-semibold md:text-lg">{viewTitle}</span>
+          <div className="flex min-w-0 flex-1 justify-center px-1">
+            <span className="truncate text-sm font-semibold sm:text-base md:text-lg">
+              {viewTitle}
+            </span>
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
             <ViewToggleButton
               view="desktop"
               currentView={view}
@@ -262,23 +244,19 @@ export default function ProductDetails({ product }: { product: Product }) {
         </div>
       </header>
 
-      {/* Content */}
-      <main className="flex justify-center items-center bg-gray-50 relative">
-        {/* Loading overlay */}
+      <main className="relative flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-gray-50 p-2 sm:p-4">
         {isLoading && (
           <div className="absolute inset-0 z-10">
             <IframeLoader />
           </div>
         )}
 
-        {/* Error overlay */}
         {hasError && !isLoading && (
           <div className="absolute inset-0 z-10">
             <IframeError onRetry={handleRetry} />
           </div>
         )}
 
-        {/* Iframe content */}
         <OptimizedIframe
           src={iframeSrc}
           view={view}

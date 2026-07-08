@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { useCallback, useState } from "react";
 import { useRouter } from "nextjs-toploader/app";
 import { useTranslations, useLocale } from "next-intl";
+import { cn } from "@/lib/utils";
 
 interface Product {
   id: string | number;
@@ -18,6 +19,7 @@ interface Product {
   linkRedirect: string;
   isFavourite?: boolean;
   description?: string;
+  target?: "web" | "mobile" | "web beautiful" | "card" | "signature";
 }
 
 export default function ProductCard({
@@ -32,6 +34,12 @@ export default function ProductCard({
   const t = useTranslations("list_product");
   const t_desc = useTranslations("item_desc");
   const currentLocale = useLocale();
+  const previewRatioClass =
+    product.target === "mobile"
+      ? "aspect-[3/4]"
+      : product.target === "card" || product.target === "signature"
+      ? "aspect-[4/5]"
+      : "aspect-[4/3]";
 
   // Navigation với loading state và prevent double clicks
   const handleCardClick = useCallback(async () => {
@@ -68,27 +76,22 @@ export default function ProductCard({
         transition: { duration: 0.2, ease: "easeOut" },
       }}
       whileTap={{ scale: 0.98 }} // Feedback khi click
-      className="overflow-hidden group cursor-pointer"
+      className="group cursor-pointer overflow-hidden"
       onClick={handleCardClick}
       onMouseEnter={prefetchRoute}
     >
       <Card
-        className={`h-full min-h-[520px] transition-shadow duration-200 hover:shadow-lg ${
+        className={`h-full overflow-hidden transition-shadow duration-200 hover:shadow-lg ${
           isNavigating ? "opacity-75 pointer-events-none" : ""
         }`}
       >
-        <div
-          className="relative aspect-square overflow-hidden"
-          style={
-            activeTab === "card"
-              ? { height: "455px", width: "100%" }
-              : undefined
-          }
-        >
+        <div className={cn("relative overflow-hidden", previewRatioClass)}>
           {/* Giữ nguyên tính năng preview ảnh dài 15000ms */}
           <div
-            className={`relative shadow-lg min-h-[450px] z-0 rounded-lg rounded-b-none bg-cover bg-top transition-[background-position] ${
-              activeTab === "card" ? "duration-[1000ms]" : "duration-[15000ms]"
+            className={`relative z-0 h-full w-full rounded-lg rounded-b-none bg-cover bg-top shadow-lg transition-[background-position] ${
+              product.target === "card" || activeTab === "card"
+                ? "duration-[1000ms]"
+                : "duration-[15000ms]"
             } ease-linear hover:bg-bottom`}
             style={{
               backgroundImage: `url('${product.image}')`,
@@ -96,7 +99,7 @@ export default function ProductCard({
           >
             {/* Image component ẩn để SEO và accessibility */}
             <Image
-              className="w-full h-full object-cover opacity-0"
+              className="h-full w-full object-cover opacity-0"
               src={product.image || "/placeholder.svg"}
               alt={product.name}
               fill
@@ -107,13 +110,13 @@ export default function ProductCard({
 
             {/* Loading overlay khi đang navigate */}
             {isNavigating && (
-              <div className="absolute inset-0 bg-black/20 flex items-center justify-center z-20 rounded-lg rounded-b-none">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+              <div className="absolute inset-0 z-20 flex items-center justify-center rounded-lg rounded-b-none bg-black/20">
+                <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-white"></div>
               </div>
             )}
 
             {/* Badge overlay */}
-            <div className="absolute top-2 right-2 flex flex-col gap-2 z-10">
+            <div className="absolute right-2 top-2 z-10 flex flex-col gap-2">
               {product.isFavourite ? (
                 <Badge className="text-xs bg-primary">{t("favorite")}</Badge>
               ) : product.new ? (
@@ -123,18 +126,20 @@ export default function ProductCard({
           </div>
         </div>
 
-        <CardContent className="p-4 min-h-[80px]">
-          <h3 className="font-semibold text-lg line-clamp-2">{product.name}</h3>
+        <CardContent className="min-h-[80px] p-4">
+          <h3 className="line-clamp-2 text-base font-semibold sm:text-lg">
+            {product.name}
+          </h3>
           {product.description && (
-            <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+            <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
               {t_desc(product.description)}
             </p>
           )}
         </CardContent>
 
-        <CardFooter className="p-4 pt-0 h-[60px]">
+        <CardFooter className="p-4 pt-0">
           <div
-            className={`w-full rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 flex items-center justify-center gap-2 ${
+            className={`flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-all duration-200 ${
               isNavigating
                 ? "bg-primary/70 text-primary-foreground cursor-not-allowed"
                 : "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-md"
@@ -142,7 +147,7 @@ export default function ProductCard({
           >
             {isNavigating ? (
               <>
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current"></div>
+                <div className="h-4 w-4 animate-spin rounded-full border-b-2 border-current"></div>
                 {t("loading")}...
               </>
             ) : (

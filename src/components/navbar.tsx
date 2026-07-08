@@ -17,7 +17,7 @@ function Logo() {
   const currentLocale = useLocale();
 
   return (
-    <Link href={`/${currentLocale}`} className="font-bold text-2xl">
+    <Link href={`/${currentLocale}`} className="shrink-0 text-xl font-bold sm:text-2xl">
       <span className="text-primary">u</span>Wedding
     </Link>
   );
@@ -31,8 +31,8 @@ function NavigationLinks() {
   const currentLocale = useLocale();
 
   useEffect(() => {
-    setIsHomePage(window.location.pathname === "/");
-  }, []);
+    setIsHomePage(window.location.pathname === `/${currentLocale}`);
+  }, [currentLocale]);
 
   const links = [
     {
@@ -134,7 +134,7 @@ function MobileMenuButton() {
     <>
       <button
         type="button"
-        className="md:hidden flex items-center justify-center p-2 ml-8"
+        className="ml-2 flex items-center justify-center p-2 md:hidden"
         onClick={() => setOpen(true)}
         aria-label="Open menu"
       >
@@ -181,7 +181,7 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-[1000] w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container flex h-16 items-center justify-between gap-2 px-3 sm:px-6">
           {/* Logo */}
           <Logo />
 

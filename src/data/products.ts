@@ -10,6 +10,7 @@ export type Product = {
   image: string;
   gallery?: string[];
   linkRedirect: string;
+  price?: string;
   target: "web" | "mobile" | "web beautiful" | "card" | "signature";
   isHot?: boolean;
   isFavourite?: boolean;

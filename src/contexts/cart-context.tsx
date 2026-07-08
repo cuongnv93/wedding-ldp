@@ -62,7 +62,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     return items.reduce((total, item) => {
       const product = products.find(p => p.id === item.id)
       if (!product) return total
-      const price = parseFloat(product.price.replace(/[^0-9.-]+/g, ""))
+      const price = parseFloat((product.price ?? "0").replace(/[^0-9.-]+/g, ""))
       return total + price * item.quantity
     }, 0)
   }
@@ -102,4 +102,4 @@ export function useCart() {
     throw new Error("useCart must be used within a CartProvider")
   }
   return context
-} 
+}
