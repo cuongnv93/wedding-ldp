@@ -30,9 +30,44 @@ export async function GET(request: Request) {
     const origin = urlObj.origin;
     const basePath = urlObj.pathname.replace(/\/[^\/]*$/, "/");
     const baseTag = `<base href="${origin}${basePath}">`;
-    const encodedBase = Buffer.from(baseTag).toString("base64");
+    const iframeFixStyles = `
+      <style id="uwedding-preview-frame-fix">
+        html,
+        body {
+          width: 100% !important;
+          max-width: 100% !important;
+          overflow-x: hidden !important;
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar,
+        *::-webkit-scrollbar {
+          width: 0 !important;
+          height: 0 !important;
+          display: none !important;
+        }
+
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+        }
+
+        img,
+        video,
+        canvas,
+        svg {
+          max-width: 100%;
+        }
+      </style>
+    `;
+    const encodedHeadInjection = Buffer.from(
+      `${baseTag}${iframeFixStyles}`
+    ).toString("base64");
     html = html.replace(/<head[^>]*>/i, (match) => {
-      return `${match}<script>document.write(atob("${encodedBase}"))</script>`;
+      return `${match}<script>document.write(atob("${encodedHeadInjection}"))</script>`;
     });
 
     html = html.replace(/(src|href)=["']\/(?!\/)/g, `$1="${origin}/`);

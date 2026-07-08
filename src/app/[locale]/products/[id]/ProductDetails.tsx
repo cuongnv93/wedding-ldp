@@ -104,35 +104,32 @@ const OptimizedIframe = memo(
       () => ({
         width: "100%",
         height: "100%",
+        minWidth: 0,
         border: "none",
         display: "block" as const,
         background: "white",
+        overflow: "hidden",
       }),
       []
     );
 
-    const containerStyles = useMemo(() => {
-      if (view === "desktop") {
-        return {
-          width: "100%",
-          height: "100%",
-        };
-      }
-
-      return {
-        width: "min(100%, 425px)",
+    const containerStyles = useMemo(
+      () => ({
+        width: "100%",
         height: "100%",
-        maxHeight: "812px",
-      };
-    }, [view]);
+        maxWidth: view === "desktop" ? "100%" : "425px",
+        maxHeight: view === "desktop" ? "100%" : "812px",
+      }),
+      [view]
+    );
 
     return (
       <div
         className={cn(
-          "overflow-hidden bg-white",
+          "overflow-hidden bg-white transition-[max-width,max-height,border-radius,box-shadow,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[max-width,max-height,transform]",
           view === "desktop"
             ? "h-full w-full shadow-sm md:rounded-lg md:shadow-lg"
-            : "mx-auto rounded-2xl border border-gray-200 shadow-2xl"
+            : "mx-auto h-full w-full rounded-[28px] border border-gray-200 shadow-2xl"
         )}
         style={containerStyles}
       >
@@ -143,6 +140,7 @@ const OptimizedIframe = memo(
           frameBorder={0}
           allowFullScreen
           sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          scrolling="yes"
           loading="lazy"
           onLoad={onLoad}
           onError={onError}
@@ -155,7 +153,8 @@ const OptimizedIframe = memo(
 OptimizedIframe.displayName = "OptimizedIframe";
 
 export default function ProductDetails({ product }: { product: Product }) {
-  const [view, setView] = useState<"desktop" | "mobile">("desktop");
+  const defaultView = product.target === "mobile" ? "mobile" : "desktop";
+  const [view, setView] = useState<"desktop" | "mobile">(defaultView);
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const t = useTranslations("list_product");
@@ -173,7 +172,7 @@ export default function ProductDetails({ product }: { product: Product }) {
     (newView: "desktop" | "mobile") => {
       if (newView !== view) {
         setView(newView);
-        setIsLoading(true);
+        setIsLoading(false);
         setHasError(false);
       }
     },

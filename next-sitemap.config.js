@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://uwedding.online",
-  generateRobotsTxt: true,
+  siteUrl: "https://www.uwedding.online",
+  generateRobotsTxt: false,
 };

@@ -3,6 +3,18 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  webpack: (config, { dev }) => {
+    if (dev) {
+      config.watchOptions = {
+        ...config.watchOptions,
+        aggregateTimeout: 200,
+        ignored: ["**/node_modules/**", "**/.next/**"],
+        poll: 800,
+      };
+    }
+
+    return config;
+  },
   images: {
     remotePatterns: [
       {
