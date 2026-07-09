@@ -11,7 +11,7 @@
   --knob-height: 24px;
   --translate-distance: 30px;
   /* Sprite with two flags */
-  --first-flag: #000233 url(https://i.imgur.com/pxxUsQs.jpg) -2px center;
+  --first-flag: #000233 url('/image/en-flag.svg') center;
   --second-flag: #eb3 url('/image/vn.jpg') center;
 }
 

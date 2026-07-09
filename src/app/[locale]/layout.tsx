@@ -5,9 +5,11 @@ import "./globals.css";
 import "./layout.css";
 import ClientLayout from "../../components/ClientLayout";
 import { NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import Script from "next/script";
 import AntiDebug from "../../components/AntiDebug";
 import { defaultSeo, pageMetadata } from "@/lib/seo";
+import { routing } from "@/i18n/routing";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,6 +30,10 @@ export async function generateMetadata(props: {
   });
 }
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout(props: {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
@@ -35,6 +41,7 @@ export default async function RootLayout(props: {
   const { children } = props;
   const { locale } = await props.params;
   const isProd = process.env.NODE_ENV === "production";
+  setRequestLocale(locale);
 
   return (
     <html lang={locale}>
@@ -44,9 +51,9 @@ export default async function RootLayout(props: {
       /> */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="gtag-init" strategy="afterInteractive">
+      <Script id="gtag-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
