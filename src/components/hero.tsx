@@ -31,7 +31,7 @@ export default async function HeroSectionOptimized({
         quality={70}
         className="object-cover object-center"
       />
-      <div className="absolute inset-0 bg-white/75 pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-black/25 pointer-events-none z-0" />
 
       <div className="container">
         <div className="md:text-center responsive-grid lg:grid-cols-2 gap-8 py-6 md:py-12 items-center relative z-10">
