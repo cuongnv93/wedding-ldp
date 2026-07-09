@@ -22,7 +22,7 @@ export default async function HeroSectionOptimized({
   return (
     <section className="relative w-full min-h-[40vh] overflow-hidden bg-white">
       <Image
-        src="/image-preview/thiep1.webp"
+        src="/image/anh-bia-thiep-xinh.jpg"
         alt=""
         fill
         priority
