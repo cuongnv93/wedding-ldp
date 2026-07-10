@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, seoFor } from "@/lib/seo";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
+  const metadata = seoFor(locale, "privacy");
 
   return pageMetadata({
     locale,
     path: "/privacy",
-    title: "Chinh sach bao mat - uWedding",
-    description:
-      "Chinh sach bao mat cua uWedding cho dich vu thiep cuoi online, cach chung toi bao ve thong tin khach hang va du lieu thiet ke.",
+    title: metadata.title,
+    description: metadata.description,
   });
 }
 

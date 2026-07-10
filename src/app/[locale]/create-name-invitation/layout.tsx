@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, seoFor } from "@/lib/seo";
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
+  const metadata = seoFor(locale, "createNameInvitation");
 
   return pageMetadata({
     locale,
     path: "/create-name-invitation",
-    title: "Tao link thiep cuoi gan ten khach moi - uWedding",
-    description:
-      "Tao link thiep cuoi online gan ten khach moi nhanh chong, giup loi moi trang trong va ca nhan hoa hon khi chia se.",
+    title: metadata.title,
+    description: metadata.description,
   });
 }
 

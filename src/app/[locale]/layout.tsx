@@ -8,7 +8,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import Script from "next/script";
 import AntiDebug from "../../components/AntiDebug";
-import { defaultSeo, pageMetadata } from "@/lib/seo";
+import { pageMetadata, seoFor, siteUrl } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 const inter = Inter({
@@ -22,11 +22,12 @@ export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await props.params;
+  const metadata = seoFor(locale, "home");
 
   return pageMetadata({
     locale,
-    title: defaultSeo.title,
-    description: defaultSeo.description,
+    title: metadata.title,
+    description: metadata.description,
   });
 }
 
@@ -42,6 +43,20 @@ export default async function RootLayout(props: {
   const { locale } = await props.params;
   const isProd = process.env.NODE_ENV === "production";
   setRequestLocale(locale);
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "uWedding",
+    url: siteUrl,
+    inLanguage: locale,
+  };
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "uWedding",
+    url: siteUrl,
+    logo: `${siteUrl}/image/og-cover.jpg`,
+  };
 
   return (
     <html lang={locale}>
@@ -62,6 +77,12 @@ export default async function RootLayout(props: {
         `}
       </Script>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([websiteJsonLd, organizationJsonLd]),
+          }}
+        />
         {isProd && <AntiDebug />}
         <NextIntlClientProvider locale={locale}>
           <ClientLayout>{children}</ClientLayout>

@@ -20,11 +20,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) => {
     const paths = [...staticPaths, ...productPaths];
 
-    return paths.map((path) => ({
-      url: absoluteUrl(locale, path),
-      lastModified: now,
-      changeFrequency: path.startsWith("/products") ? "weekly" : "monthly",
-      priority: path === "" ? 1 : path === "/products" ? 0.9 : 0.7,
-    }));
+    return paths.map((path) => {
+      const languageAlternates = Object.fromEntries(
+        locales.map((item) => [item, absoluteUrl(item, path)])
+      );
+
+      return {
+        url: absoluteUrl(locale, path),
+        lastModified: now,
+        changeFrequency: path.startsWith("/products") ? "weekly" : "monthly",
+        priority: path === "" ? 1 : path === "/products" ? 0.9 : 0.7,
+        alternates: {
+          languages: {
+            ...languageAlternates,
+            "x-default": absoluteUrl("vi", path),
+          },
+        },
+      };
+    });
   });
 }

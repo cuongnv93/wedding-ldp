@@ -219,9 +219,9 @@ export default function ProductDetails({ product }: { product: Product }) {
           <Logo />
 
           <div className="flex min-w-0 flex-1 justify-center px-1">
-            <span className="truncate text-sm font-semibold sm:text-base md:text-lg">
-              {viewTitle}
-            </span>
+            <h1 className="truncate text-sm font-semibold sm:text-base md:text-lg">
+              {product.name} - {viewTitle}
+            </h1>
           </div>
 
           <div className="flex shrink-0 items-center gap-1 sm:gap-2">
