@@ -13,6 +13,24 @@ const localeLabels: Record<Locale, string> = {
 };
 
 const defaultOgImage = "/image/og-cover.jpg";
+const seoKeywords: Record<Locale, string[]> = {
+  vi: [
+    "thiệp cưới online",
+    "thiệp cưới điện tử",
+    "mẫu thiệp cưới online",
+    "website đám cưới",
+    "thiệp cưới QR",
+    "uWedding",
+  ],
+  en: [
+    "online wedding invitations",
+    "digital wedding invitations",
+    "wedding invitation templates",
+    "wedding website",
+    "QR wedding invitation",
+    "uWedding",
+  ],
+};
 
 export const defaultSeo = {
   title: "Thiệp cưới online hiện đại - uWedding",
@@ -112,6 +130,12 @@ export function absoluteUrl(locale: string, path = "") {
   return `${siteUrl}${localizedPath(locale, path)}`;
 }
 
+export function absoluteAssetUrl(path: string) {
+  if (/^https?:\/\//.test(path)) return path;
+
+  return `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export function pageMetadata({
   locale,
   path = "",
@@ -136,6 +160,16 @@ export function pageMetadata({
   return {
     metadataBase: new URL(siteUrl),
     applicationName: "uWedding",
+    authors: [{ name: "uWedding", url: siteUrl }],
+    creator: "uWedding",
+    publisher: "uWedding",
+    keywords: seoKeywords[normalizedLocale],
+    category: "wedding invitation service",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     icons: {
       icon: "/favicon.png",
       apple: "/favicon.png",

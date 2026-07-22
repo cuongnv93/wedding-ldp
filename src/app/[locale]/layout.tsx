@@ -42,6 +42,7 @@ export default async function RootLayout(props: {
   const { children } = props;
   const { locale } = await props.params;
   const isProd = process.env.NODE_ENV === "production";
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
   setRequestLocale(locale);
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -64,18 +65,22 @@ export default async function RootLayout(props: {
         src={`https://www.27biggroup.com/librarywedding/functionWedding/library27biggroup.js`}
         strategy="afterInteractive"
       /> */}
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX`}
-        strategy="lazyOnload"
-      />
-      <Script id="gtag-init" strategy="lazyOnload">
-        {`
+      {gaId && (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            strategy="lazyOnload"
+          />
+          <Script id="gtag-init" strategy="lazyOnload">
+            {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-XXXXXXX');
+          gtag('config', '${gaId}');
         `}
-      </Script>
+          </Script>
+        </>
+      )}
       <body className={inter.className}>
         <script
           type="application/ld+json"
