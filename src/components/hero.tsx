@@ -31,7 +31,7 @@ export default async function HeroSectionOptimized({
         fill
         priority
         fetchPriority="high"
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw, 1920px"
         quality={75}
         className="object-cover object-center"
         style={{ zIndex: 0 }}
@@ -65,7 +65,7 @@ export default async function HeroSectionOptimized({
                   {t("banner_view")} <ArrowRight className="h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" className="shadow-lg">
+              <Button asChild size="lg" className="shadow-lg font-bold">
                 <Link href={`/${locale}/create-invitation`} title={t("banner_create")}>
                   {t("banner_create")}
                 </Link>
