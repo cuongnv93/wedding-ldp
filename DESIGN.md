@@ -24,7 +24,6 @@
 - Footer
 - HeroSectionOptimized
 - ProductCard
-- FeaturesShowcase
 - Benefits
 - QuestionLazy / FAQSection
 - ProductDetails
