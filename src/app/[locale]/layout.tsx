@@ -92,6 +92,9 @@ export default async function RootLayout(props: {
 
   return (
     <html lang={locale}>
+      <head>
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+      </head>
       {gaId && (
         <>
           <Script

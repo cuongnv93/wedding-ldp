@@ -31,8 +31,8 @@ export default async function HeroSectionOptimized({
         fill
         priority
         fetchPriority="high"
-        sizes="(max-width: 768px) 100vw, 1920px"
-        quality={75}
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1920px"
+        quality={70}
         className="object-cover object-center"
       />
       <div className="absolute inset-0 bg-white/75 pointer-events-none z-0" />

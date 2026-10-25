@@ -19,6 +19,8 @@ export default function Hero3DLoader({ label }: { label: string }) {
   const [shouldLoad3D, setShouldLoad3D] = useState(false);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
+
     const element = document.getElementById("hero-3d-section");
     if (!element) return;
 

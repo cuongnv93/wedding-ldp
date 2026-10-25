@@ -88,8 +88,8 @@ export default function ProductCard({
                 alt={imageAlt}
                 fill
                 loading="lazy"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                quality={80}
+                sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 300px"
+                quality={70}
               />
 
               {/* Badge overlay */}
