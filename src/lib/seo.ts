@@ -204,7 +204,7 @@ export function pageMetadata({
         .map((item) => localeLabels[item]),
       images: [
         {
-          url: image,
+          url: absoluteAssetUrl(image),
           width: 1200,
           height: 630,
           alt: title,
@@ -215,7 +215,10 @@ export function pageMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: [image],
+      images: [absoluteAssetUrl(image)],
+    },
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
     },
     robots: {
       index: true,

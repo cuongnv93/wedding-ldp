@@ -144,14 +144,20 @@ export default function ProductDetails({
       {/* Top Navigation Bar */}
       <header className="sticky top-0 z-[1000] w-full shrink-0 border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-xs">
         <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between gap-2 px-3 sm:px-6">
-          {/* Back & Logo */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            <Button asChild variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9" title="Quay lại danh sách mẫu">
+          {/* Back & Logo & H1 */}
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
+            <Button asChild variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 shrink-0" title="Quay lại danh sách mẫu">
               <Link href={`/${currentLocale}/products`}>
                 <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               </Link>
             </Button>
             <Logo />
+            <div className="hidden xl:block h-4 w-px bg-slate-200 shrink-0" />
+            <h1 className="sr-only xl:not-sr-only xl:block text-xs font-semibold text-slate-700 truncate max-w-[180px]">
+              {currentLocale === "vi"
+                ? `Mẫu thiệp cưới online ${product.name}`
+                : `Online wedding invitation ${product.name}`}
+            </h1>
           </div>
 
           {/* Segmented Control Switcher: PC vs Mobile */}

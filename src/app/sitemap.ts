@@ -15,7 +15,6 @@ const staticPaths = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const uniqueProductIds = [...new Set(products.map((product) => product.id))];
   const productPaths = uniqueProductIds.map((id) => `/products/${id}`);
   const blogPaths = blogs.map((post) => `/blog/${post.slug}`);
@@ -32,9 +31,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const isBlogDetail = path.startsWith("/blog/") && path !== "/blog";
       const isBlogIndex = path === "/blog";
 
+      const slug = isBlogDetail ? path.replace("/blog/", "") : null;
+      const blogPost = slug ? blogs.find((b) => b.slug === slug) : null;
+      const lastModified = blogPost
+        ? new Date(blogPost.updatedAt || blogPost.publishedAt)
+        : new Date("2026-10-25T00:00:00.000Z");
+
       return {
         url: absoluteUrl(locale, path),
-        lastModified: now,
+        lastModified,
         changeFrequency: isProduct || isBlogDetail ? "weekly" : "monthly",
         priority:
           path === ""
@@ -54,4 +59,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   });
 }
-

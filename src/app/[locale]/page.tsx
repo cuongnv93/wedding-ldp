@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import FeaturedProducts from "../../components/featured-products";
@@ -5,8 +6,22 @@ import FeaturesShowcase from "../../components/FeaturesShowcase";
 import Benefits from "../../components/benefits";
 import Question from "../../components/question";
 import Footer from "../../components/footer";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, pageMetadata, seoFor } from "@/lib/seo";
 import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata(props: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await props.params;
+  const metadata = seoFor(locale, "home");
+
+  return pageMetadata({
+    locale,
+    path: "",
+    title: metadata.title,
+    description: metadata.description,
+  });
+}
 
 export default async function Home(props: {
   params: Promise<{ locale: string }>;

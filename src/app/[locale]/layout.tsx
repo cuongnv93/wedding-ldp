@@ -1,6 +1,6 @@
 // app/[locale]/layout.tsx
 import { Inter } from "next/font/google";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./layout.css";
 import ClientLayout from "../../components/ClientLayout";
@@ -17,6 +17,14 @@ const inter = Inter({
   preload: true,
   fallback: ["system-ui", "arial"],
 });
+
+
+export const viewport: Viewport = {
+  themeColor: "#e11d48",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export async function generateMetadata(props: {
   params: Promise<{ locale: string }>;
@@ -49,9 +57,18 @@ export default async function RootLayout(props: {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "uWedding",
+    alternateName: ["uWedding Online", "Thiệp Cưới Online uWedding"],
     url: siteUrl,
-    inLanguage: locale,
+    inLanguage: locale === "en" ? "en-US" : "vi-VN",
     description: "Nền tảng tạo thiệp cưới online, thiệp cưới điện tử hiện đại",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteUrl}/${locale}/blog?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
   const organizationJsonLd = {
     "@context": "https://schema.org",
@@ -59,6 +76,11 @@ export default async function RootLayout(props: {
     name: "uWedding",
     url: siteUrl,
     logo: `${siteUrl}/image/og-cover.jpg`,
+    sameAs: [
+      "https://facebook.com",
+      "https://instagram.com",
+      "https://youtube.com",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+84-355-565-741",
