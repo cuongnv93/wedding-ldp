@@ -12,7 +12,7 @@ import { pageMetadata, seoFor, siteUrl } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "vietnamese"],
   display: "swap",
   preload: true,
   fallback: ["system-ui", "arial"],

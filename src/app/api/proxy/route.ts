@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { products, type Product } from "@/data/products";
 
-export const runtime = "nodejs"; // chạy Edge nếu deploy Vercel
+export const runtime = "nodejs";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -13,7 +13,7 @@ export async function GET(request: Request) {
   }
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 2000);
+  const timeout = setTimeout(() => controller.abort(), 8000);
 
   try {
     const resp = await fetch(product.linkRedirect, {
@@ -71,14 +71,6 @@ export async function GET(request: Request) {
     });
 
     html = html.replace(/(src|href)=["']\/(?!\/)/g, `$1="${origin}/`);
-    // const baseTag = `<base href="${origin}${basePath}">`;
-    // const encodedBase = Buffer.from(baseTag).toString("base64");
-
-    // html = html.replace(/<head[^>]*>/i, (match) => {
-    //   return `${match}<script>document.write(atob("${encodedBase}"))</script>`;
-    // });
-
-    // html = html.replace(/(src|href)=["']\/(?!\/)/g, `$1="${origin}/`);
 
     return new NextResponse(html, {
       headers: {
@@ -86,8 +78,7 @@ export async function GET(request: Request) {
         "Cache-Control": "no-cache",
       },
     });
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (err) {
+  } catch {
     clearTimeout(timeout);
     return new NextResponse("Timeout hoặc lỗi proxy", { status: 504 });
   }
