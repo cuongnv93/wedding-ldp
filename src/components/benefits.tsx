@@ -3,8 +3,7 @@ import { BadgeCheck, Map, Palette, Headset } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getBenefits = (t: any) => [
+const getBenefits = (t: (key: string) => string) => [
   {
     icon: <BadgeCheck className="h-10 w-10 text-primary" />,
     title: t("benefits_title_1"),

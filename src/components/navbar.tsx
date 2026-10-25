@@ -3,8 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import AuthModal from "./auth-modal";
-import CheckoutModal from "./checkout-modal";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { SwitchFlag } from "./ui/switchFlag";
 import { useTranslations, useLocale } from "next-intl";
@@ -146,8 +144,7 @@ function MobileMenuButton() {
 
 // Main Component: Navbar
 export default function Navbar() {
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-  const [isCheckoutModalOpen, setIsCheckoutModalOpen] = useState(false);
+  
   const isMobile = useIsMobile();
   const currentLocale = useLocale();
   const t = useTranslations("");
@@ -169,14 +166,7 @@ export default function Navbar() {
           </div>
         </div>
       </header>
-      <AuthModal
-        isOpen={isAuthModalOpen}
-        onClose={() => setIsAuthModalOpen(false)}
-      />
-      <CheckoutModal
-        isOpen={isCheckoutModalOpen}
-        onClose={() => setIsCheckoutModalOpen(false)}
-      />
+      
     </>
   );
 }

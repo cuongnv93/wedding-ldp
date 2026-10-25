@@ -84,11 +84,11 @@ export default function FeaturedProducts() {
         </motion.div>
 
         <motion.div {...BUTTON_ANIMATION} className="flex justify-center mt-12">
-          <Link href={`/${currentLocale}/products`}>
-            <Button variant="outline" size="lg">
+          <Button asChild variant="outline" size="lg">
+            <Link href={`/${currentLocale}/products`}>
               {t("view_all")}
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </section>

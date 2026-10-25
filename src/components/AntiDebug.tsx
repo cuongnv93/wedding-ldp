@@ -29,19 +29,11 @@ export default function AntiDebug() {
       }
     };
 
-    const onContextMenu = (e: MouseEvent) => {
-      // Prevent right-click context menu (inspect from menu)
-      e.preventDefault();
-      e.stopPropagation();
-    };
-
     // use capture to catch before other handlers
     document.addEventListener("keydown", onKeyDown, true);
-    document.addEventListener("contextmenu", onContextMenu, true);
 
     return () => {
       document.removeEventListener("keydown", onKeyDown, true);
-      document.removeEventListener("contextmenu", onContextMenu, true);
     };
   }, []);
 

@@ -3,8 +3,7 @@
 import { useState, useRef } from "react";
 import { useTranslations } from "next-intl";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getFaq = (t: any) => [
+const getFaq = (t: (key: string) => string) => [
   {
     id: 1,
     question: t("question_1"),
