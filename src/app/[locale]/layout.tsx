@@ -44,12 +44,14 @@ export default async function RootLayout(props: {
   const isProd = process.env.NODE_ENV === "production";
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
   setRequestLocale(locale);
+
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "uWedding",
     url: siteUrl,
     inLanguage: locale,
+    description: "Nền tảng tạo thiệp cưới online, thiệp cưới điện tử hiện đại",
   };
   const organizationJsonLd = {
     "@context": "https://schema.org",
@@ -57,14 +59,17 @@ export default async function RootLayout(props: {
     name: "uWedding",
     url: siteUrl,
     logo: `${siteUrl}/image/og-cover.jpg`,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+84-355-565-741",
+      contactType: "customer service",
+      areaServed: "VN",
+      availableLanguage: ["vi", "en"],
+    },
   };
 
   return (
     <html lang={locale}>
-      {/* <Script
-        src={`https://www.27biggroup.com/librarywedding/functionWedding/library27biggroup.js`}
-        strategy="afterInteractive"
-      /> */}
       {gaId && (
         <>
           <Script

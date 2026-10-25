@@ -2,7 +2,6 @@
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import ClientLayout from "@/components/ClientLayout";
 import { motion } from "framer-motion";
 import { CheckCircle, X } from "lucide-react";
 
@@ -10,20 +9,19 @@ type Plan = {
   id: string;
   name: string;
   price: string;
-  // allow boolean (check / X) OR string (custom text)
   features: Record<string, boolean | string>;
-  duration?: string; // thêm hạn dùng
+  duration?: string;
   highlight?: boolean;
 };
 
 const FEATURES = [
-  { key: "custom_design", label: "Thiết kế tùy chỉnh" },
-  { key: "qr_link", label: "Link & QR chia sẻ" },
-  { key: "countdown", label: "Đếm ngược ngày cưới" },
-  { key: "guestbook", label: "Sổ lưu bút (RSVP)" },
-  { key: "music", label: "Nhạc nền" },
-  { key: "photos", label: "Album ảnh" },
-  { key: "analytics", label: "Thống kê lượt xem" },
+  { key: "custom_design", label: "Thiết kế tùy chỉnh theo yêu cầu" },
+  { key: "qr_link", label: "Link & Mã QR chia sẻ không giới hạn" },
+  { key: "countdown", label: "Đếm ngược ngày cưới & Lưu lịch (Save The Date)" },
+  { key: "guestbook", label: "Sổ lưu bút & Xác nhận tham dự (RSVP)" },
+  { key: "music", label: "Nhạc nền đám cưới tùy chọn" },
+  { key: "photos", label: "Album ảnh cưới trực tuyến sắc nét" },
+  { key: "analytics", label: "Thống kê lượt xem & phản hồi khách mời" },
 ];
 
 const PLANS: Plan[] = [
@@ -84,23 +82,19 @@ function FeatureCell({ value }: { value?: boolean | string }) {
     );
   }
 
-  // boolean: render icons with primary color from CSS variable
   return value ? (
     <CheckCircle
-      className="w-5 h-5"
-      aria-hidden
-      style={{ color: "hsl(var(--primary))" }}
+      className="w-5 h-5 text-primary"
+      aria-hidden="true"
     />
   ) : (
     <X
-      className="w-5 h-5"
-      aria-hidden
-      style={{ color: "hsl(var(--primary))" }}
+      className="w-5 h-5 text-gray-300"
+      aria-hidden="true"
     />
   );
 }
 
-/* Framer Motion variants */
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: (delay = 0) => ({
@@ -121,7 +115,6 @@ const rowVariants = {
   },
 };
 
-/* header animation */
 const headerVariants = {
   hidden: { opacity: 0, y: -12 },
   visible: {
@@ -140,7 +133,6 @@ const titleVariants = {
   },
 };
 
-/* add head/thead animation variants */
 const headVariants = {
   hidden: { opacity: 0, y: -8 },
   visible: {
@@ -161,9 +153,9 @@ const thVariants = {
 
 export default function PricePage() {
   return (
-    <ClientLayout>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="container mx-auto py-12 px-4">
+      <main className="container mx-auto py-12 px-4 flex-grow">
         <motion.header
           className="max-w-3xl mx-auto text-center mb-10"
           initial="hidden"
@@ -174,11 +166,10 @@ export default function PricePage() {
             variants={titleVariants}
             className="text-3xl sm:text-4xl font-bold text-primary"
           >
-            Bảng giá gói dịch vụ
+            Bảng giá thiệp cưới online uWedding
           </motion.h1>
           <motion.p variants={titleVariants} className="mt-3 text-gray-600">
-            Chọn gói phù hợp cho thiệp cưới online của bạn — so sánh tính năng
-            giữa các gói.
+            Chọn gói dịch vụ thiệp cưới online phù hợp với phong cách và ngân sách của bạn — so sánh tính năng chi tiết giữa các gói.
           </motion.p>
         </motion.header>
 
@@ -217,7 +208,6 @@ export default function PricePage() {
                     >
                       {p.price}
                     </motion.div>
-                    {/* Hiển thị hạn dùng dưới giá */}
                     <motion.div
                       variants={thVariants}
                       className="mt-1 text-sm text-gray-600"
@@ -233,7 +223,6 @@ export default function PricePage() {
               initial="hidden"
               animate="visible"
               variants={containerVariants}
-              // small initial delay so header appears first
               custom={0.12}
             >
               {FEATURES.map((f) => (
@@ -300,6 +289,6 @@ export default function PricePage() {
         </motion.section>
       </main>
       <Footer />
-    </ClientLayout>
+    </div>
   );
 }

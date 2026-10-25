@@ -14,8 +14,7 @@ import {
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
 import { useTranslations, useLocale } from "next-intl";
 
@@ -24,7 +23,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.15,
     },
   },
 };
@@ -35,7 +34,7 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
+      duration: 0.4,
     },
   },
 };
@@ -43,10 +42,10 @@ const itemVariants = {
 // Component con: SocialLinks
 function SocialLinks() {
   const socials = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
   ];
 
   return (
@@ -57,13 +56,15 @@ function SocialLinks() {
           whileHover={{ scale: 1.2, rotate: 5 }}
           whileTap={{ scale: 0.9 }}
         >
-          <Link
+          <a
             href={social.href}
-            className="text-muted-foreground hover:text-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
           >
             <social.icon className="h-5 w-5" />
             <span className="sr-only">{social.label}</span>
-          </Link>
+          </a>
         </motion.div>
       ))}
     </div>
@@ -72,48 +73,35 @@ function SocialLinks() {
 
 // Component con: QuickLinks
 function QuickLinks() {
-  const router = useRouter();
-  const [isHomePage, setIsHomePage] = useState(true);
   const t = useTranslations("");
   const currentLocale = useLocale();
 
-  useEffect(() => {
-    setIsHomePage(window.location.pathname === "/");
-  }, []);
   const links = [
     {
       name: t("home"),
-      href: "/",
-    },
-    {
-      name: t("about"),
-      href: "#about",
+      href: `/${currentLocale}`,
     },
     {
       name: t("product"),
-      href: "#product",
+      href: `/${currentLocale}/products`,
+    },
+    {
+      name: t("price_menu"),
+      href: `/${currentLocale}/price`,
+    },
+    {
+      name: t("create_menu"),
+      href: `/${currentLocale}/create-invitation`,
+    },
+    {
+      name: t("create_name_menu"),
+      href: `/${currentLocale}/create-name-invitation`,
     },
     {
       name: t("faq_menu"),
-      href: "#faq",
+      href: `/${currentLocale}#faq`,
     },
   ];
-
-  const handleClick = (href: string) => {
-    if (isHomePage) {
-      // Scroll to element if on homepage
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          // block: "start",
-        });
-      }
-    } else {
-      // Navigate to homepage with hash, browser will handle scrolling
-      router.push(`/${currentLocale}/#${href.substring(1)}`);
-    }
-  };
 
   return (
     <ul className="space-y-2">
@@ -125,11 +113,7 @@ function QuickLinks() {
         >
           <Link
             href={link.href}
-            className="text-muted-foreground hover:text-primary"
-            onClick={(e) => {
-              e.preventDefault();
-              handleClick(link.href);
-            }}
+            className="text-muted-foreground hover:text-primary transition-colors text-sm"
           >
             {link.name}
           </Link>
@@ -144,21 +128,27 @@ function ContactInfo() {
   const t = useTranslations("footer");
   const contacts = [
     { icon: MapPin, text: t("adress") },
-    { icon: Phone, text: "0355565741" },
-    { icon: Mail, text: "uwedding.online@gmail.com" },
+    { icon: Phone, text: "0355 565 741", href: "tel:0355565741" },
+    { icon: Mail, text: "uwedding.online@gmail.com", href: "mailto:uwedding.online@gmail.com" },
   ];
 
   return (
-    <ul className="space-y-2">
+    <ul className="space-y-3">
       {contacts.map((contact, index) => (
         <motion.li
           key={index}
-          className="flex items-start gap-2"
+          className="flex items-start gap-2 text-sm"
           whileHover={{ x: 5 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           <contact.icon className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-          <span className="text-muted-foreground">{contact.text}</span>
+          {contact.href ? (
+            <a href={contact.href} className="text-muted-foreground hover:text-primary transition-colors">
+              {contact.text}
+            </a>
+          ) : (
+            <span className="text-muted-foreground">{contact.text}</span>
+          )}
         </motion.li>
       ))}
     </ul>
@@ -171,7 +161,6 @@ function Newsletter() {
   const [loading, setLoading] = useState(false);
   const t = useTranslations("footer");
 
-  // Hàm kiểm tra số điện thoại chỉ chứa số và tối thiểu 8, tối đa 15 ký tự
   const isValidPhone = (value: string) => {
     return /^[0-9]{8,15}$/.test(value);
   };
@@ -203,12 +192,12 @@ function Newsletter() {
 
   return (
     <div className="space-y-4">
-      <h3 className="font-bold">{t("register_consultation")}</h3>
-      <p className="text-muted-foreground">{t("register_desc")}</p>
+      <h3 className="font-bold text-sm tracking-wide uppercase text-foreground">{t("register_consultation")}</h3>
+      <p className="text-muted-foreground text-sm">{t("register_desc")}</p>
       <form onSubmit={handleSubmit}>
         <motion.div
           className="flex flex-col sm:flex-row gap-2"
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.01 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
           <Input
@@ -220,9 +209,10 @@ function Newsletter() {
             disabled={loading}
             inputMode="numeric"
             pattern="[0-9]{8,15}"
+            className="text-sm"
           />
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button type="submit" disabled={loading}>
+          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+            <Button type="submit" disabled={loading} className="shrink-0">
               {loading ? (
                 <span className="flex items-center gap-2">
                   <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
@@ -291,17 +281,17 @@ export default function Footer() {
             <h3 className="font-bold text-2xl">
               <span className="text-primary">u</span>Wedding
             </h3>
-            <p className="text-muted-foreground">{t("desc")}</p>
+            <p className="text-muted-foreground text-sm">{t("desc")}</p>
             <SocialLinks />
           </motion.div>
 
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="font-bold">{t("quick_links")}</h3>
+            <h3 className="font-bold text-sm tracking-wide uppercase text-foreground">{t("quick_links")}</h3>
             <QuickLinks />
           </motion.div>
 
           <motion.div variants={itemVariants} className="space-y-4">
-            <h3 className="font-bold">{t("contact")}</h3>
+            <h3 className="font-bold text-sm tracking-wide uppercase text-foreground">{t("contact")}</h3>
             <ContactInfo />
           </motion.div>
 
@@ -314,11 +304,11 @@ export default function Footer() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="border-t mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} uWedding. {t("reserved")}
+            © {new Date().getFullYear()} uWedding - Nền tảng thiệp cưới online hàng đầu. {t("reserved")}
           </p>
           <div className="flex gap-4">
             <Link

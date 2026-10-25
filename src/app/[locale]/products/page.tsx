@@ -55,22 +55,17 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Giảm stagger time
+      staggerChildren: 0.08,
     },
   },
 };
 
-const LOAD_COUNT = 8; // Tăng số lượng load để giảm số lần fetch
-const INTERSECTION_THRESHOLD = 0.8; // Tối ưu threshold
+const LOAD_COUNT = 8;
+const INTERSECTION_THRESHOLD = 0.5;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getTabs = (t: any) =>
   [
-    // {
-    //   label: t("favorite_interface"),
-    //   value: "favourite",
-    //   desc: t("favorite_interface_desc"),
-    // },
     {
       label: t("classic"),
       value: "classic",
@@ -94,27 +89,21 @@ type TabValue = any;
 export default function ProductsPage() {
   const t = useTranslations("list_product");
   const TABS = getTabs(t);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [visibleCount, setVisibleCount] = useState(LOAD_COUNT);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [activeTab, setActiveTab] = useState<TabValue>(() => {
-    // Only access sessionStorage on client side
-    if (typeof window !== "undefined") {
-      return loadFromSessionStorage() || "classic";
-    }
-    return "classic";
-  });
+  const [activeTab, setActiveTab] = useState<TabValue>("classic");
   const loaderRef = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  // Tối ưu initial loading - loại bỏ setTimeout không cần thiết
+  // Sync sessionStorage tab on client mount without breaking SSR HTML
   useEffect(() => {
-    // Sử dụng requestAnimationFrame thay vì setTimeout
-    const frame = requestAnimationFrame(() => setIsLoaded(true));
-    return () => cancelAnimationFrame(frame);
+    const saved = loadFromSessionStorage();
+    if (saved && saved !== "classic") {
+      setActiveTab(saved);
+    }
   }, []);
 
-  // Memoize filtered products với dependency chính xác
+  // Memoize filtered products
   const filteredProducts = useMemo(() => {
     if (activeTab === "favourite") {
       return products.filter(
@@ -124,39 +113,33 @@ export default function ProductsPage() {
     return products.filter((product: Product) => product.type === activeTab);
   }, [activeTab]);
 
-  // Memoize visible products để tránh slice lại không cần thiết
+  // Memoize visible products
   const visibleProducts = useMemo(() => {
     return filteredProducts.slice(0, visibleCount);
   }, [filteredProducts, visibleCount]);
 
-  // Reset visibleCount when tab changes - tối ưu với useCallback
+  // Reset visibleCount when tab changes
   const handleTabChange = useCallback((newTab: TabValue) => {
     setActiveTab(newTab);
     setVisibleCount(LOAD_COUNT);
     saveToSessionStorage(newTab);
   }, []);
 
-  // Tối ưu load more với debounce
+  // Load more handler
   const handleLoadMore = useCallback(() => {
     if (isLoadingMore || visibleCount >= filteredProducts.length) return;
 
     setIsLoadingMore(true);
-    // Sử dụng requestAnimationFrame thay vì setTimeout
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        setVisibleCount((prev) =>
-          Math.min(prev + LOAD_COUNT, filteredProducts.length)
-        );
-        setIsLoadingMore(false);
-      }, 300); // Giảm delay time
-    });
+    setTimeout(() => {
+      setVisibleCount((prev) =>
+        Math.min(prev + LOAD_COUNT, filteredProducts.length)
+      );
+      setIsLoadingMore(false);
+    }, 200);
   }, [isLoadingMore, visibleCount, filteredProducts.length]);
 
-  // Tối ưu Intersection Observer - tạo một lần và reuse
+  // Intersection Observer for infinite scrolling
   useEffect(() => {
-    if (!isLoaded) return;
-
-    // Cleanup observer cũ
     if (observerRef.current) {
       observerRef.current.disconnect();
     }
@@ -170,7 +153,7 @@ export default function ProductsPage() {
       },
       {
         threshold: INTERSECTION_THRESHOLD,
-        rootMargin: "100px", // Preload trước khi user scroll đến
+        rootMargin: "150px",
       }
     );
 
@@ -184,12 +167,7 @@ export default function ProductsPage() {
         observerRef.current.disconnect();
       }
     };
-  }, [isLoaded, visibleCount, filteredProducts.length, handleLoadMore]);
-
-  // Early return cho loading state
-  if (!isLoaded) {
-    return <Loading />;
-  }
+  }, [visibleCount, filteredProducts.length, handleLoadMore]);
 
   const hasMoreProducts = visibleCount < filteredProducts.length;
 
@@ -198,9 +176,16 @@ export default function ProductsPage() {
       <Navbar />
       <main className="flex-grow">
         <section className="container mx-auto px-4 py-8 sm:px-6 sm:py-12">
-          <h1 className="text-3xl font-bold mb-6 text-center">{t("list")}</h1>
+          <header className="text-center mb-8">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
+              {t("list")}
+            </h1>
+            <p className="max-w-[800px] mx-auto text-muted-foreground text-sm sm:text-base">
+              {TABS.find((item) => item.value === activeTab)?.desc}
+            </p>
+          </header>
 
-          {/* Tối ưu tab buttons */}
+          {/* Tab buttons */}
           <div className="relative mb-8 flex flex-wrap justify-center gap-3 sm:gap-4">
             {TABS.map((tab) => (
               <TabButton
@@ -211,12 +196,8 @@ export default function ProductsPage() {
               />
             ))}
           </div>
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mt-8">
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {TABS.find((item) => item.value === activeTab)?.desc}
-            </p>
-          </div>
-          {/* Products grid với tối ưu animation */}
+
+          {/* Products grid */}
           <AnimatePresence mode="wait">
             <m.div
               key={activeTab}
@@ -224,7 +205,7 @@ export default function ProductsPage() {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className={`grid grid-cols-1 sm:grid-cols-2 ${
+              className={`grid grid-cols-1 items-stretch sm:grid-cols-2 ${
                 activeTab === "card" ? "lg:grid-cols-2" : "lg:grid-cols-4"
               } mt-8 gap-4 sm:mt-12 sm:gap-6`}
             >
@@ -233,6 +214,7 @@ export default function ProductsPage() {
                   key={product.id}
                   product={product}
                   activeTab={activeTab}
+                  uniformPreview
                 />
               ))}
             </m.div>
@@ -241,11 +223,11 @@ export default function ProductsPage() {
           {/* Loading indicator */}
           <div
             ref={loaderRef}
-            className="flex justify-center mt-8 min-h-[40px]"
+            className="flex justify-center mt-8 min-h-[40px] items-center"
           >
             {isLoadingMore && <Loading />}
             {!isLoadingMore && hasMoreProducts && (
-              <span className="text-gray-500">{t("load_more")}...</span>
+              <span className="text-gray-500 text-sm">{t("load_more")}...</span>
             )}
           </div>
         </section>
@@ -255,7 +237,7 @@ export default function ProductsPage() {
   );
 }
 
-// Tách TabButton thành component riêng và memoize
+// TabButton component
 const TabButton = memo(
   ({
     tab,
@@ -269,16 +251,17 @@ const TabButton = memo(
   }) => (
     <m.button
       layout
-      whileHover={{ scale: 1.05 }} // Giảm scale để mượt hơn
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      className={`relative px-4 py-2 rounded-full border transition-colors duration-150 overflow-hidden
+      className={`relative px-4 py-2 rounded-full border transition-colors duration-150 overflow-hidden text-sm font-medium
       ${
         isActive
           ? "border-primary"
           : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
       }`}
       onClick={onClick}
+      type="button"
     >
       <AnimatePresence>
         {isActive && (

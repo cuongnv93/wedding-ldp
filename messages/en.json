@@ -1,14 +1,14 @@
 {
   "home": "Home",
   "about": "About",
-  "product": "Wedding invitation",
+  "product": "Wedding Templates",
   "faq_menu": "FAQ",
   "contact": "Contact",
-  "banner_hottest": "Hottest wedding invitation collection 2025",
-  "banner_Preserve": "Preserve the moment",
-  "banner_lifelong": "Lifelong happiness",
-  "banner_desc": "Discover a unique, luxurious, and modern wedding invitation collection to help you create the perfect big day.",
-  "banner_view": "View collection",
+  "banner_hottest": "Trending Online Wedding Invitations 2025 - 2026",
+  "banner_Preserve": "Online Wedding Invitations",
+  "banner_lifelong": "Modern & Elegant",
+  "banner_desc": "Discover modern, elegant digital wedding invitations. Easily share your wedding story with Google Maps, RSVP, music, and instant QR sharing.",
+  "banner_view": "View Templates",
   "banner_create": "Create wedding invitation now",
   "banner_template": "Wedding invitation template",
   "banner_customers": "Satisfied customers",
@@ -22,7 +22,7 @@
     "details": "View details",
     "view_all": "View all wedding invitations",
     "loading": "Loading",
-    "list": "Wedding invitation list",
+    "list": "Beautiful Online Wedding Invitation Templates",
     "favorite_interface": "Favorite Interface",
     "invitation_interface": "Invitation Interface",
     "web_interface": "Web Interface",
@@ -106,8 +106,6 @@
     "WEB_016": "A garden-inspired wedding invitation blooming with freshness, vitality, and pure joy—where every petal celebrates your love story.",
     "WEB_017": "A literary love-inspired wedding invitation, drawing from timeless romance tales—infused with wishes for a future as enduring and joyful as the greatest love stories.",
     "WEB_018": "A teddy bear-themed wedding invitation, evoking sweet childhood memories—perfect for couples who cherish innocence and warmth in their love story.",
-
-
     "MB_001": "A striking, bold invitation designed for couples who crave distinctive style and want to make an unforgettable statement on their wedding day.",
     "MB_002": "A contemporary, minimalist invitation template designed for couples who appreciate elegance and sophistication. Features a user-friendly interface accessible for all age groups.",
     "MB_003": "A retro-style wedding invitation that evokes nostalgia and warmth. Features unique patterns to create a distinctive statement for your special day.",
@@ -156,61 +154,80 @@
     "CHUKY_010": "A boho-chic digital signature wedding invitation—free-spirited, effortlessly romantic, and perfect for couples who dance to their own rhythm.",
     "CHUKY_011": "A cherry blossom-themed digital signature wedding invitation, symbolizing new beginnings and eternal love—where delicate petals whisper your promise."
   },
-      "terms": {
-        "title": "Terms of Service for Online Wedding Invitation Platform",
-        "desc": "Welcome to our Online Wedding Invitation service. By using this website, you agree to comply with the following terms and conditions:",
-        "list": {
-          "title_1": "Permitted Use:",
-          "desc_1": "You agree to use our online wedding invitation service solely for lawful purposes, in compliance with Vietnamese and international laws. Any illegal, offensive, or copyrighted content is strictly prohibited.",
-          "title_2": "Intellectual Property Rights:",
-          "desc_2": "All designs, templates, and platform content are uWedding’s intellectual property. Unauthorized copying, modification, or distribution is strictly forbidden.",
-          "title_3": "Service Modifications:",
-          "desc_3": "We reserve the right to modify, suspend, or discontinue services/features at any time to optimize user experience, without prior notice.",
-          "title_4": "Disclaimer of Liability:",
-          "desc_4": "uWedding disclaims all liability for any damages incurred through the use of its services, including, without limitation, technical malfunctions, data loss, or security breaches.",
-          "title_5": "Supplemental Terms:",
-          "desc_5": "These terms may be updated periodically to reflect policy changes. Users are responsible for reviewing them before continued use.",
-          "title_6": "Binding Nature:",
-          "desc_6": "By using our service, you acknowledge and agree to these terms unconditionally."
-      },
-      "contact": "Contact Us:"
+  "terms": {
+    "title": "Terms of Service for Online Wedding Invitation Platform",
+    "desc": "Welcome to our Online Wedding Invitation service. By using this website, you agree to comply with the following terms and conditions:",
+    "list": {
+      "title_1": "Permitted Use:",
+      "desc_1": "You agree to use our online wedding invitation service solely for lawful purposes, in compliance with Vietnamese and international laws. Any illegal, offensive, or copyrighted content is strictly prohibited.",
+      "title_2": "Intellectual Property Rights:",
+      "desc_2": "All designs, templates, and platform content are uWedding’s intellectual property. Unauthorized copying, modification, or distribution is strictly forbidden.",
+      "title_3": "Service Modifications:",
+      "desc_3": "We reserve the right to modify, suspend, or discontinue services/features at any time to optimize user experience, without prior notice.",
+      "title_4": "Disclaimer of Liability:",
+      "desc_4": "uWedding disclaims all liability for any damages incurred through the use of its services, including, without limitation, technical malfunctions, data loss, or security breaches.",
+      "title_5": "Supplemental Terms:",
+      "desc_5": "These terms may be updated periodically to reflect policy changes. Users are responsible for reviewing them before continued use.",
+      "title_6": "Binding Nature:",
+      "desc_6": "By using our service, you acknowledge and agree to these terms unconditionally."
     },
-      "privacy": {
-        "title": "Privacy Policy for Online Wedding Invitation Platform",
-        "desc": "We are committed to protecting your personal information when you use our Online Wedding Invitation service. Below are the privacy principles we adhere to:",
-        "list": {
-          "title_1": "Information Collection:",
-          "desc_1": "We collect necessary personal data to provide our services, including your name, email address, phone number, and other relevant details.",
-          "title_2": "Use of Information:",
-          "desc_2": "Your personal data will be used to deliver services, send notifications, and provide customer support. We pledge not to sell or share your personal information with third parties.",
-          "title_3": "Data Security:",
-          "desc_3": "We implement technical and organizational measures to protect your personal information from unauthorized access, loss, or leakage.",
-          "title_4": "User rights: ",
-          "desc_4": "You have the right to request access, correction, or deletion of your personal information at any time. Please contact us to exercise this right.",
-          "title_5": "Policy changes:",
-          "desc_5": "This privacy policy may be updated periodically. Users are responsible for reviewing it before continuing to use the service."
-        },
-        "contact": "If you have any questions about the privacy policy, please contact us:"
+    "contact": "Contact Us:"
+  },
+  "privacy": {
+    "title": "Privacy Policy for Online Wedding Invitation Platform",
+    "desc": "We are committed to protecting your personal information when you use our Online Wedding Invitation service. Below are the privacy principles we adhere to:",
+    "list": {
+      "title_1": "Information Collection:",
+      "desc_1": "We collect necessary personal data to provide our services, including your name, email address, phone number, and other relevant details.",
+      "title_2": "Use of Information:",
+      "desc_2": "Your personal data will be used to deliver services, send notifications, and provide customer support. We pledge not to sell or share your personal information with third parties.",
+      "title_3": "Data Security:",
+      "desc_3": "We implement technical and organizational measures to protect your personal information from unauthorized access, loss, or leakage.",
+      "title_4": "User rights: ",
+      "desc_4": "You have the right to request access, correction, or deletion of your personal information at any time. Please contact us to exercise this right.",
+      "title_5": "Policy changes:",
+      "desc_5": "This privacy policy may be updated periodically. Users are responsible for reviewing it before continuing to use the service."
     },
-    "create_invitation": {
-      "title": "Instructions for ordering online invitations",
-      "step_title_1": "Step 1: Choose your favorite invitation template",
-      "step_content_1_1": "Access the Wedding Invitations list",
-      "step_content_1_2": "and choose a template that matches your style.",
-      "step_content_2_1": "Call the phone number",
-      "step_content_2_2": "or place an order via",
-      "step_content_2_3": "or",
-      "step_title_2": "Step 2: Contact to order invitations",
-      "step_title_3": "Step 3: Send wedding information & photos",
-      "step_content_3": "Send complete necessary information (bride's name, groom's name, date, time, location, invitation message...) and wedding photos for designing the invitation.",
-      "step_title_4": "Step 4: Receive the web demo & make edits",
-      "step_content_4": "You will receive a web invitation demo to review and can request changes to the information or images until satisfied.",
-      "step_title_5": "Step 5: Delivery & Payment",
-      "step_content_5": "After finalizing the content, you will receive the invitation website, QR code, guestbook file, attendance list, and proceed with payment.",
-      "contact": "If you need further assistance, please contact us:"
-    },
-    "create_name_invitation": {
-      "copied_toast": "Link copied successfully",
-      "title": "Create guest name invitation"
-    }
+    "contact": "If you have any questions about the privacy policy, please contact us:"
+  },
+  "create_invitation": {
+    "title": "How to create and order your online wedding invitation",
+    "step_title_1": "Step 1: Choose your favorite invitation template",
+    "step_content_1_1": "Access the Wedding Invitations list",
+    "step_content_1_2": "and choose a template that matches your style.",
+    "step_content_2_1": "Call the phone number",
+    "step_content_2_2": "or place an order via",
+    "step_content_2_3": "or",
+    "step_title_2": "Step 2: Contact to order invitations",
+    "step_title_3": "Step 3: Send wedding information & photos",
+    "step_content_3": "Send complete necessary information (bride's name, groom's name, date, time, location, invitation message...) and wedding photos for designing the invitation.",
+    "step_title_4": "Step 4: Receive the web demo & make edits",
+    "step_content_4": "You will receive a web invitation demo to review and can request changes to the information or images until satisfied.",
+    "step_title_5": "Step 5: Delivery & Payment",
+    "step_content_5": "After finalizing the content, you will receive the invitation website, QR code, guestbook file, attendance list, and proceed with payment.",
+    "contact": "If you need further assistance, please contact us:"
+  },
+  "create_name_invitation": {
+    "copied_toast": "Link copied successfully",
+    "title": "Create personalized guest wedding invitation links"
+  },
+  "price_menu": "Pricing",
+  "create_menu": "How to Order",
+  "create_name_menu": "Guest Names",
+  "features_seo": {
+    "title": "Outstanding Features of uWedding Online Invitations",
+    "desc": "Experience smart digital wedding invitations packed with modern features to make your wedding announcements stylish, interactive, and memorable.",
+    "feat_1_title": "Google Maps Navigation",
+    "feat_1_desc": "Accurate directions to the ceremony and reception venue with one single tap on mobile devices.",
+    "feat_2_title": "Online RSVP & Guestbook",
+    "feat_2_desc": "Track guest attendance and collect warm wishes in real time to plan your wedding celebration smoothly.",
+    "feat_3_title": "High-Res Photo Gallery",
+    "feat_3_desc": "Showcase your pre-wedding photos and love story with fluid animations and responsive layout.",
+    "feat_4_title": "Romantic Background Music",
+    "feat_4_desc": "Delightful melodies play smoothly when guests open the invitation, setting a romantic mood.",
+    "feat_5_title": "Digital Gift & QR Code",
+    "feat_5_desc": "Allow guests unable to attend in person to send wedding wishes and gifts easily via QR code.",
+    "feat_6_title": "Personalized Guest Links",
+    "feat_6_desc": "Generate unique links with each guest's name to demonstrate heartfelt respect and care."
+  }
 }

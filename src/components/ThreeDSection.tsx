@@ -48,12 +48,13 @@ function OptimizedCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const canvas = canvasRef.current;
     return () => {
       // Cleanup WebGL context
-      if (canvasRef.current) {
+      if (canvas) {
         const gl =
-          canvasRef.current.getContext("webgl") ||
-          canvasRef.current.getContext("webgl2");
+          canvas.getContext("webgl") ||
+          canvas.getContext("webgl2");
         if (gl) {
           const loseContext = gl.getExtension("WEBGL_lose_context");
           if (loseContext) {

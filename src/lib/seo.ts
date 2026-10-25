@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://www.uwedding.online";
+  "https://uwedding.online";
 
 export const locales = ["vi", "en"] as const;
 export type Locale = (typeof locales)[number];
@@ -18,8 +18,15 @@ const seoKeywords: Record<Locale, string[]> = {
     "thiệp cưới online",
     "thiệp cưới điện tử",
     "mẫu thiệp cưới online",
+    "mẫu thiệp cưới online đẹp",
+    "tạo thiệp cưới online",
+    "làm thiệp cưới online",
+    "thiệp cưới online miễn phí",
     "website đám cưới",
     "thiệp cưới QR",
+    "thiệp cưới có nhạc và bản đồ",
+    "thiệp cưới gắn tên khách mời",
+    "thiệp cưới thông minh",
     "uWedding",
   ],
   en: [
@@ -28,85 +35,87 @@ const seoKeywords: Record<Locale, string[]> = {
     "wedding invitation templates",
     "wedding website",
     "QR wedding invitation",
+    "personalized wedding invitations",
+    "free online wedding invitation",
     "uWedding",
   ],
 };
 
 export const defaultSeo = {
-  title: "Thiệp cưới online hiện đại - uWedding",
+  title: "Thiệp Cưới Online Đẹp & Hiện Đại 2025 - 2026 | uWedding",
   description:
-    "uWedding giúp bạn tạo thiệp cưới online hiện đại, cá nhân hóa và dễ chia sẻ qua link, QR với nhiều mẫu đẹp cho ngày trọng đại.",
+    "uWedding - Nền tảng tạo thiệp cưới online, thiệp cưới điện tử hiện đại. Hơn 50+ mẫu thiệp cưới đẹp, tích hợp nhạc nền, bản đồ, đếm ngược và mã QR chia sẻ dễ dàng.",
 };
 
 export const seoPages = {
   vi: {
     home: defaultSeo,
     products: {
-      title: "Mẫu thiệp cưới online đẹp - uWedding",
+      title: "Mẫu Thiệp Cưới Online Đẹp, Hiện Đại & Sang Trọng | uWedding",
       description:
-        "Khám phá bộ sưu tập mẫu thiệp cưới online đẹp, hiện đại và sang trọng trên uWedding. Chọn mẫu thiệp phù hợp với phong cách ngày cưới của bạn.",
+        "Khám phá 50+ mẫu thiệp cưới online đẹp, sang trọng, hiển thị mượt mà trên điện thoại và máy tính. Đầy đủ tính năng: album ảnh, bản đồ, RSVP, nhạc nền.",
     },
     price: {
-      title: "Bảng giá thiệp cưới online - uWedding",
+      title: "Bảng Giá Thiệp Cưới Online Tiết Kiệm & Chi Tiết | uWedding",
       description:
-        "So sánh các gói thiệp cưới online uWedding để chọn dịch vụ thiết kế thiệp cưới phù hợp với nhu cầu và ngân sách của bạn.",
+        "Bảng giá dịch vụ thiệp cưới online uWedding trọn gói chỉ từ 0đ. Tặng kèm mã QR, tên khách mời riêng, nhạc nền, bản đồ, album ảnh cưới không giới hạn.",
     },
     createInvitation: {
-      title: "Tạo thiệp cưới online - uWedding",
+      title: "Hướng Dẫn Tạo & Đặt Thiệp Cưới Online Nhanh Chóng | uWedding",
       description:
-        "Hướng dẫn đặt và tạo thiệp cưới online trên uWedding để gửi thiệp cưới nhanh qua link, QR, Zalo hoặc Facebook.",
+        "5 bước đơn giản để tạo và gửi thiệp cưới online trên uWedding. Gửi thiệp cưới điện tử trang trọng qua Zalo, Facebook, mã QR chỉ trong vài phút.",
     },
     createNameInvitation: {
-      title: "Tạo link thiệp cưới gắn tên khách mời - uWedding",
+      title: "Tạo Link Thiệp Cưới Online Gắn Tên Khách Mời Tự Động | uWedding",
       description:
-        "Tạo link thiệp cưới online gắn tên khách mời nhanh chóng, giúp lời mời trang trọng và cá nhân hóa hơn khi chia sẻ.",
+        "Công cụ tạo link thiệp cưới online gắn tên từng khách mời tự động, trang trọng và tinh tế. Chia sẻ dễ dàng qua Zalo, Messenger, SMS.",
     },
     privacy: {
-      title: "Chính sách bảo mật - uWedding",
+      title: "Chính Sách Bảo Mật Thông Tin | uWedding",
       description:
-        "Chính sách bảo mật của uWedding cho dịch vụ thiệp cưới online, cách chúng tôi bảo vệ thông tin khách hàng và dữ liệu thiết kế.",
+        "Chính sách bảo mật của uWedding cho dịch vụ thiệp cưới online, cam kết bảo vệ an toàn thông tin khách hàng và dữ liệu thiết kế thiệp cưới.",
     },
     terms: {
-      title: "Điều khoản sử dụng - uWedding",
+      title: "Điều Khoản Sử Dụng Dịch Vụ | uWedding",
       description:
-        "Điều khoản sử dụng dịch vụ thiệp cưới online uWedding, quy định quyền và trách nhiệm khi sử dụng website.",
+        "Điều khoản sử dụng dịch vụ thiệp cưới online uWedding, quy định quyền và trách nhiệm của khách hàng khi sử dụng nền tảng.",
     },
   },
   en: {
     home: {
-      title: "Modern online wedding invitations - uWedding",
+      title: "Modern Online Wedding Invitations 2025 - 2026 | uWedding",
       description:
-        "uWedding helps couples create modern, personalized online wedding invitations that are easy to share by link or QR code.",
+        "uWedding helps couples create modern, personalized online wedding invitations that are easy to share by link, QR code, Google Maps, and RSVP.",
     },
     products: {
-      title: "Beautiful online wedding invitation templates - uWedding",
+      title: "Beautiful Online Wedding Invitation Templates | uWedding",
       description:
-        "Explore modern, elegant online wedding invitation templates on uWedding and choose a design that fits your wedding style.",
+        "Explore 50+ modern, elegant online wedding invitation templates on uWedding. Mobile-friendly designs with music, photo gallery, and RSVP.",
     },
     price: {
-      title: "Online wedding invitation pricing - uWedding",
+      title: "Online Wedding Invitation Pricing & Packages | uWedding",
       description:
-        "Compare uWedding online wedding invitation packages and choose the design service that fits your needs and budget.",
+        "Compare uWedding online wedding invitation packages starting from 0đ. Full access to custom domains, music, countdown, and guest RSVP.",
     },
     createInvitation: {
-      title: "Create an online wedding invitation - uWedding",
+      title: "How to Create an Online Wedding Invitation | uWedding",
       description:
-        "Learn how to order and create an online wedding invitation on uWedding, ready to share by link, QR code, Zalo or Facebook.",
+        "Simple 5-step guide to order and design an online wedding invitation on uWedding, ready to share via Zalo, Facebook, or QR code.",
     },
     createNameInvitation: {
-      title: "Create personalized guest invitation links - uWedding",
+      title: "Create Personalized Guest Invitation Links | uWedding",
       description:
-        "Create personalized online wedding invitation links with guest names for a warmer and more elegant invitation experience.",
+        "Generate personalized online wedding invitation links with guest names automatically for a warmer, more elegant wedding experience.",
     },
     privacy: {
-      title: "Privacy policy - uWedding",
+      title: "Privacy Policy | uWedding",
       description:
-        "uWedding privacy policy for online wedding invitation services, including how customer information and design data are protected.",
+        "uWedding privacy policy for online wedding invitation services, including customer information and design data protection standards.",
     },
     terms: {
-      title: "Terms of service - uWedding",
+      title: "Terms of Service | uWedding",
       description:
-        "Terms of service for using uWedding online wedding invitation services, including user rights and responsibilities.",
+        "Terms of service for using uWedding online wedding invitation services, outlining user rights and service commitments.",
     },
   },
 } satisfies Record<Locale, Record<string, { title: string; description: string }>>;

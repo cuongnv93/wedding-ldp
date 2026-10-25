@@ -1,6 +1,7 @@
 import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import FeaturedProducts from "../../components/featured-products";
+import FeaturesShowcase from "../../components/FeaturesShowcase";
 import Benefits from "../../components/benefits";
 import Question from "../../components/question";
 import Footer from "../../components/footer";
@@ -36,6 +37,7 @@ export default async function Home(props: {
       <main className="flex-grow">
         <Hero locale={locale} />
         <FeaturedProducts />
+        <FeaturesShowcase />
         <Benefits />
         <Question />
       </main>

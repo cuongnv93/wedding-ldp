@@ -19,7 +19,7 @@ const FAQSection = memo(() => {
       transition={{ duration: 0.3 }}
       className="flex flex-col gap-6 pt-8 md:pt-0 h-full justify-between"
     >
-      <motion.h1
+      <motion.h2
         className="text-3xl font-bold tracking-tighter sm:text-4xl mb-3 text-center"
         initial={{ opacity: 0, y: -30, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -31,7 +31,7 @@ const FAQSection = memo(() => {
         }}
       >
         {t("title")}
-      </motion.h1>
+      </motion.h2>
       <FAQCollapse />
     </motion.div>
   );
@@ -99,7 +99,7 @@ export default function QuestionLazy() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.1 }}
           className="relative h-[500px] w-full flex-shrink-0"
-          onMouseEnter={preload3D} // Preload on hover
+          onMouseEnter={preload3D}
         >
           {shouldLoad3D ? (
             <Suspense fallback={<ThreeDPlaceholder />}>
