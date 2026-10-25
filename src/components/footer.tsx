@@ -98,6 +98,10 @@ function QuickLinks() {
       href: `/${currentLocale}/create-name-invitation`,
     },
     {
+      name: t("blog_menu"),
+      href: `/${currentLocale}/blog`,
+    },
+    {
       name: t("faq_menu"),
       href: `/${currentLocale}#faq`,
     },

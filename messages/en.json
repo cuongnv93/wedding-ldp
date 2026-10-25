@@ -229,5 +229,6 @@
     "feat_5_desc": "Allow guests unable to attend in person to send wedding wishes and gifts easily via QR code.",
     "feat_6_title": "Personalized Guest Links",
     "feat_6_desc": "Generate unique links with each guest's name to demonstrate heartfelt respect and care."
-  }
+  },
+  "blog_menu": "Wedding Guide"
 }

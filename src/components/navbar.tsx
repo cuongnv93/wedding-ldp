@@ -45,6 +45,10 @@ function NavigationLinks() {
       href: `/${currentLocale}/create-invitation`,
     },
     {
+      name: t("blog_menu"),
+      href: `/${currentLocale}/blog`,
+    },
+    {
       name: t("about"),
       href: `/${currentLocale}#about`,
     },
@@ -81,6 +85,7 @@ function MobileMenuButton() {
     { name: t("price_menu"), href: `/${currentLocale}/price` },
     { name: t("create_menu"), href: `/${currentLocale}/create-invitation` },
     { name: t("create_name_menu"), href: `/${currentLocale}/create-name-invitation` },
+    { name: t("blog_menu"), href: `/${currentLocale}/blog` },
     { name: t("about"), href: `/${currentLocale}#about` },
     { name: t("faq_menu"), href: `/${currentLocale}#faq` },
   ];
