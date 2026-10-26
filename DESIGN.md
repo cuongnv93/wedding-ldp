@@ -25,6 +25,7 @@
 - HeroSectionOptimized
 - ProductCard
 - Benefits
+- LatestNews
 - QuestionLazy / FAQSection
 - ProductDetails
 
