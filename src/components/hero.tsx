@@ -50,7 +50,7 @@ export default async function HeroSectionOptimized({
             <p className="text-base sm:text-lg text-muted-foreground max-w-md mx-auto lg:mx-0">
               {t("banner_desc")}
             </p>
-            <div className="flex md:flex-col sm:flex-row gap-4 mt-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 justify-center lg:justify-start">
               <Button asChild size="lg" variant="outline" className="gap-2">
                 <Link href={`/${locale}/products`} title={t("banner_view")}>
                   {t("banner_view")} <ArrowRight className="h-4 w-4" />
@@ -62,11 +62,11 @@ export default async function HeroSectionOptimized({
                 </Link>
               </Button>
             </div>
-            <div className="flex md:flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 mt-8">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 mt-8">
               <StatisticBlock value={50} label={t("banner_template")} />
-              <div className="hidden sm:block h-12 w-px bg-border" />
+              <div className="hidden sm:block h-10 w-px bg-border" />
               <StatisticBlock value={200} label={t("banner_customers")} />
-              <div className="hidden sm:block h-12 w-px bg-border" />
+              <div className="hidden sm:block h-10 w-px bg-border" />
               <StatisticBlock value={50} label={t("banner_partners")} />
             </div>
           </div>

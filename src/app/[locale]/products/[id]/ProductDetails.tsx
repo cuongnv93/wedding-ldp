@@ -177,7 +177,7 @@ export default function ProductDetails({
             >
               <Monitor className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Máy tính</span>
-              <span className="sm:hidden text-[11px]">PC</span>
+              <span className="sm:hidden text-xs font-semibold">PC</span>
             </button>
             <button
               type="button"
@@ -194,7 +194,7 @@ export default function ProductDetails({
             >
               <Smartphone className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Điện thoại</span>
-              <span className="sm:hidden text-[11px]">Mobile</span>
+              <span className="sm:hidden text-xs font-semibold">Mobile</span>
             </button>
           </div>
 
