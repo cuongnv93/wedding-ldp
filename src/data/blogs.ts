@@ -107,7 +107,7 @@ export const blogs: BlogPost[] = [
       "Từng bước tạo thiệp cưới online miễn phí, nhanh chóng trong 5 phút. Không cần biết lập trình hay đồ họa, có ngay link thiệp cưới điện tử đẹp lung linh.",
     excerpt:
       "Không cần biết thiết kế hay code, bạn hoàn toàn có thể tự tạo cho mình một website thiệp cưới online đẹp mắt, đầy đủ tính năng chỉ trong vài phút.",
-    coverImage: "/image/weddingmobile1.png",
+    coverImage: "/image/wedding14.png",
     publishedAt: "2026-01-20T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -161,7 +161,7 @@ export const blogs: BlogPost[] = [
       "Tổng hợp các mẫu lời mời cưới online hay, ngắn gọn, hài hước và trang trọng khi gửi thiệp cưới điện tử qua Zalo, Messenger, SMS cho bạn bè, đồng nghiệp.",
     excerpt:
       "Gợi ý những câu viết lời mời đám cưới online khéo léo, duyên dáng và ấm áp nhất khi gửi link thiệp cưới điện tử đến từng nhóm đối tượng khách mời.",
-    coverImage: "/image/wedding1.cuongvalan.click.png",
+    coverImage: "/image/wedding15.png",
     publishedAt: "2026-02-01T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -214,7 +214,7 @@ export const blogs: BlogPost[] = [
       "Phân tích ưu nhược điểm của thiệp cưới online và thiệp cưới giấy truyền thống. Xu hướng kết hợp thông minh giúp tiết kiệm chi phí và thể hiện đẳng cấp.",
     excerpt:
       "Liệu thiệp cưới điện tử có làm mất đi nét đẹp truyền thống của ngày cưới? Cùng tìm hiểu ưu nhược điểm và giải pháp kết hợp hoàn hảo cho các cặp đôi hiện đại.",
-    coverImage: "/image/weddingmobile2.png",
+    coverImage: "/image/wedding16.png",
     publishedAt: "2026-02-05T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -263,7 +263,7 @@ export const blogs: BlogPost[] = [
       "Hướng dẫn tích hợp mã QR ngân hàng mừng cưới lên thiệp cưới điện tử khéo léo, tinh tế, không gây phản cảm. Cách tạo mã VietQR tự động điền số tài khoản.",
     excerpt:
       "Tích hợp mã QR mừng cưới lên thiệp cưới online sao cho lịch sự, văn minh và thuận tiện nhất cho khách mời ở xa không thể tham dự trực tiếp.",
-    coverImage: "/image/weddingmobile3.png",
+    coverImage: "/image/wedding17.png",
     publishedAt: "2026-02-10T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -303,7 +303,7 @@ export const blogs: BlogPost[] = [
       "Khám phá 2 tính năng cứu tinh giúp khách mời không bao giờ bị lạc đường và tạo cảm xúc ngọt ngào ngay khi mở thiệp cưới điện tử.",
     excerpt:
       "Tích hợp bản đồ chỉ đường thông minh và giai điệu tình yêu du dương - hai yếu tố tạo nên sự khác biệt vượt trội của thiệp cưới online thế hệ mới.",
-    coverImage: "/image/wedding2.cuongvalan.click.png",
+    coverImage: "/image/wedding6.png",
     publishedAt: "2026-02-15T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -345,7 +345,7 @@ export const blogs: BlogPost[] = [
       "Quy tắc vàng khi gửi thiệp cưới điện tử qua mạng xã hội: thời điểm gửi, cách xưng hô, gắn tên cá nhân và cách ứng xử để luôn ghi điểm thanh lịch.",
     excerpt:
       "Bí quyết gửi thiệp cưới online qua Zalo, Facebook Messenger vừa nhanh chóng, vừa lịch thiệp, giúp khách mời cảm nhận được trọn vẹn sự tôn trọng.",
-    coverImage: "/image/weddingmobile4.png",
+    coverImage: "/image/wedding18.png",
     publishedAt: "2026-02-20T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -386,7 +386,7 @@ export const blogs: BlogPost[] = [
       "Tìm hiểu RSVP là gì và cách ứng dụng tính năng xác nhận tham dự trên thiệp cưới online để tối ưu số lượng bàn tiệc, tiết kiệm hàng chục triệu đồng tiền cỗ.",
     excerpt:
       "Khám phá vũ khí bí mật giúp các cặp đôi giải quyết bài toán đau đầu muôn thuở: Ước lượng chính xác số lượng khách mời để không bị thừa hoặc thiếu cỗ cưới.",
-    coverImage: "/image/wedding3.cuongvalan.click.png",
+    coverImage: "/image/wedding7.png",
     publishedAt: "2026-03-01T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -427,7 +427,7 @@ export const blogs: BlogPost[] = [
       "Bảng phân tích chi tiết chi phí in ấn thiệp giấy so với làm thiệp cưới online. Giúp các cặp đôi có kế hoạch tài chính đám cưới thông minh và tối ưu nhất.",
     excerpt:
       "Phân tích tài chính chi tiết: Tại sao chuyển đổi sang thiệp cưới online giúp các cặp đôi tiết kiệm từ 5 - 10 triệu đồng để dành cho chuyến trăng mật trong mơ.",
-    coverImage: "/image/weddingmobile5.png",
+    coverImage: "/image/wedding8.png",
     publishedAt: "2026-03-05T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -496,7 +496,7 @@ export const blogs: BlogPost[] = [
       "Cách tạo link thiệp cưới điện tử tự động điền tên từng vị khách mời chỉ trong vài giây. Giải pháp cá nhân hóa lời mời trang trọng, lịch sự nhất.",
     excerpt:
       "Tạo dấu ấn đặc biệt cho từng người nhận thiệp với công cụ tự động hóa gắn tên khách mời riêng biệt vào đường link thiệp cưới của uWedding.",
-    coverImage: "/image/weddingmobile6.png",
+    coverImage: "/image/wedding9.png",
     publishedAt: "2026-03-10T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -544,7 +544,7 @@ export const blogs: BlogPost[] = [
       "Khám phá các mẫu thiệp cưới điện tử phong cách Minimalism tối giản: ít chi tiết rườm rà, tập trung typography thanh lịch và cảm xúc chân thật.",
     excerpt:
       "Ít hơn là nhiều hơn (Less is more) - Khám phá sức hút bất tận của phong cách thiệp cưới online tối giản đang làm mưa làm gió trong cộng đồng cưới trẻ.",
-    coverImage: "/image/wedding4.cuongvalan.click.png",
+    coverImage: "/image/wedding10.png",
     publishedAt: "2026-03-15T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -581,7 +581,7 @@ export const blogs: BlogPost[] = [
       "Tổng hợp các mẫu thiệp cưới điện tử mang đậm phong cách Hàn Quốc dịu dàng, thơ mộng với gam màu pastel và hiệu ứng chuyển động nhẹ nhàng.",
     excerpt:
       "Mang hơi thở thanh xuân lãng mạn như phim truyền hình K-Drama vào ngày trọng đại của bạn với bộ sưu tập thiệp cưới online phong cách Hàn Quốc.",
-    coverImage: "/image/weddingmobile7.png",
+    coverImage: "/image/wedding11.png",
     publishedAt: "2026-03-20T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -618,7 +618,7 @@ export const blogs: BlogPost[] = [
       "Checklist 7 bước chuẩn bị thông tin, hình ảnh và âm nhạc giúp bạn đặt làm thiệp cưới online nhanh chóng, hoàn thiện trong 1 lần duy nhất.",
     excerpt:
       "Bảng kiểm tra (Checklist) chi tiết giúp cô dâu chú rể chuẩn bị đầy đủ mọi dữ liệu cần thiết trước khi đặt làm website thiệp cưới online.",
-    coverImage: "/image/weddingmobile8.png",
+    coverImage: "/image/og-cover.jpg",
     publishedAt: "2026-03-25T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -656,7 +656,7 @@ export const blogs: BlogPost[] = [
       "Trải nghiệm thiệp cưới công nghệ tương tác đỉnh cao với chữ ký điện tử trực tiếp và hiệu ứng 3D sống động, khẳng định dấu ấn cá nhân của cặp đôi.",
     excerpt:
       "Đột phá công nghệ cưới: Khám phá cách các cặp đôi Gen Z tạo nên sự trầm trồ cho khách mời bằng thiệp cưới tương tác chữ ký số và mô hình 3D.",
-    coverImage: "/image/wedding5.cuongvalan.click.png",
+    coverImage: "/image/wedding12.png",
     publishedAt: "2026-04-01T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
@@ -689,7 +689,7 @@ export const blogs: BlogPost[] = [
       "Tổng hợp 7 lỗi sai ngớ ngẩn khi làm thiệp cưới trực tuyến khiến khách mời khó chịu: nhạc quá to, chữ khó đọc, ảnh mờ, link hỏng và cách khắc phục.",
     excerpt:
       "Tránh ngay 7 lỗi thiết kế và gửi thiệp cưới online tai hại này để đám cưới của bạn luôn hoàn hảo, chỉn chu và nhận được trọn vẹn lời khen ngợi.",
-    coverImage: "/image/weddingmobile9.png",
+    coverImage: "/image/wedding14.png",
     publishedAt: "2026-04-05T08:00:00Z",
     updatedAt: "2026-10-25T08:00:00Z",
     author: defaultAuthor,
