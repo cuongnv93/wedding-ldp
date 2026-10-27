@@ -3,7 +3,6 @@ import Navbar from "../../components/navbar";
 import Hero from "../../components/hero";
 import FeaturedProducts from "../../components/featured-products";
 import Benefits from "../../components/benefits";
-import LatestNews from "../../components/LatestNews";
 import Question from "../../components/question";
 import Footer from "../../components/footer";
 import { absoluteUrl, pageMetadata, seoFor } from "@/lib/seo";
@@ -53,7 +52,6 @@ export default async function Home(props: {
         <Hero locale={locale} />
         <FeaturedProducts />
         <Benefits />
-        <LatestNews locale={locale} />
         <Question />
       </main>
       <Footer />
