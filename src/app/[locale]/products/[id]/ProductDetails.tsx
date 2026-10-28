@@ -161,14 +161,14 @@ export default function ProductDetails({
           </div>
 
           {/* Segmented Control Switcher: PC vs Mobile */}
-          <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200/80 shadow-inner">
+          <div className="flex items-center bg-slate-100 p-1.5 rounded-full border border-slate-200/80 shadow-inner">
             <button
               type="button"
               onClick={() => handleViewChange("desktop")}
               className={cn(
-                "flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200",
+                "flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200",
                 view === "desktop"
-                  ? "bg-white text-primary shadow-xs font-semibold"
+                  ? "bg-white text-rose-600 shadow-xs font-bold"
                   : "text-slate-600 hover:text-slate-900"
               )}
               title="Xem giao diện máy tính (PC)"
@@ -177,15 +177,15 @@ export default function ProductDetails({
             >
               <Monitor className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Máy tính</span>
-              <span className="sm:hidden text-xs font-semibold">PC</span>
+              <span className="sm:hidden text-xs font-bold">PC</span>
             </button>
             <button
               type="button"
               onClick={() => handleViewChange("mobile")}
               className={cn(
-                "flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200",
+                "flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200",
                 view === "mobile"
-                  ? "bg-white text-primary shadow-xs font-semibold"
+                  ? "bg-white text-rose-600 shadow-xs font-bold"
                   : "text-slate-600 hover:text-slate-900"
               )}
               title="Xem giao diện điện thoại (Mobile)"
@@ -194,7 +194,7 @@ export default function ProductDetails({
             >
               <Smartphone className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Điện thoại</span>
-              <span className="sm:hidden text-xs font-semibold">Mobile</span>
+              <span className="sm:hidden text-xs font-bold">Mobile</span>
             </button>
           </div>
 
@@ -203,7 +203,7 @@ export default function ProductDetails({
             <Button
               variant="outline"
               size="sm"
-              className={cn("h-8 sm:h-9 px-2 sm:px-3 text-xs gap-1", showInfoPanel ? "bg-primary/10 text-primary border-primary" : "")}
+              className={cn("h-9 px-3.5 rounded-full text-xs font-semibold gap-1.5", showInfoPanel ? "bg-rose-50 text-rose-600 border-rose-200" : "")}
               onClick={() => setShowInfoPanel(!showInfoPanel)}
               title="Chi tiết mẫu thiệp"
             >
@@ -218,14 +218,14 @@ export default function ProductDetails({
               className="hidden lg:inline-flex"
               title="Mở toàn màn hình trong tab mới"
             >
-              <Button variant="ghost" size="icon" className="h-9 w-9 text-slate-600">
+              <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full text-slate-600 hover:bg-slate-100">
                 <ExternalLink className="h-4 w-4" />
               </Button>
             </a>
 
-            <Button asChild size="sm" className="h-8 sm:h-9 text-xs sm:text-sm font-semibold shadow-sm">
+            <Button asChild size="sm" className="h-9 px-4 sm:px-5 rounded-full text-xs sm:text-sm font-bold shadow-md bg-rose-500 hover:bg-rose-600 text-white">
               <Link href={`/${currentLocale}/create-invitation`}>
-                <Sparkles className="h-3.5 w-3.5 mr-1" />
+                <Sparkles className="h-3.5 w-3.5 mr-1.5" />
                 <span>Dùng mẫu này</span>
               </Link>
             </Button>
@@ -408,7 +408,7 @@ export default function ProductDetails({
                       <span className="font-medium text-slate-800 group-hover:text-primary block truncate">
                         {rel.name}
                       </span>
-                      <span className="text-[10px] text-muted-foreground capitalize">
+                      <span className="text-xs text-muted-foreground capitalize">
                         {rel.type || rel.target}
                       </span>
                     </Link>
@@ -419,7 +419,7 @@ export default function ProductDetails({
           </div>
 
           <div className="pt-4 border-t border-slate-100 space-y-2">
-            <Button asChild className="w-full font-semibold shadow-md">
+            <Button asChild className="w-full rounded-full py-5 font-bold shadow-md bg-rose-500 hover:bg-rose-600 text-white">
               <Link href={`/${currentLocale}/create-invitation`}>
                 Đặt làm thiệp mẫu này
               </Link>
@@ -430,7 +430,7 @@ export default function ProductDetails({
               rel="noopener noreferrer"
               className="block"
             >
-              <Button variant="outline" className="w-full text-xs">
+              <Button variant="outline" className="w-full rounded-full py-5 text-xs font-semibold border-slate-300 hover:bg-slate-50">
                 Tư vấn nhanh qua Zalo
               </Button>
             </a>

@@ -140,7 +140,7 @@ export default function CreateNameInvitationClient() {
               <Input
                 id="base-link"
                 type="url"
-                className="pl-10 h-12 rounded-xl text-sm bg-slate-50/60 focus-visible:ring-primary border-slate-200"
+                className="pl-10 h-12 rounded-full text-sm bg-slate-50/60 focus-visible:ring-primary border-slate-200"
                 placeholder={isEn ? "https://uwedding.online/products/demo or your private link..." : "https://uwedding.online/products/1 hoặc link thiệp riêng của bạn..."}
                 value={baseLink}
                 onChange={(e) => setBaseLink(e.target.value)}
@@ -154,11 +154,11 @@ export default function CreateNameInvitationClient() {
 
           {/* Mode Switcher Tabs */}
           <div className="flex items-center justify-center mb-8">
-            <div className="inline-flex rounded-2xl bg-slate-100 p-1.5 border border-slate-200/80">
+            <div className="inline-flex rounded-full bg-slate-100 p-1.5 border border-slate-200/80">
               <button
                 type="button"
                 onClick={() => setActiveTab("single")}
-                className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold transition-all duration-200 ${
+                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold transition-all duration-200 ${
                   activeTab === "single"
                     ? "bg-white text-primary shadow-sm"
                     : "text-slate-600 hover:text-slate-900"
@@ -170,7 +170,7 @@ export default function CreateNameInvitationClient() {
               <button
                 type="button"
                 onClick={() => setActiveTab("batch")}
-                className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold transition-all duration-200 ${
+                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs sm:text-sm font-bold transition-all duration-200 ${
                   activeTab === "batch"
                     ? "bg-white text-primary shadow-sm"
                     : "text-slate-600 hover:text-slate-900"
@@ -192,7 +192,7 @@ export default function CreateNameInvitationClient() {
                 <Input
                   id="guest-name"
                   type="text"
-                  className="h-12 rounded-xl text-sm focus-visible:ring-primary border-slate-200"
+                  className="h-12 rounded-full text-sm focus-visible:ring-primary border-slate-200 pl-5 pr-5"
                   placeholder={isEn ? "e.g., Uncle Robert & Aunt Lisa, Best Friend Sarah..." : "VD: Kính mời Gia đình Bác Hùng, Bạn Tuấn Anh, Em Phương Linh..."}
                   value={guestName}
                   onChange={(e) => setGuestName(e.target.value)}
@@ -225,7 +225,7 @@ export default function CreateNameInvitationClient() {
                 size="lg"
                 onClick={handleCreateSingle}
                 disabled={!baseLink.trim() || !guestName.trim()}
-                className="w-full rounded-xl py-6 font-bold shadow-md bg-primary hover:bg-primary/90 text-white"
+                className="w-full rounded-full py-6 font-bold shadow-md bg-primary hover:bg-primary/90 text-white"
               >
                 <Sparkles className="h-4 w-4 mr-2" />
                 <span>{isEn ? "Generate Personalized Link" : "Tạo link thiệp riêng"}</span>
@@ -234,7 +234,7 @@ export default function CreateNameInvitationClient() {
               {/* Single Result Box */}
               {resultLink && (
                 <div className="mt-8 pt-6 border-t border-slate-100 animate-in fade-in-50 duration-300">
-                  <div className="rounded-2xl bg-rose-50/50 p-5 sm:p-6 border border-rose-100">
+                  <div className="rounded-3xl bg-rose-50/50 p-5 sm:p-6 border border-rose-100">
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs font-bold uppercase tracking-wider text-primary">
                         {isEn ? "Ready-to-Send Invitation Link:" : "Link thiệp đã gắn tên khách (Sẵn sàng gửi):"}
@@ -246,12 +246,12 @@ export default function CreateNameInvitationClient() {
                         type="text"
                         readOnly
                         value={resultLink}
-                        className="bg-white font-mono text-xs sm:text-sm h-12 rounded-xl border-rose-200"
+                        className="bg-white font-mono text-xs sm:text-sm h-12 rounded-full pl-5 pr-5 border-rose-200"
                       />
                       <Button
                         type="button"
                         onClick={handleCopySingle}
-                        className="shrink-0 h-12 rounded-xl font-bold px-6 gap-2 bg-primary hover:bg-primary/90"
+                        className="shrink-0 h-12 rounded-full font-bold px-6 gap-2 bg-primary hover:bg-primary/90"
                       >
                         {copiedSingle ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                         <span>{copiedSingle ? (isEn ? "Copied!" : "Đã chép") : (isEn ? "Copy Link" : "Sao chép")}</span>
@@ -259,7 +259,7 @@ export default function CreateNameInvitationClient() {
                     </div>
 
                     {/* Mini Invitation Card Mockup Preview */}
-                    <div className="mt-6 rounded-2xl bg-white p-6 border border-rose-100 shadow-sm text-center relative overflow-hidden">
+                    <div className="mt-6 rounded-3xl bg-white p-7 border border-rose-100 shadow-sm text-center relative overflow-hidden">
                       <div className="text-xs text-slate-400 mb-1">{isEn ? "Guest Card Preview" : "Mô phỏng hiển thị trên thiệp:"}</div>
                       <div className="font-serif italic text-xl sm:text-2xl text-primary font-bold my-2">
                         {isEn ? "Cordially Invites" : "Trân Trọng Kính Mời"}
@@ -292,7 +292,7 @@ export default function CreateNameInvitationClient() {
                 <Textarea
                   id="batch-names"
                   rows={6}
-                  className="rounded-2xl text-sm focus-visible:ring-primary border-slate-200"
+                  className="rounded-3xl p-5 text-sm focus-visible:ring-primary border-slate-200"
                   placeholder={
                     isEn
                       ? "Family of Uncle David\nBest Friend Sarah\nColleague Michael\nDr. Anderson & Partner"
@@ -314,7 +314,7 @@ export default function CreateNameInvitationClient() {
                   <Button
                     type="button"
                     onClick={handleCopyAllBatch}
-                    className="rounded-xl font-bold gap-2 shadow-sm bg-primary hover:bg-primary/90"
+                    className="rounded-full font-bold gap-2 px-6 shadow-sm bg-primary hover:bg-primary/90"
                   >
                     {copiedBatchAll ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                     <span>{copiedBatchAll ? (isEn ? "All Copied!" : "Đã sao chép tất cả!") : (isEn ? "Copy All Links" : "Sao chép toàn bộ danh sách")}</span>
@@ -323,7 +323,7 @@ export default function CreateNameInvitationClient() {
                     type="button"
                     variant="outline"
                     onClick={handleDownloadTxt}
-                    className="rounded-xl font-semibold gap-2 border-slate-300"
+                    className="rounded-full font-semibold gap-2 px-6 border-slate-300 hover:bg-slate-50"
                   >
                     <Download className="h-4 w-4" />
                     <span>{isEn ? "Download as TXT" : "Tải file danh sách (.txt)"}</span>
@@ -333,7 +333,7 @@ export default function CreateNameInvitationClient() {
 
               {/* Batch Table Output */}
               {batchList.length > 0 && (
-                <div className="mt-6 rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
+                <div className="mt-6 rounded-3xl border border-slate-200 overflow-hidden shadow-xs">
                   <div className="max-h-96 overflow-y-auto">
                     <table className="w-full text-left text-xs sm:text-sm border-collapse">
                       <thead className="sticky top-0 bg-slate-50 border-b border-slate-200 z-10">
@@ -356,7 +356,7 @@ export default function CreateNameInvitationClient() {
                                 size="sm"
                                 variant="ghost"
                                 onClick={() => handleCopyBatchItem(item.link, idx)}
-                                className="h-8 px-2 text-xs text-primary font-semibold hover:bg-rose-50"
+                                className="h-8 px-3 rounded-full text-xs text-primary font-semibold hover:bg-rose-50"
                               >
                                 {copiedIndex === idx ? (
                                   <span className="text-emerald-600 font-bold">{isEn ? "Copied" : "Đã chép"}</span>

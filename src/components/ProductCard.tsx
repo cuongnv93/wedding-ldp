@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Shuffle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations, useLocale } from "next-intl";
@@ -56,7 +54,7 @@ export default function ProductCard({
   return (
     <Link
       href={`/${currentLocale}/products/${product.id}`}
-      className="group flex h-full overflow-hidden text-inherit no-underline focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg"
+      className="group flex h-full overflow-hidden text-inherit no-underline focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 rounded-3xl"
       prefetch={true}
       title={imageAlt}
     >
@@ -70,57 +68,67 @@ export default function ProductCard({
           },
         }}
         whileHover={{
-          y: -5,
-          transition: { duration: 0.2, ease: "easeOut" },
+          y: -6,
+          transition: { duration: 0.25, ease: "easeOut" },
         }}
         whileTap={{ scale: 0.98 }}
         className="flex h-full w-full"
       >
-        <Card className="flex h-full w-full flex-col overflow-hidden transition-shadow duration-200 hover:shadow-lg">
-          <div className={cn("relative overflow-hidden", previewRatioClass)}>
-            <div className="relative z-0 h-full w-full overflow-hidden rounded-lg rounded-b-none shadow-lg">
-              <Image
-                className={cn(
-                  "object-cover object-top transition-[object-position] ease-linear group-hover:object-bottom",
-                  previewTransitionClass
-                )}
-                src={previewImage}
-                alt={imageAlt}
-                fill
-                loading="lazy"
-                sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 300px"
-                quality={70}
-              />
+        <div className="flex h-full w-full flex-col overflow-hidden rounded-3xl bg-white border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(244,63,94,0.12)] transition-all duration-300 p-3 sm:p-3.5">
+          {/* Framed Image Container with Soft Rounded Corners */}
+          <div
+            className={cn(
+              "relative overflow-hidden rounded-2xl bg-slate-100 shadow-inner",
+              previewRatioClass
+            )}
+          >
+            <Image
+              className={cn(
+                "object-cover object-top transition-[object-position] ease-linear group-hover:object-bottom",
+                previewTransitionClass
+              )}
+              src={previewImage}
+              alt={imageAlt}
+              fill
+              loading="lazy"
+              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 300px"
+              quality={75}
+            />
 
-              {/* Badge overlay */}
-              <div className="absolute right-2 top-2 z-10 flex flex-col gap-2">
-                {product.isFavourite ? (
-                  <Badge className="text-xs bg-primary">{t("favorite")}</Badge>
-                ) : product.new ? (
-                  <Badge className="text-xs bg-primary">{t("new")}</Badge>
-                ) : null}
-              </div>
+            {/* Badge overlay */}
+            <div className="absolute right-2.5 top-2.5 z-10 flex flex-col gap-1.5">
+              {product.isFavourite ? (
+                <span className="rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-bold text-rose-600 shadow-sm border border-rose-100/70">
+                  {t("favorite")}
+                </span>
+              ) : product.new ? (
+                <span className="rounded-full bg-rose-500 px-3 py-1 text-xs font-bold text-white shadow-sm">
+                  {t("new")}
+                </span>
+              ) : null}
             </div>
           </div>
 
-          <CardContent className="min-h-[80px] flex-1 p-4">
-            <h3 className="line-clamp-2 text-base font-semibold sm:text-lg group-hover:text-primary transition-colors">
+          {/* Content */}
+          <div className="flex-1 px-1.5 pt-3.5 pb-2">
+            <h3 className="line-clamp-1 text-base font-bold text-slate-900 group-hover:text-rose-600 transition-colors">
               {product.name}
             </h3>
             {product.description && (
-              <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
+              <p className="mt-1 line-clamp-2 text-xs text-slate-500 leading-relaxed">
                 {t_desc(product.description)}
               </p>
             )}
-          </CardContent>
+          </div>
 
-          <CardFooter className="mt-auto p-4 pt-0">
-            <div className="flex w-full items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium bg-primary text-primary-foreground group-hover:bg-primary/90 transition-all duration-200 shadow-sm">
-              <Shuffle className="h-4 w-4" />
-              {t("details")}
+          {/* Action button */}
+          <div className="pt-2">
+            <div className="flex w-full items-center justify-center gap-2 rounded-full py-2.5 px-4 text-xs sm:text-sm font-semibold bg-rose-50 text-rose-600 border border-rose-100/80 group-hover:bg-rose-500 group-hover:text-white group-hover:border-rose-500 transition-all duration-200 shadow-xs">
+              <Shuffle className="h-3.5 w-3.5" />
+              <span>{t("details")}</span>
             </div>
-          </CardFooter>
-        </Card>
+          </div>
+        </div>
       </motion.div>
     </Link>
   );

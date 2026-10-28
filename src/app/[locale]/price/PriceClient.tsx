@@ -225,7 +225,7 @@ export default function PriceClient() {
               </ul>
             </div>
 
-            <Button asChild variant="outline" size="lg" className="w-full rounded-xl py-6 font-semibold border-slate-300 hover:bg-slate-50 hover:text-slate-900">
+            <Button asChild variant="outline" size="lg" className="w-full rounded-full py-6 font-bold border-slate-300 hover:bg-slate-50 hover:text-slate-900 shadow-xs">
               <Link href={`/${locale}/create-invitation`} title={isEn ? "Create Free Card" : "Tạo thiệp miễn phí"}>
                 <span>{isEn ? "Get Started Free" : "Tạo thiệp miễn phí"}</span>
               </Link>
@@ -329,7 +329,7 @@ export default function PriceClient() {
               </ul>
             </div>
 
-            <Button asChild size="lg" className="w-full rounded-xl py-6 font-bold shadow-lg shadow-rose-200 text-base bg-primary hover:bg-primary/90 text-white transition-all hover:scale-[1.02]">
+            <Button asChild size="lg" className="w-full rounded-full py-6 font-bold shadow-lg shadow-rose-200 text-base bg-primary hover:bg-primary/90 text-white transition-all hover:scale-[1.02]">
               <Link href={`/${locale}/create-invitation`} title={isEn ? "Choose Pro Plan" : "Chọn gói Pro ngay"}>
                 <span>{isEn ? "Choose Pro Plan" : "Đặt thiệp gói Pro ngay"}</span>
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -423,7 +423,7 @@ export default function PriceClient() {
               </ul>
             </div>
 
-            <Button asChild size="lg" className="w-full rounded-xl py-6 font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-all">
+            <Button asChild size="lg" className="w-full rounded-full py-6 font-semibold bg-slate-900 hover:bg-slate-800 text-white transition-all shadow-md">
               <Link href={`/${locale}/create-invitation`} title={isEn ? "Choose Premium Plan" : "Chọn gói Premium VIP"}>
                 <span>{isEn ? "Choose Premium VIP" : "Chọn gói Premium VIP"}</span>
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -628,12 +628,12 @@ export default function PriceClient() {
                 : "Liên hệ ngay để được tư vấn thiết kế thiệp cưới online miễn phí hoặc khám phá hơn 50+ mẫu thiệp được yêu thích nhất."}
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="rounded-xl font-bold bg-white text-rose-600 hover:bg-rose-50 shadow-md py-6 px-8 text-base">
+              <Button asChild size="lg" className="rounded-full font-bold bg-white text-rose-600 hover:bg-rose-50 shadow-md py-6 px-8 text-base">
                 <Link href={`/${locale}/create-invitation`} title={isEn ? "Create Invitation Now" : "Đặt thiệp cưới ngay"}>
                   {isEn ? "Create Invitation Now" : "Tạo thiệp cưới ngay"}
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-xl font-semibold border-white/80 bg-white/10 text-white hover:bg-white/20 py-6 px-8 text-base">
+              <Button asChild size="lg" variant="outline" className="rounded-full font-semibold border-white/80 bg-white/10 text-white hover:bg-white/20 py-6 px-8 text-base">
                 <Link href={`/${locale}/products`} title={isEn ? "Browse Templates" : "Xem mẫu thiệp"}>
                   {isEn ? "Browse 50+ Templates" : "Khám phá 50+ mẫu thiệp"}
                 </Link>

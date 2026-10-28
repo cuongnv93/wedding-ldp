@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { ChevronDown } from "lucide-react";
 
 const getFaq = (t: (key: string) => string) => [
   {
@@ -32,7 +33,7 @@ const getFaq = (t: (key: string) => string) => [
 ];
 
 export default function FAQCollapse() {
-  const [selected, setSelected] = useState<number | null>(null);
+  const [selected, setSelected] = useState<number | null>(1);
   const t = useTranslations("faq");
   const faq = getFaq(t);
 
@@ -41,25 +42,17 @@ export default function FAQCollapse() {
   };
 
   return (
-    <div className="w-100 pt-10 min-h-[500px] flex flex-col">
-      <div className="container px-4">
-        <div className="gap-8">
-          <div className="bg-white max-w-full mx-auto border-t border-gray-200 shadow-lg rounded-lg overflow-auto">
-            <div className="flex-grow">
-              <ul className="shadow-box">
-                {faq.map((item) => (
-                  <FAQItem
-                    key={item.id}
-                    item={item}
-                    isSelected={selected === item.id}
-                    onToggle={() => toggle(item.id)}
-                  />
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="w-full pt-4 max-w-2xl mx-auto">
+      <ul className="space-y-3.5">
+        {faq.map((item) => (
+          <FAQItem
+            key={item.id}
+            item={item}
+            isSelected={selected === item.id}
+            onToggle={() => toggle(item.id)}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
@@ -73,51 +66,41 @@ function FAQItem({
   isSelected: boolean;
   onToggle: () => void;
 }) {
-  const contentRef = useRef<HTMLDivElement>(null);
-
   return (
     <li
-      className={`relative border-b border-gray-200 ${
-        isSelected ? "shadow-md" : ""
+      className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+        isSelected
+          ? "border-rose-300 bg-rose-50/25 shadow-md shadow-rose-100/40"
+          : "border-slate-200/90 bg-white hover:border-slate-300 hover:shadow-xs"
       }`}
     >
       <button
         type="button"
-        className={`w-full px-6 py-6 text-left transition-colors duration-300 ${
-          isSelected ? "bg-[#f2f4f7]" : "bg-white"
-        }`}
+        className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none"
         onClick={onToggle}
+        aria-expanded={isSelected}
       >
-        <div className="flex items-center justify-between">
-          <b>{item.question}</b>
-          <svg
-            className={`w-5 h-5 text-gray-500 transform transition-transform duration-300 ${
-              isSelected ? "rotate-180" : ""
-            }`}
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M19 9l-7 7-7-7"></path>
-          </svg>
+        <span className={`text-sm sm:text-base font-bold transition-colors ${
+          isSelected ? "text-rose-600" : "text-slate-900"
+        }`}>
+          {item.question}
+        </span>
+        <div
+          className={`h-8 w-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+            isSelected
+              ? "bg-rose-500 text-white rotate-180"
+              : "bg-slate-100 text-slate-500"
+          }`}
+        >
+          <ChevronDown className="h-4 w-4" />
         </div>
       </button>
-      <div
-        ref={contentRef}
-        className="relative overflow-hidden transition-all duration-300"
-        style={{
-          maxHeight: isSelected
-            ? `${contentRef.current?.scrollHeight}px`
-            : "0px",
-        }}
-      >
-        <div className="px-6 py-6">
-          <p>{item.answer}</p>
+
+      {isSelected && (
+        <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-rose-100/60 mt-1">
+          <p className="pt-3">{item.answer}</p>
         </div>
-      </div>
+      )}
     </li>
   );
 }

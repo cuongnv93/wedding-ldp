@@ -150,7 +150,7 @@ export default function CreateInvitationClient() {
                 <div className="relative z-10 flex h-14 w-14 sm:h-18 sm:w-18 shrink-0 items-center justify-center rounded-2xl bg-white border-2 border-primary/30 shadow-md group-hover:border-primary group-hover:scale-105 transition-all duration-300">
                   <div className="flex flex-col items-center justify-center">
                     <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                    <span className="text-[11px] sm:text-xs font-bold text-slate-500 mt-0.5">{step.num}</span>
+                    <span className="text-xs font-bold text-slate-500 mt-0.5">{step.num}</span>
                   </div>
                 </div>
 
@@ -207,7 +207,7 @@ export default function CreateInvitationClient() {
                   {/* Quick Action Button */}
                   {step.action && (
                     <div className="mt-2">
-                      <Button asChild size="sm" className="rounded-xl gap-1.5 shadow-sm font-semibold">
+                      <Button asChild size="sm" className="rounded-full px-5 py-2.5 gap-1.5 shadow-sm font-semibold">
                         <Link href={step.action.href}>
                           <span>{step.action.label}</span>
                           <ArrowRight className="h-4 w-4" />
@@ -227,7 +227,7 @@ export default function CreateInvitationClient() {
                             href={btn.href}
                             target={btn.href.startsWith("http") ? "_blank" : undefined}
                             rel={btn.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all ${btn.color}`}
+                            className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border transition-all ${btn.color}`}
                           >
                             <BtnIcon className="h-4 w-4" />
                             <span>{btn.label}</span>
@@ -294,7 +294,7 @@ export default function CreateInvitationClient() {
           <div className="mt-6 flex flex-wrap gap-4 justify-center items-center">
             <a
               href="tel:0355565741"
-              className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all shadow-md"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90 transition-all shadow-md"
             >
               <Phone className="h-4 w-4" />
               <span>Hotline: 0355 565 741</span>
@@ -303,14 +303,14 @@ export default function CreateInvitationClient() {
               href="https://zalo.me/0355565741"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-all"
             >
               <MessageCircle className="h-4 w-4" />
               <span>Zalo: 0355 565 741</span>
             </a>
             <a
               href="mailto:uwedding.online@gmail.com"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-all"
+              className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-6 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-all"
             >
               <Mail className="h-4 w-4" />
               <span>uwedding.online@gmail.com</span>
