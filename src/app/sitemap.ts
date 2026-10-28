@@ -6,7 +6,6 @@ import { absoluteUrl, locales } from "@/lib/seo";
 const staticPaths = [
   "",
   "/products",
-  "/price",
   "/create-invitation",
   "/create-name-invitation",
   "/blog",

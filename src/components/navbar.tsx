@@ -35,10 +35,6 @@ function NavigationLinks() {
       href: `/${currentLocale}/products`,
     },
     {
-      name: t("price_menu"),
-      href: `/${currentLocale}/price`,
-    },
-    {
       name: t("create_menu"),
       href: `/${currentLocale}/create-invitation`,
     },
@@ -80,7 +76,6 @@ function MobileMenuButton() {
   const links = [
     { name: t("home"), href: `/${currentLocale}` },
     { name: t("product"), href: `/${currentLocale}/products` },
-    { name: t("price_menu"), href: `/${currentLocale}/price` },
     { name: t("create_menu"), href: `/${currentLocale}/create-invitation` },
     { name: t("create_name_menu"), href: `/${currentLocale}/create-name-invitation` },
     { name: t("blog_menu"), href: `/${currentLocale}/blog` },

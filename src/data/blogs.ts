@@ -485,7 +485,7 @@ export const blogs: BlogPost[] = [
       <p>Chỉ với khoản đầu tư chưa tới 400.000đ, bạn đã sở hữu một website cưới vĩnh viễn với đầy đủ tính năng cao cấp. Khoản tiền tiết kiệm 5 - 8 triệu đồng có thể dùng để nâng cấp chất lượng thực đơn bàn tiệc hoặc bổ sung vào quỹ du lịch trăng mật.</p>
 
       <h2 id="bang-gia-uwedding">4. Bảng giá dịch vụ thiệp cưới online tại uWedding</h2>
-      <p>Xem chi tiết bảng giá các gói Basic, Pro và Premium tại <a href="/vi/price">Bảng giá thiệp cưới online uWedding</a>.</p>
+      <p>Khám phá trọn bộ các mẫu thiệp cưới đẹp và thông tin chi tiết tại <a href="/vi/products">Danh sách mẫu thiệp cưới uWedding</a>.</p>
     `,
   },
   {

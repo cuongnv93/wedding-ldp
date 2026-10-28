@@ -86,10 +86,6 @@ function QuickLinks() {
       href: `/${currentLocale}/products`,
     },
     {
-      name: t("price_menu"),
-      href: `/${currentLocale}/price`,
-    },
-    {
       name: t("create_menu"),
       href: `/${currentLocale}/create-invitation`,
     },
