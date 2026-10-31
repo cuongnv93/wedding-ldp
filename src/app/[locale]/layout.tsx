@@ -2,7 +2,7 @@
 import { Inter } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import "./layout.css";
+
 import ClientLayout from "../../components/ClientLayout";
 import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
