@@ -146,16 +146,18 @@ export default function Navbar() {
   return (
     <>
       <header className="sticky top-0 z-[1000] w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-16 items-center justify-between gap-2 px-3 sm:px-6">
+        <div className="container max-w-7xl mx-auto flex h-16 items-center justify-between gap-4 px-4 sm:px-6">
           <Logo />
           <NavigationLinks />
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <Button asChild size="sm" className="hidden lg:inline-flex rounded-full px-5 py-2 font-bold shadow-sm bg-primary hover:bg-rose-600 text-white">
               <Link href={`/${currentLocale}/create-invitation`}>
                 {t("banner_create")}
               </Link>
             </Button>
-            <SwitchFlag />
+            <div className="ml-5 mr-4 shrink-0">
+              <SwitchFlag />
+            </div>
             {isMobile && <MobileMenuButton />}
           </div>
         </div>
