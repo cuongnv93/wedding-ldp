@@ -3,24 +3,23 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import BlogDetailClient from "./BlogDetailClient";
+import { blogs, getBlogPostBySlug, getRelatedPosts } from "@/data/blogs";
 import {
-  blogs,
-  getBlogPostBySlug,
-  getRelatedPosts,
-} from "@/data/blogs";
-import { absoluteUrl, pageMetadata, locales, siteUrl } from "@/lib/seo";
+  absoluteUrl,
+  absoluteAssetUrl,
+  pageMetadata,
+  siteUrl,
+} from "@/lib/seo";
 
 type PageProps = {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 };
 
 export async function generateStaticParams() {
-  const slugs = blogs.map((post) => post.slug);
-
-  return slugs.flatMap((slug) =>
-    locales.map((locale) => ({
+  return blogs.flatMap((post) =>
+    ["vi", "en"].map((locale) => ({
       locale,
-      slug,
+      slug: post.slug,
     }))
   );
 }
@@ -48,6 +47,13 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     title,
     description,
     image: post.coverImage,
+    keywords: post.tags,
+    type: "article",
+    publishedTime: post.publishedAt,
+    modifiedTime: post.updatedAt,
+    authors: [post.author.name],
+    section: post.category,
+    tags: post.tags,
   });
 }
 
@@ -62,7 +68,7 @@ export default async function BlogPostPage(props: PageProps) {
   const isEnglish = params.locale === "en";
   const postUrl = absoluteUrl(params.locale, `/blog/${post.slug}`);
   const blogUrl = absoluteUrl(params.locale, "/blog");
-  const relatedPosts = getRelatedPosts(post.slug, post.category, 3);
+  const relatedPosts = getRelatedPosts(post.slug, 3);
 
   // Breadcrumbs Schema
   const breadcrumbJsonLd = {
@@ -96,7 +102,7 @@ export default async function BlogPostPage(props: PageProps) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.description,
-    image: [absoluteUrl(params.locale, post.coverImage)],
+    image: [absoluteAssetUrl(post.coverImage)],
     datePublished: post.publishedAt,
     dateModified: post.updatedAt,
     mainEntityOfPage: {
@@ -114,7 +120,7 @@ export default async function BlogPostPage(props: PageProps) {
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl(params.locale, "/favicon.png"),
+        url: absoluteAssetUrl("/favicon.png"),
       },
     },
     inLanguage: params.locale === "en" ? "en-US" : "vi-VN",

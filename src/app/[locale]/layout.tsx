@@ -8,7 +8,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import Script from "next/script";
 import AntiDebug from "../../components/AntiDebug";
-import { pageMetadata, seoFor, siteUrl } from "@/lib/seo";
+import { pageMetadata, seoFor, siteUrl, absoluteAssetUrl } from "@/lib/seo";
 import { routing } from "@/i18n/routing";
 
 const inter = Inter({
@@ -17,7 +17,6 @@ const inter = Inter({
   preload: true,
   fallback: ["system-ui", "arial"],
 });
-
 
 export const viewport: Viewport = {
   themeColor: "#e11d48",
@@ -60,7 +59,10 @@ export default async function RootLayout(props: {
     alternateName: ["uWedding Online", "Thiệp Cưới Online uWedding"],
     url: siteUrl,
     inLanguage: locale === "en" ? "en-US" : "vi-VN",
-    description: "Nền tảng tạo thiệp cưới online, thiệp cưới điện tử hiện đại",
+    description:
+      locale === "en"
+        ? "Modern online wedding invitations and interactive wedding website builder"
+        : "Nền tảng tạo thiệp cưới online, thiệp cưới điện tử hiện đại số 1",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -70,17 +72,13 @@ export default async function RootLayout(props: {
       "query-input": "required name=search_term_string",
     },
   };
+
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "uWedding",
     url: siteUrl,
-    logo: `${siteUrl}/image/og-cover.jpg`,
-    sameAs: [
-      "https://facebook.com",
-      "https://instagram.com",
-      "https://youtube.com",
-    ],
+    logo: absoluteAssetUrl("/favicon.png"),
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+84-355-565-741",

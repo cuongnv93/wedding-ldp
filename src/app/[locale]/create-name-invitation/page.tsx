@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CreateNameInvitationClient from "./CreateNameInvitationClient";
-import { absoluteUrl, pageMetadata, locales, seoFor } from "@/lib/seo";
+import {
+  absoluteUrl,
+  pageMetadata,
+  locales,
+  seoFor,
+  getRouteKeywords,
+} from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -23,6 +29,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     path: "/create-name-invitation",
     title: seo.title,
     description: seo.description,
+    keywords: getRouteKeywords(params.locale, "createNameInvitation"),
   });
 }
 
@@ -53,15 +60,55 @@ export default async function CreateNameInvitationPage(props: PageProps) {
     ],
   };
 
+  const featureList = isEnglish
+    ? [
+        "Automatically append customized guest names to wedding links",
+        "Support single guest generation or bulk list export",
+        "Pre-configured polite titles and prefixes (Family, Dear Friend, Colleague)",
+        "100% compatible with WhatsApp, Zalo, Messenger, iMessage, and SMS",
+      ]
+    : [
+        "Tự động gắn tên khách mời vào đường link thiệp cưới",
+        "Hỗ trợ tạo từng khách hoặc xuất danh sách hàng loạt",
+        "Gợi ý danh xưng trang trọng (Gia đình, Bạn thân, Đồng nghiệp...)",
+        "Tương thích 100% với Zalo, Messenger, iMessage, SMS",
+      ];
+
+  // WebApplication Schema for Rich Snippets
+  const webAppJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: isEnglish
+      ? "uWedding Personalized Guest Link Generator"
+      : "Công cụ tạo link thiệp cưới gắn tên khách mời uWedding",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All",
+    browserRequirements: "Requires JavaScript. Requires HTML5.",
+    url: pageUrl,
+    description: isEnglish
+      ? "Free web utility to generate personalized wedding invitation links with custom guest names automatically."
+      : "Công cụ trực tuyến miễn phí giúp tạo đường dẫn thiệp cưới online gắn tên riêng cho từng vị khách mời, tiện lợi gửi qua Zalo, Messenger, SMS.",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "VND",
+    },
+    featureList,
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppJsonLd) }}
+      />
       <Navbar />
-      <main className="flex-grow bg-slate-50/50">
-        <CreateNameInvitationClient />
+      <main className="flex-grow">
+        <CreateNameInvitationClient locale={params.locale} />
       </main>
       <Footer />
     </div>

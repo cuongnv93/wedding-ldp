@@ -3,7 +3,14 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import BlogListClient from "./BlogListClient";
 import { blogs } from "@/data/blogs";
-import { absoluteUrl, pageMetadata, locales, siteUrl } from "@/lib/seo";
+import {
+  absoluteUrl,
+  absoluteAssetUrl,
+  pageMetadata,
+  locales,
+  siteUrl,
+  getRouteKeywords,
+} from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -21,26 +28,26 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 
   const title = isEnglish
     ? "Wedding Guide & Online Wedding Invitation Tips | uWedding"
-    : "Cẩm Nang Thiệp Cưới Online & Kinh Nghiệm Cưới | uWedding";
+    : "Cẩm Nang Thiệp Cưới Online & Xu Hướng Cưới 2025 | uWedding";
   const description = isEnglish
-    ? "Comprehensive guide to online wedding invitations, modern wedding trends, invitation wording etiquette, and digital invitation design tips."
-    : "Cẩm nang toàn diện về thiệp cưới online, mẫu thiệp cưới điện tử đẹp nhất 2025 - 2026, cách viết thiệp cưới và kinh nghiệm tổ chức đám cưới tiết kiệm, hiện đại.";
+    ? "Discover expert wedding tips, digital invitation etiquette, cost comparisons, and online RSVP guides to plan your perfect modern wedding with uWedding."
+    : "Khám phá kinh nghiệm cưới hỏi, cẩm nang tạo thiệp cưới online, mẫu lời mời cưới hay và xu hướng tổ chức đám cưới hiện đại, tiết kiệm cùng uWedding.";
 
   return pageMetadata({
     locale: params.locale,
     path: "/blog",
     title,
     description,
-    image: "/image/og-cover.jpg",
+    keywords: getRouteKeywords(params.locale, "blog"),
   });
 }
 
-export default async function BlogIndexPage(props: PageProps) {
+export default async function BlogPage(props: PageProps) {
   const params = await props.params;
   const isEnglish = params.locale === "en";
   const blogUrl = absoluteUrl(params.locale, "/blog");
 
-  // Breadcrumbs Schema
+  // BreadcrumbList Schema
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -54,13 +61,13 @@ export default async function BlogIndexPage(props: PageProps) {
       {
         "@type": "ListItem",
         position: 2,
-        name: isEnglish ? "Wedding Guide" : "Cẩm nang thiệp cưới",
+        name: isEnglish ? "Wedding Guide" : "Cẩm nang cưới",
         item: blogUrl,
       },
     ],
   };
 
-  // CollectionPage Schema
+  // CollectionPage / Blog Schema
   const collectionJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -78,7 +85,7 @@ export default async function BlogIndexPage(props: PageProps) {
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl(params.locale, "/favicon.png"),
+        url: absoluteAssetUrl("/favicon.png"),
       },
     },
     hasPart: blogs.map((post) => ({
@@ -88,7 +95,7 @@ export default async function BlogIndexPage(props: PageProps) {
       url: absoluteUrl(params.locale, `/blog/${post.slug}`),
       datePublished: post.publishedAt,
       dateModified: post.updatedAt,
-      image: absoluteUrl(params.locale, post.coverImage),
+      image: absoluteAssetUrl(post.coverImage),
     })),
   };
 

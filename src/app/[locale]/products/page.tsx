@@ -3,7 +3,14 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import ProductsClient from "./ProductsClient";
 import { products } from "@/data/products";
-import { absoluteUrl, pageMetadata, locales, seoFor } from "@/lib/seo";
+import {
+  absoluteUrl,
+  absoluteAssetUrl,
+  pageMetadata,
+  locales,
+  seoFor,
+  getRouteKeywords,
+} from "@/lib/seo";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
@@ -24,6 +31,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     path: "/products",
     title: seo.title,
     description: seo.description,
+    keywords: getRouteKeywords(params.locale, "products"),
   });
 }
 
@@ -60,8 +68,8 @@ export default async function ProductsPage(props: PageProps) {
       ? "Modern Online Wedding Invitation Templates"
       : "Danh sách mẫu thiệp cưới online đẹp & hiện đại",
     description: isEnglish
-      ? "Explore 50+ beautiful, elegant online wedding invitation templates."
-      : "Khám phá 50+ mẫu thiệp cưới online đẹp, sang trọng, đầy đủ tính năng.",
+      ? "Explore 50+ beautiful, elegant online wedding invitation templates with RSVP, maps, and music."
+      : "Khám phá 50+ mẫu thiệp cưới online đẹp, sang trọng, tích hợp bản đồ, nhạc nền và xác nhận tham dự RSVP.",
     url: productsUrl,
     numberOfItems: products.length,
     itemListElement: products.slice(0, 24).map((product, index) => ({
@@ -69,7 +77,7 @@ export default async function ProductsPage(props: PageProps) {
       position: index + 1,
       name: product.name,
       url: absoluteUrl(params.locale, `/products/${product.id}`),
-      image: absoluteUrl(params.locale, product.previewImage || product.image),
+      image: absoluteAssetUrl(product.previewImage || product.image),
     })),
   };
 

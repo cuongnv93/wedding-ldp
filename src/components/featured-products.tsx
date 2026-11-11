@@ -57,7 +57,11 @@ export default function FeaturedProducts() {
         >
           <div className="inline-flex items-center gap-2 rounded-full bg-rose-100/80 px-4 py-1.5 text-xs font-semibold text-rose-700 shadow-xs border border-rose-200/60">
             <Sparkles className="h-3.5 w-3.5 text-rose-600" />
-            <span>Mẫu Thiệp Cưới Xu Hướng 2025 - 2026</span>
+            <span>
+              {currentLocale === "en"
+                ? "Trending Wedding Templates 2025 - 2026"
+                : "Mẫu Thiệp Cưới Xu Hướng 2025 - 2026"}
+            </span>
           </div>
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-5xl text-slate-900">
             {t("featured")}

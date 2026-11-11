@@ -18,7 +18,7 @@ export default async function HeroSectionOptimized({
     : "Mẫu thiệp cưới online đẹp và sang trọng uWedding";
 
   return (
-    <section className="relative w-full min-h-[40vh] overflow-hidden bg-white">
+    <section className="relative w-full min-h-[40vh] overflow-x-hidden bg-white">
       <Image
         src="/image/anh-bia-thiep-xinh.jpg"
         alt={heroImageAlt}
@@ -31,12 +31,12 @@ export default async function HeroSectionOptimized({
       />
       <div className="absolute inset-0 bg-white/80 pointer-events-none z-0 backdrop-blur-[1px]" />
 
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-8 md:py-14 items-center relative z-10">
-          <div className="flex flex-col gap-5 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
-            <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-100/90 px-3.5 py-1 text-xs font-semibold text-rose-700 w-fit mx-auto lg:mx-0 shadow-xs border border-rose-200/70">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
-              <span>{t("banner_hottest")}</span>
+          <div className="flex flex-col gap-5 text-center lg:text-left max-w-xl mx-auto lg:mx-0 min-w-0">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-rose-100/90 px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-semibold text-rose-700 w-fit mx-auto lg:mx-0 shadow-xs border border-rose-200/70 max-w-full">
+              <Sparkles className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span className="line-clamp-1">{t("banner_hottest")}</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">

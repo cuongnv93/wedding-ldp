@@ -28,8 +28,9 @@ const Logo = memo(() => {
     <Link
       href={`/${currentLocale}`}
       className="shrink-0 text-lg font-bold transition-opacity hover:opacity-80 sm:text-xl"
+      title="uWedding - Nền tảng thiệp cưới online"
     >
-      <span className="text-primary">u</span>Wedding
+      <span className="text-primary">u</span><span className="hidden sm:inline">Wedding</span>
     </Link>
   );
 });
@@ -143,9 +144,9 @@ export default function ProductDetails({
     <div className="flex h-[100dvh] min-h-screen flex-col overflow-hidden bg-slate-100">
       {/* Top Navigation Bar */}
       <header className="sticky top-0 z-[1000] w-full shrink-0 border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-xs">
-        <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between gap-2 px-3 sm:px-6">
+        <div className="container mx-auto flex h-14 sm:h-16 items-center justify-between gap-1.5 sm:gap-2 px-2.5 sm:px-6">
           {/* Back & Logo & H1 */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0 min-w-0">
             <Button asChild variant="ghost" size="icon" className="h-8 w-8 sm:h-9 sm:w-9 shrink-0" title="Quay lại danh sách mẫu">
               <Link href={`/${currentLocale}/products`}>
                 <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -161,12 +162,12 @@ export default function ProductDetails({
           </div>
 
           {/* Segmented Control Switcher: PC vs Mobile */}
-          <div className="flex items-center bg-slate-100 p-1.5 rounded-full border border-slate-200/80 shadow-inner">
+          <div className="flex items-center bg-slate-100 p-1 sm:p-1.5 rounded-full border border-slate-200/80 shadow-inner shrink-0">
             <button
               type="button"
               onClick={() => handleViewChange("desktop")}
               className={cn(
-                "flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200",
+                "flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200",
                 view === "desktop"
                   ? "bg-white text-rose-600 shadow-xs font-bold"
                   : "text-slate-600 hover:text-slate-900"
@@ -183,7 +184,7 @@ export default function ProductDetails({
               type="button"
               onClick={() => handleViewChange("mobile")}
               className={cn(
-                "flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200",
+                "flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200",
                 view === "mobile"
                   ? "bg-white text-rose-600 shadow-xs font-bold"
                   : "text-slate-600 hover:text-slate-900"
@@ -199,11 +200,11 @@ export default function ProductDetails({
           </div>
 
           {/* Action CTAs */}
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <div className="flex items-center gap-1 sm:gap-2 shrink-0">
             <Button
               variant="outline"
               size="sm"
-              className={cn("h-9 px-3.5 rounded-full text-xs font-semibold gap-1.5", showInfoPanel ? "bg-rose-50 text-rose-600 border-rose-200" : "")}
+              className={cn("h-8 w-8 p-0 sm:h-9 sm:w-auto sm:px-3.5 rounded-full text-xs font-semibold gap-1.5", showInfoPanel ? "bg-rose-50 text-rose-600 border-rose-200" : "")}
               onClick={() => setShowInfoPanel(!showInfoPanel)}
               title="Chi tiết mẫu thiệp"
             >
@@ -223,10 +224,10 @@ export default function ProductDetails({
               </Button>
             </a>
 
-            <Button asChild size="sm" className="h-9 px-4 sm:px-5 rounded-full text-xs sm:text-sm font-bold shadow-md bg-rose-500 hover:bg-rose-600 text-white">
+            <Button asChild size="sm" className="h-8 sm:h-9 px-3 sm:px-5 rounded-full text-xs sm:text-sm font-bold shadow-md bg-rose-500 hover:bg-rose-600 text-white shrink-0">
               <Link href={`/${currentLocale}/create-invitation`}>
-                <Sparkles className="h-3.5 w-3.5 mr-1.5" />
-                <span>Dùng mẫu này</span>
+                <Sparkles className="h-3.5 w-3.5 mr-1 sm:mr-1.5 shrink-0" />
+                <span>Dùng mẫu</span>
               </Link>
             </Button>
           </div>
@@ -362,41 +363,61 @@ export default function ProductDetails({
 
           <div className="flex-1 overflow-y-auto py-4 space-y-5 text-sm">
             <div>
-              <h3 className="font-semibold text-slate-900 mb-1">Mô tả thiết kế</h3>
+              <h3 className="font-semibold text-slate-900 mb-1">
+                {currentLocale === "en" ? "Design Description" : "Mô tả thiết kế"}
+              </h3>
               <p className="text-slate-600 leading-relaxed text-xs sm:text-sm">
-                {product.description ? t_desc(product.description) : "Mẫu thiệp cưới online cao cấp, kết hợp hài hòa phong cách hiện đại và lãng mạn cho ngày trọng đại."}
+                {product.description
+                  ? t_desc(product.description)
+                  : currentLocale === "en"
+                  ? "Premium online wedding invitation template, blending modern elegance and romance for your special day."
+                  : "Mẫu thiệp cưới online cao cấp, kết hợp hài hòa phong cách hiện đại và lãng mạn cho ngày trọng đại."}
               </p>
             </div>
 
             <div>
-              <h3 className="font-semibold text-slate-900 mb-2">Tính năng đi kèm</h3>
+              <h3 className="font-semibold text-slate-900 mb-2">
+                {currentLocale === "en" ? "Included Features" : "Tính năng đi kèm"}
+              </h3>
               <ul className="space-y-2 text-xs sm:text-sm text-slate-600">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                  Bản đồ chỉ đường Google Maps chính xác
+                  {currentLocale === "en"
+                    ? "Accurate Google Maps directions"
+                    : "Bản đồ chỉ đường Google Maps chính xác"}
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                  Đếm ngược ngày cưới & Lưu lịch (Save The Date)
+                  {currentLocale === "en"
+                    ? "Wedding Countdown & Save The Date"
+                    : "Đếm ngược ngày cưới & Lưu lịch (Save The Date)"}
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                  Nhạc nền đám cưới du dương tự động phát
+                  {currentLocale === "en"
+                    ? "Romantic background music auto-play"
+                    : "Nhạc nền đám cưới du dương tự động phát"}
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                  Hộp mừng cưới & Mã QR tiện lợi
+                  {currentLocale === "en"
+                    ? "Digital Gift Box & QR Code"
+                    : "Hộp mừng cưới & Mã QR tiện lợi"}
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-4 w-4 text-primary shrink-0" />
-                  Xác nhận tham dự (RSVP) & Sổ lưu bút online
+                  {currentLocale === "en"
+                    ? "Online RSVP & Guestbook"
+                    : "Xác nhận tham dự (RSVP) & Sổ lưu bút online"}
                 </li>
               </ul>
             </div>
 
             {relatedProducts.length > 0 && (
               <div>
-                <h3 className="font-semibold text-slate-900 mb-2">Mẫu cùng phong cách</h3>
+                <h3 className="font-semibold text-slate-900 mb-2">
+                  {currentLocale === "en" ? "Similar Style Templates" : "Mẫu cùng phong cách"}
+                </h3>
                 <div className="grid grid-cols-2 gap-2">
                   {relatedProducts.map((rel) => (
                     <Link
